@@ -223,7 +223,10 @@ function setMode(mode) {
     $('stage-detail').textContent='Integrated root path · smooth shared mixture';
     resetRuntime();
     view.centre.set(0,0.43,0);
-  } else {ui.time=0;ui.accumulator=0;view.setClipPaths(ui.clip);}
+  } else {
+    $('stage-detail').textContent='Shared world path · fixed display separation';
+    ui.time=0;ui.accumulator=0;view.setClipPaths(ui.clip);
+  }
   setPlay(true);ui.traceDirty=true;view.resetCamera();
 }
 async function selectClip(name) {
