@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f8fa">
+  <meta name="description" content="Explore a learned whole-body motion oscillator on the Booster K1.">
+  <title>Motion oscillator · K1 playback</title>
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./style.css">
+  <script type="importmap">{"imports":{"three":"./vendor/three/build/three.module.js","three/addons/":"./vendor/three/examples/jsm/"}}</script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="./" aria-label="Motion oscillator home"><img src="./favicon.svg" alt="" width="32" height="32"><span>Motion oscillator<span class="brand-sub">K1 motion lab</span></span></a>
+    <div class="header-links"><span class="status-pill"><i></i> Local inference</span><a href="https://github.com/OliverObst/oscillator" target="_blank" rel="noreferrer">Repository ↗</a></div>
+  </header>
+  <main>
+    <div class="page-heading"><div><p class="eyebrow">LEARNED LOCOMOTION / FIRST CANDIDATE</p><h1>Explore the learned gait.</h1><p class="subtitle">Compare recorded motion, then steer the oscillator yourself.</p></div><div class="model-summary"><strong>2,328</strong><span>learned parameters</span></div></div>
+    <div class="mode-tabs" role="tablist" aria-label="Viewer mode">
+      <button id="compare-tab" role="tab" aria-selected="true" aria-controls="compare-panel">Compare clips</button>
+      <button id="generate-tab" role="tab" aria-selected="false" aria-controls="generate-panel" tabindex="-1">Generate motion</button>
+    </div>
+    <div class="workspace">
+      <section class="viewer-card" aria-label="3D motion playback">
+        <div class="viewer-toolbar"><div class="legend"><span id="source-legend"><i class="source-dot"></i>Source motion</span><span><i class="learned-dot"></i>Learned oscillator</span></div><div class="view-actions"><button id="reframe" title="Centre the camera on the robot" aria-label="Centre camera">↗ Centre</button><button id="reset-camera" aria-label="Reset camera view">Reset view</button></div></div>
+        <div class="stage" id="stage"><canvas id="scene" aria-label="Interactive 3D view of K1 motion. Drag to orbit; scroll to zoom."></canvas><div class="loading" id="loading" role="status"><span class="loader"></span><strong>Preparing the K1…</strong><span>Loading motion and the learned decoder</span></div><div class="stage-caption"><span id="stage-mode">Observed-phase reconstruction</span><span id="stage-detail">Shared world path · fixed display separation</span></div><div class="stage-hint">Drag to orbit <span>·</span> Scroll to zoom</div></div>
+        <div class="transport"><button id="play" class="play-button" aria-label="Pause playback" disabled><svg viewBox="0 0 24 24" width="18" height="18"><path d="M8 5v14M16 5v14" stroke="currentColor" stroke-width="3"/></svg></button><button id="restart" class="icon-button" aria-label="Restart playback" title="Restart">↺</button><span class="time-label" id="time-label">0:00 / 0:00</span><input type="range" id="timeline" min="0" max="1" step="0.001" value="0" aria-label="Playback time"><label class="speed-label"><span class="sr-only">Playback speed</span><select id="speed" aria-label="Playback speed"><option value="0.25">0.25×</option><option value="0.5">0.5×</option><option value="1" selected>1×</option><option value="2">2×</option></select></label></div>
+      </section>
+      <aside class="controls-card" aria-label="Motion controls">
+        <section id="compare-panel" role="tabpanel" aria-labelledby="compare-tab"><div class="panel-heading"><h2>Motion reference</h2><span id="split-badge" class="badge">Held out</span></div><label class="field-label" for="clip">Source clip</label><select id="clip" class="full-select" disabled><option>Loading clips…</option></select><p class="helper" id="clip-info">Seven source clips, a single shared clock.</p><div class="metric-box"><span>Joint reconstruction error</span><strong id="rmse">—<small> rad RMSE</small></strong><span class="helper" id="coverage">Measured on labelled cycle frames.</span></div><div class="contact-section"><div class="label-row"><span class="field-label">Source contact estimates</span><span class="tiny">kinematic labels</span></div><div class="contacts"><span id="contact-left"><i></i>Left foot</span><span id="contact-right"><i></i>Right foot</span></div></div><p class="helper" id="phase-note"></p></section>
+        <section id="generate-panel" role="tabpanel" aria-labelledby="generate-tab" hidden><div class="panel-heading"><h2>Gait command</h2><span class="badge amber">Free rollout</span></div><p class="helper">Adjust commands while playing. The shared mixture changes smoothly.</p><div class="slider-field"><label for="vx">Forward velocity <output id="vx-value">0.80 m/s</output></label><input id="vx" type="range" min="-1" max="1.5" step="0.01" value="0.8"></div><div class="slider-field"><label for="vy">Lateral velocity <output id="vy-value">0.00 m/s</output></label><input id="vy" type="range" min="-1" max="1" step="0.01" value="0"></div><div class="slider-field"><label for="yaw">Turning rate <output id="yaw-value">0.00 rad/s</output></label><input id="yaw" type="range" min="-1.5" max="1.5" step="0.01" value="0"></div><div class="slider-field"><label for="period">Cycle period <output id="period-value">0.90 s</output></label><input id="period" type="range" min="0.4" max="2" step="0.01" value="0.9"></div><div class="preset-row"><button id="walking">Forward</button><button id="turning">Turn</button><button id="transition">Play transition</button></div><p class="helper" id="command-note">Commands condition the pose generator; physical tracking is not simulated.</p></section>
+        <div class="phase-section"><div class="phase-circle"><svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="26" class="phase-track"/><circle cx="32" cy="32" r="26" class="phase-progress" id="phase-ring" pathLength="1"/></svg><span id="phase-value">—</span></div><div><span class="field-label">Shared phase</span><strong id="cycle-hz">— cycles/s</strong><span class="tiny">One clock for the whole body</span></div></div>
+        <div class="toggle-list"><label><input type="checkbox" id="show-path" checked> Show root paths</label><label><input type="checkbox" id="show-contacts" checked> Show contact markers</label><label><input type="checkbox" id="follow" checked> Follow motion</label></div><button class="export-button" id="export" disabled>Export motion <span>↓ JSON</span></button>
+      </aside>
+    </div>
+    <section class="trace-card" aria-label="Joint angle comparison"><div class="trace-heading"><div><h2>Inside the motion</h2><p class="helper" id="trace-note">Recorded and decoded joint angles across the clip.</p></div><label><span class="sr-only">Joint to inspect</span><select id="joint" aria-label="Joint to inspect"></select></label></div><div class="trace-wrap"><canvas id="trace" aria-label="Joint angle trace in radians"></canvas></div></section>
+    <footer><span><i class="footer-dot"></i>Pose playback · foot constraints are not applied</span><span>22 joints + 6 root residuals <span class="footer-separator">/</span> <a href="./about.html">Model & data notes ↗</a></span></footer>
+    <noscript>This viewer requires JavaScript for motion inference and 3D playback.</noscript>
+  </main>
+  <dialog id="export-dialog" aria-labelledby="export-title"><div class="export-heading"><h2 id="export-title">Export motion</h2><button id="export-close" aria-label="Close export">×</button></div><strong id="export-filename"></strong><p class="helper" id="export-details"></p><div class="export-actions"><a id="export-download" class="download-link" role="button" download>Download JSON ↓</a><button id="export-copy">Copy JSON</button></div><p class="helper">If this browser does not support downloads, copy the motion data below.</p><textarea id="export-json" aria-label="Motion JSON" readonly spellcheck="false"></textarea><p id="copy-status" role="status" class="helper"></p></dialog>
+  <script type="module" src="./app.js"></script>
+</body>
+</html>

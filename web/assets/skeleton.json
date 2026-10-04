@@ -1,0 +1,781 @@
+{
+  "bodies": [
+    {
+      "name": "Trunk",
+      "parent": -1,
+      "position": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "quaternion_wxyz": [
+        1,
+        0,
+        0,
+        0
+      ],
+      "joint": null,
+      "axis": [
+        0,
+        0,
+        1
+      ],
+      "pivot": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "Head_1",
+      "parent": 0,
+      "position": [
+        0.0056,
+        0.0,
+        0.2149
+      ],
+      "quaternion_wxyz": [
+        1,
+        0,
+        0,
+        0
+      ],
+      "joint": 0,
+      "axis": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "pivot": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Head_2",
+      "parent": 1,
+      "position": [
+        0.0,
+        0.0,
+        0.033
+      ],
+      "quaternion_wxyz": [
+        1,
+        0,
+        0,
+        0
+      ],
+      "joint": 1,
+      "axis": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "pivot": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Left_Arm_1",
+      "parent": 0,
+      "position": [
+        0.0,
+        0.077,
+        0.1845
+      ],
+      "quaternion_wxyz": [
+        1,
+        0,
+        0,
+        0
+      ],
+      "joint": 2,
+      "axis": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "pivot": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Left_Arm_2",
+      "parent": 3,
+      "position": [
+        0.0025,
+        0.068,
+        -0.0135
+      ],
+      "quaternion_wxyz": [
+        1,
+        0,
+        0,
+        0
+      ],
+      "joint": 3,
+      "axis": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "pivot": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Left_Arm_3",
+      "parent": 4,
+      "position": [
+        0.0,
+        0.044428,
+        0.0
+      ],
+      "quaternion_wxyz": [
+        1,
+        0,
+        0,
+        0
+      ],
+      "joint": 4,
+      "axis": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "pivot": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "left_hand_link",
+      "parent": 5,
+      "position": [
+        0.0,
+        0.1215,
+        0.0
+      ],
+      "quaternion_wxyz": [
+        1,
+        0,
+        0,
+        0
+      ],
+      "joint": 5,
+      "axis": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "pivot": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "left_hand_end_ball",
+      "parent": 6,
+      "position": [
+        0.0,
+        0.203,
+        0.0
+      ],
+      "quaternion_wxyz": [
+        1,
+        0,
+        0,
+        0
+      ],
+      "joint": null,
+      "axis": [
+        0,
+        0,
+        1
+      ],
+      "pivot": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "Right_Arm_1",
+      "parent": 0,
+      "position": [
+        0.0,
+        -0.077,
+        0.1845
+      ],
+      "quaternion_wxyz": [
+        1,
+        0,
+        0,
+        0
+      ],
+      "joint": 6,
+      "axis": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "pivot": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Right_Arm_2",
+      "parent": 8,
+      "position": [
+        0.0025,
+        -0.068,
+        -0.0135
+      ],
+      "quaternion_wxyz": [
+        1,
+        0,
+        0,
+        0
+      ],
+      "joint": 7,
+      "axis": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "pivot": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Right_Arm_3",
+      "parent": 9,
+      "position": [
+        0.0,
+        -0.044428,
+        0.0
+      ],
+      "quaternion_wxyz": [
+        1,
+        0,
+        0,
+        0
+      ],
+      "joint": 8,
+      "axis": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "pivot": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "right_hand_link",
+      "parent": 10,
+      "position": [
+        0.0,
+        -0.1215,
+        0.0
+      ],
+      "quaternion_wxyz": [
+        1,
+        0,
+        0,
+        0
+      ],
+      "joint": 9,
+      "axis": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "pivot": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "right_hand_end_ball",
+      "parent": 11,
+      "position": [
+        0.0,
+        -0.203,
+        0.0
+      ],
+      "quaternion_wxyz": [
+        1,
+        0,
+        0,
+        0
+      ],
+      "joint": null,
+      "axis": [
+        0,
+        0,
+        1
+      ],
+      "pivot": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "Left_Hip_Pitch",
+      "parent": 0,
+      "position": [
+        0.0,
+        0.096,
+        -0.077
+      ],
+      "quaternion_wxyz": [
+        1,
+        0,
+        0,
+        0
+      ],
+      "joint": 10,
+      "axis": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "pivot": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Left_Hip_Roll",
+      "parent": 13,
+      "position": [
+        0.0,
+        0.0,
+        -0.026
+      ],
+      "quaternion_wxyz": [
+        1,
+        0,
+        0,
+        0
+      ],
+      "joint": 11,
+      "axis": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "pivot": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Left_Hip_Yaw",
+      "parent": 14,
+      "position": [
+        0.012,
+        0.0,
+        -0.0485
+      ],
+      "quaternion_wxyz": [
+        1,
+        0,
+        0,
+        0
+      ],
+      "joint": 12,
+      "axis": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "pivot": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Left_Shank",
+      "parent": 15,
+      "position": [
+        -0.014,
+        0.0,
+        -0.117
+      ],
+      "quaternion_wxyz": [
+        1,
+        0,
+        0,
+        0
+      ],
+      "joint": 13,
+      "axis": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "pivot": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Left_Ankle_Cross",
+      "parent": 16,
+      "position": [
+        0.00019706,
+        0.0002,
+        -0.24519
+      ],
+      "quaternion_wxyz": [
+        1,
+        0,
+        0,
+        0
+      ],
+      "joint": 14,
+      "axis": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "pivot": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "left_foot_link",
+      "parent": 17,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "quaternion_wxyz": [
+        1,
+        0,
+        0,
+        0
+      ],
+      "joint": 15,
+      "axis": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "pivot": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Right_Hip_Pitch",
+      "parent": 0,
+      "position": [
+        0.0,
+        -0.096,
+        -0.077
+      ],
+      "quaternion_wxyz": [
+        1,
+        0,
+        0,
+        0
+      ],
+      "joint": 16,
+      "axis": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "pivot": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Right_Hip_Roll",
+      "parent": 19,
+      "position": [
+        0.0,
+        0.0,
+        -0.026
+      ],
+      "quaternion_wxyz": [
+        1,
+        0,
+        0,
+        0
+      ],
+      "joint": 17,
+      "axis": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "pivot": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Right_Hip_Yaw",
+      "parent": 20,
+      "position": [
+        0.012,
+        0.0,
+        -0.0485
+      ],
+      "quaternion_wxyz": [
+        1,
+        0,
+        0,
+        0
+      ],
+      "joint": 18,
+      "axis": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "pivot": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Right_Shank",
+      "parent": 21,
+      "position": [
+        -0.014,
+        0.0,
+        -0.117
+      ],
+      "quaternion_wxyz": [
+        1,
+        0,
+        0,
+        0
+      ],
+      "joint": 19,
+      "axis": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "pivot": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Right_Ankle_Cross",
+      "parent": 22,
+      "position": [
+        0.00019706,
+        -0.0002,
+        -0.24519
+      ],
+      "quaternion_wxyz": [
+        1,
+        0,
+        0,
+        0
+      ],
+      "joint": 20,
+      "axis": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "pivot": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "right_foot_link",
+      "parent": 23,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "quaternion_wxyz": [
+        1,
+        0,
+        0,
+        0
+      ],
+      "joint": 21,
+      "axis": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "pivot": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    }
+  ],
+  "joint_names": [
+    "Head_Yaw",
+    "Head_Pitch",
+    "Left_Shoulder_Pitch",
+    "Left_Shoulder_Roll",
+    "Left_Elbow_Pitch",
+    "Left_Elbow_Yaw",
+    "Right_Shoulder_Pitch",
+    "Right_Shoulder_Roll",
+    "Right_Elbow_Pitch",
+    "Right_Elbow_Yaw",
+    "Left_Hip_Pitch",
+    "Left_Hip_Roll",
+    "Left_Hip_Yaw",
+    "Left_Knee_Pitch",
+    "Left_Ankle_Pitch",
+    "Left_Ankle_Roll",
+    "Right_Hip_Pitch",
+    "Right_Hip_Roll",
+    "Right_Hip_Yaw",
+    "Right_Knee_Pitch",
+    "Right_Ankle_Pitch",
+    "Right_Ankle_Roll"
+  ],
+  "meshes": [
+    {
+      "node": "Trunk__0",
+      "body": 0
+    },
+    {
+      "node": "Trunk__1",
+      "body": 0
+    },
+    {
+      "node": "Head_1__2",
+      "body": 1
+    },
+    {
+      "node": "Head_2__3",
+      "body": 2
+    },
+    {
+      "node": "Left_Arm_1__4",
+      "body": 3
+    },
+    {
+      "node": "Left_Arm_2__5",
+      "body": 4
+    },
+    {
+      "node": "Left_Arm_3__6",
+      "body": 5
+    },
+    {
+      "node": "left_hand_link__7",
+      "body": 6
+    },
+    {
+      "node": "Right_Arm_1__8",
+      "body": 8
+    },
+    {
+      "node": "Right_Arm_2__9",
+      "body": 9
+    },
+    {
+      "node": "Right_Arm_3__10",
+      "body": 10
+    },
+    {
+      "node": "right_hand_link__11",
+      "body": 11
+    },
+    {
+      "node": "Left_Hip_Pitch__12",
+      "body": 13
+    },
+    {
+      "node": "Left_Hip_Roll__13",
+      "body": 14
+    },
+    {
+      "node": "Left_Hip_Yaw__14",
+      "body": 15
+    },
+    {
+      "node": "Left_Shank__15",
+      "body": 16
+    },
+    {
+      "node": "Left_Ankle_Cross__16",
+      "body": 17
+    },
+    {
+      "node": "left_foot_link__17",
+      "body": 18
+    },
+    {
+      "node": "Right_Hip_Pitch__18",
+      "body": 19
+    },
+    {
+      "node": "Right_Hip_Roll__19",
+      "body": 20
+    },
+    {
+      "node": "Right_Hip_Yaw__20",
+      "body": 21
+    },
+    {
+      "node": "Right_Shank__21",
+      "body": 22
+    },
+    {
+      "node": "Right_Ankle_Cross__22",
+      "body": 23
+    },
+    {
+      "node": "right_foot_link__23",
+      "body": 24
+    }
+  ],
+  "feet": [
+    18,
+    24
+  ],
+  "upstream_revision": "d92e11395d961096d639446c0a8a176f12bb51da"
+}

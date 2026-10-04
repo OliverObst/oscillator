@@ -218,3 +218,13 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Downloaded motion data and generated experiment artefacts
+/data/
+/runs/
+/dist/
+/node_modules/
+
+# Static runtime files required by the Pages viewer
+!web/vendor/three/build/
+!web/vendor/three/build/*.js
