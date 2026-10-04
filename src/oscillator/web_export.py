@@ -7,6 +7,7 @@ import numpy as np
 import torch
 
 from .cli import compatible_metadata
+from .model import decoder_spec
 from .preprocess import read_prepared
 from .runtime import OscillatorRuntime
 from .train import load_checkpoint
@@ -24,7 +25,15 @@ FRAME_FIELDS = [
 ]
 
 
-def export_web(prepared: Path, checkpoint_path: Path, output: Path):
+def export_web(
+    prepared: Path,
+    checkpoint_path: Path,
+    output: Path,
+    *,
+    model_name="model",
+    validation_name="validation",
+    write_clips=True,
+):
     model, cadence, checkpoint = load_checkpoint(checkpoint_path)
     metadata, clips = read_prepared(prepared)
     compatible_metadata(metadata, checkpoint)
@@ -33,16 +42,8 @@ def export_web(prepared: Path, checkpoint_path: Path, output: Path):
     serialised = {
         "schema_version": 1,
         "joint_names": checkpoint["joint_names"],
-        "waveforms": state["waveforms"].tolist(),
+        **decoder_spec(model),
         "tau_z_s": checkpoint["tau_z_s"],
-        "layers": [
-            {
-                "weight": state[f"context_net.{i}.weight"].tolist(),
-                "bias": state[f"context_net.{i}.bias"].tolist(),
-                "activation": "tanh" if i < 4 else "linear",
-            }
-            for i in (0, 2, 4)
-        ],
         **{
             key: state[key].tolist()
             for key in ("context_mean", "context_scale", "target_mean", "target_scale")
@@ -53,6 +54,26 @@ def export_web(prepared: Path, checkpoint_path: Path, output: Path):
         "source_sha256": metadata["source_sha256"],
         "cadence": None,
     }
+    if serialised["kind"] == "harmonic":
+        serialised["waveforms"] = state["waveforms"].tolist()
+        serialised["runtime_state"] = "waveform_mixture"
+        serialised["layers"] = [
+            {
+                "weight": state[f"context_net.{i}.weight"].tolist(),
+                "bias": state[f"context_net.{i}.bias"].tolist(),
+                "activation": "tanh" if i < 4 else "linear",
+            }
+            for i in (0, 2, 4)
+        ]
+    else:
+        serialised.update(
+            omega=state["omega"].tolist(),
+            readout={
+                "weight": state["readout.weight"].tolist(),
+                "bias": state["readout.bias"].tolist(),
+            },
+            runtime_state="normalised_context",
+        )
     if cadence is not None:
         serialised["cadence"] = {
             "min_hz": cadence.min_hz,
@@ -68,7 +89,7 @@ def export_web(prepared: Path, checkpoint_path: Path, output: Path):
                 for i in (0, 2)
             ],
         }
-    (output / "model.json").write_text(json.dumps(serialised, separators=(",", ":")) + "\n")
+    (output / f"{model_name}.json").write_text(json.dumps(serialised, separators=(",", ":")) + "\n")
     report_path = checkpoint_path.parent / "report.json"
     metrics = json.loads(report_path.read_text())["metrics"] if report_path.exists() else {}
     manifest = {
@@ -85,7 +106,8 @@ def export_web(prepared: Path, checkpoint_path: Path, output: Path):
         packed = np.concatenate(
             [np.asarray(fields[key]).reshape(n, width) for key, width in FRAME_FIELDS], axis=1
         ).astype("<f4")
-        packed.tofile(output / f"{name}.bin")
+        if write_clips:
+            packed.tofile(output / f"{name}.bin")
         split = next(s for s, names in metadata["splits"].items() if name in names)
         manifest["clips"].append(
             {
@@ -100,8 +122,13 @@ def export_web(prepared: Path, checkpoint_path: Path, output: Path):
                 "metrics": metrics.get(split, {}).get(name, {}),
             }
         )
-    (output / "manifest.json").write_text(json.dumps(manifest, indent=2) + "\n")
+    if write_clips:
+        (output / "manifest.json").write_text(json.dumps(manifest, indent=2) + "\n")
     # Cross-language fixtures verify browser inference against the actual saved PyTorch model.
+    # JavaScript arithmetic is float64; test the exported float32 constants promoted to
+    # float64, especially for RFF's trigonometry far outside the training context range.
+    model = model.double()
+    cadence = cadence.double() if cadence is not None else None
     cases = []
     with torch.no_grad():
         for phase, context in (
@@ -109,9 +136,12 @@ def export_web(prepared: Path, checkpoint_path: Path, output: Path):
             (0.37, [1.2, 0.2, -0.3, 0.75]),
             (0.99, [-0.3, -0.1, 0.4, 1.2]),
         ):
-            x, phi = torch.tensor(context), torch.tensor(phase)
+            x, phi = (
+                torch.tensor(context, dtype=torch.float64),
+                torch.tensor(phase, dtype=torch.float64),
+            )
             z = model.mixture(x)
-            z_rate = torch.tensor([0.2, -0.1, 0.3, 0.1])
+            z_rate = torch.tensor([0.2, -0.1, 0.3, 0.1], dtype=torch.float64)
             cases.append(
                 {
                     "phase": phase,
@@ -120,7 +150,7 @@ def export_web(prepared: Path, checkpoint_path: Path, output: Path):
                     "y": model(phi, x).tolist(),
                     "z_rate": z_rate.tolist(),
                     "phase_rate": 1.3,
-                    "dy": model.reference_derivative(phi, z, torch.tensor(1.3), z_rate).tolist(),
+                    "dy": model.reference_derivative(phi, z, phi.new_tensor(1.3), z_rate).tolist(),
                 }
             )
     runtime = OscillatorRuntime(model, checkpoint["tau_z_s"], cadence)
@@ -152,7 +182,7 @@ def export_web(prepared: Path, checkpoint_path: Path, output: Path):
                     "feet": clip["feet_world"][index].tolist(),
                 }
             )
-    (output / "validation.json").write_text(
+    (output / f"{validation_name}.json").write_text(
         json.dumps({"cases": cases, "runtime": frames, "kinematics": kinematics}) + "\n"
     )
     return manifest

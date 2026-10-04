@@ -57,7 +57,11 @@
           "root_residual_translation_rmse_m": 0.05852058764608775,
           "root_residual_rotvec_rmse_rad": 0.18194016790167186,
           "world_root_position_rmse_m": 0.10136063109181155,
-          "world_root_orientation_rmse_rad": 0.31402825259684436
+          "world_root_orientation_rmse_rad": 0.31402825259684436,
+          "foot_position_rmse_m": 0.1733336516440882,
+          "contact_samples": 734,
+          "learned_contact_horizontal_speed_rms_m_s": 0.9776110214645519,
+          "source_contact_horizontal_speed_rms_m_s": 0.22437438034963472
         },
         "uniform_free_rollout": {
           "joint_rmse_rad": 0.2984198596204545,
@@ -90,7 +94,11 @@
           "root_residual_translation_rmse_m": 0.0704647144588213,
           "root_residual_rotvec_rmse_rad": 0.16467313596129135,
           "world_root_position_rmse_m": 0.12204846558351179,
-          "world_root_orientation_rmse_rad": 0.28480267940163373
+          "world_root_orientation_rmse_rad": 0.28480267940163373,
+          "foot_position_rmse_m": 0.21338076177239354,
+          "contact_samples": 407,
+          "learned_contact_horizontal_speed_rms_m_s": 0.6266182185587561,
+          "source_contact_horizontal_speed_rms_m_s": 0.17090268857839144
         },
         "uniform_free_rollout": {
           "joint_rmse_rad": 0.3656037941044387,
@@ -123,7 +131,11 @@
           "root_residual_translation_rmse_m": 0.10354877637767942,
           "root_residual_rotvec_rmse_rad": 0.2790106008109944,
           "world_root_position_rmse_m": 0.17935174174772875,
-          "world_root_orientation_rmse_rad": 0.4813083482125069
+          "world_root_orientation_rmse_rad": 0.4813083482125069,
+          "foot_position_rmse_m": 0.2951176524169949,
+          "contact_samples": 791,
+          "learned_contact_horizontal_speed_rms_m_s": 1.1375798331650213,
+          "source_contact_horizontal_speed_rms_m_s": 0.23488774192455336
         },
         "uniform_free_rollout": {
           "joint_rmse_rad": 0.32643637755360566,
@@ -156,7 +168,11 @@
           "root_residual_translation_rmse_m": 0.013023738323938711,
           "root_residual_rotvec_rmse_rad": 0.06598544928406776,
           "world_root_position_rmse_m": 0.02255777648154378,
-          "world_root_orientation_rmse_rad": 0.11407725418650302
+          "world_root_orientation_rmse_rad": 0.11407725418650302,
+          "foot_position_rmse_m": 0.045679590855776935,
+          "contact_samples": 429,
+          "learned_contact_horizontal_speed_rms_m_s": 0.28154735581226803,
+          "source_contact_horizontal_speed_rms_m_s": 0.10002929797746567
         },
         "uniform_free_rollout": {
           "joint_rmse_rad": 0.1718005637132088,
@@ -189,7 +205,11 @@
           "root_residual_translation_rmse_m": 0.02227437420845438,
           "root_residual_rotvec_rmse_rad": 0.0956411130683283,
           "world_root_position_rmse_m": 0.03858034783584477,
-          "world_root_orientation_rmse_rad": 0.16540802721371503
+          "world_root_orientation_rmse_rad": 0.16540802721371503,
+          "foot_position_rmse_m": 0.08170280064351207,
+          "contact_samples": 2669,
+          "learned_contact_horizontal_speed_rms_m_s": 0.5366998655728662,
+          "source_contact_horizontal_speed_rms_m_s": 0.12923848027420287
         },
         "uniform_free_rollout": {
           "joint_rmse_rad": 0.21727129202026385,
@@ -222,7 +242,11 @@
           "root_residual_translation_rmse_m": 0.0444515469873081,
           "root_residual_rotvec_rmse_rad": 0.1594122139724138,
           "world_root_position_rmse_m": 0.0769923378570529,
-          "world_root_orientation_rmse_rad": 0.27555111099900326
+          "world_root_orientation_rmse_rad": 0.27555111099900326,
+          "foot_position_rmse_m": 0.132128953194206,
+          "contact_samples": 213,
+          "learned_contact_horizontal_speed_rms_m_s": 0.3082205145550095,
+          "source_contact_horizontal_speed_rms_m_s": 0.14539529707012405
         },
         "uniform_free_rollout": {
           "joint_rmse_rad": 0.200132397599671,
@@ -255,7 +279,11 @@
           "root_residual_translation_rmse_m": 0.07511511922261634,
           "root_residual_rotvec_rmse_rad": 0.1704270268426288,
           "world_root_position_rmse_m": 0.13010320291016514,
-          "world_root_orientation_rmse_rad": 0.29344800743126304
+          "world_root_orientation_rmse_rad": 0.29344800743126304,
+          "foot_position_rmse_m": 0.20706721386754903,
+          "contact_samples": 498,
+          "learned_contact_horizontal_speed_rms_m_s": 0.495163709207012,
+          "source_contact_horizontal_speed_rms_m_s": 0.2427502572957713
         },
         "uniform_free_rollout": {
           "joint_rmse_rad": 0.31767721403290033,

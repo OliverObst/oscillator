@@ -5,7 +5,7 @@ build-backend = "hatchling.build"
 [project]
 name = "motion-oscillator"
 version = "0.1.0"
-description = "A shared phase clock and conditional whole-body harmonic motion decoder"
+description = "A shared phase clock with harmonic and periodic RFF whole-body motion decoders"
 readme = "README.md"
 requires-python = ">=3.11,<3.14"
 dependencies = [

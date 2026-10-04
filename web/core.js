@@ -45,11 +45,12 @@ export class Decoder {
   constructor(spec) { this.spec = spec; }
   mixture(context) {
     const s = this.spec;
-    return network(context.map((x, i) => (x-s.context_mean[i])/s.context_scale[i]), s.layers);
+    const x = context.map((v,i) => (v-s.context_mean[i])/s.context_scale[i]);
+    return s.kind === 'rff' ? x : network(x, s.layers);
   }
   basis(phase, derivative = false) {
     const h = [derivative ? 0 : 1];
-    for (let k = 1; k <= 3; k++) {
+    for (let k = 1; k <= (this.spec.harmonics ?? 3); k++) {
       const angle = 2*Math.PI*k*phase;
       h.push(derivative ? -2*Math.PI*k*Math.sin(angle) : Math.cos(angle),
         derivative ? 2*Math.PI*k*Math.cos(angle) : Math.sin(angle));
@@ -57,13 +58,31 @@ export class Decoder {
     return this.spec.waveforms.map(wave => wave.map(row => row.reduce((s,w,i) => s+w*h[i],0)));
   }
   decode(phase, z) {
+    if (this.spec.kind === 'rff') {
+      const features = this.features(phase,z), s = this.spec;
+      return s.readout.weight.map((row,d) => (row.reduce((sum,w,i)=>sum+w*features[i],
+        s.readout.bias[d]))*s.target_scale[d]+s.target_mean[d]);
+    }
     const b = this.basis(phase), s = this.spec;
     return b[0].map((v, d) => (v+z.reduce((sum,w,r) => sum+w*b[r+1][d],0))*s.target_scale[d]+s.target_mean[d]);
   }
   derivative(phase, z, phaseRate, zRate) {
+    if (this.spec.kind === 'rff') {
+      const features = this.features(phase,z,phaseRate,zRate);
+      return this.spec.readout.weight.map((row,d) => row.reduce((sum,w,i)=>sum+w*features[i],0)*this.spec.target_scale[d]);
+    }
     const b = this.basis(phase), db = this.basis(phase, true);
     return b[0].map((_, d) => ((db[0][d]+z.reduce((sum,w,r) => sum+w*db[r+1][d],0))*phaseRate
       + zRate.reduce((sum,w,r) => sum+w*b[r+1][d],0))*this.spec.target_scale[d]);
+  }
+  features(phase,z,phaseRate=null,zRate=null) {
+    const angle=2*Math.PI*phase, circle=[Math.cos(angle),Math.sin(angle)], x=[...circle,...z];
+    const rates=phaseRate===null?null:[-circle[1]*2*Math.PI*phaseRate,circle[0]*2*Math.PI*phaseRate,...zRate];
+    const projection=this.spec.omega.map(row=>row.reduce((sum,w,i)=>sum+w*x[i],0));
+    const rate=rates?this.spec.omega.map(row=>row.reduce((sum,w,i)=>sum+w*rates[i],0)):null;
+    const scale=1/Math.sqrt(this.spec.projections);
+    return [...projection.map((v,i)=>(rate?-Math.sin(v)*rate[i]:Math.cos(v))*scale),
+      ...projection.map((v,i)=>(rate?Math.cos(v)*rate[i]:Math.sin(v))*scale)];
   }
   frequency(context) {
     const c = this.spec.cadence;

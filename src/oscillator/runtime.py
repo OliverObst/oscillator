@@ -1,11 +1,11 @@
-"""Cloneable shared runtime state; smooth mixtures before reference adjustment."""
+"""Cloneable shared runtime state; smooth decoder inputs before reference adjustment."""
 
 from dataclasses import dataclass
 
 import numpy as np
 import torch
 
-from .model import CadenceNetwork, HarmonicDecoder
+from .model import CadenceNetwork, HarmonicDecoder, RFFDecoder
 from .preprocess import reconstruct_root, yaw_rotation
 
 
@@ -104,7 +104,7 @@ def integrate_planar_path(position, yaw: float, command, dt: float):
 class OscillatorRuntime:
     def __init__(
         self,
-        decoder: HarmonicDecoder,
+        decoder: HarmonicDecoder | RFFDecoder,
         tau_z: float,
         cadence: CadenceNetwork | None = None,
         cadence_rate_limit: float = 1.0,
@@ -120,7 +120,7 @@ class OscillatorRuntime:
 
     def _context(self, context):
         x = torch.as_tensor(
-            context, dtype=self.decoder.waveforms.dtype, device=self.decoder.waveforms.device
+            context, dtype=self.decoder.target_mean.dtype, device=self.decoder.target_mean.device
         )
         if x.shape != (4,) or not torch.isfinite(x).all() or x[3] <= 0:
             raise ValueError("Context must be finite [vx, vy, yaw_rate, positive_cycle_period]")
@@ -206,7 +206,7 @@ class OscillatorRuntime:
         path_pos, path_yaw = integrate_planar_path(
             state.path_pos, state.path_yaw, context.cpu().numpy(), dt
         )
-        phi = self.decoder.waveforms.new_tensor(phase)
+        phi = self.decoder.target_mean.new_tensor(phase)
         y = self.decoder.decode(phi, z).cpu().numpy()
         dy = (
             self.decoder.reference_derivative(

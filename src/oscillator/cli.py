@@ -194,6 +194,7 @@ def main():
     fit.add_argument("--data", type=Path, default=Path("data/prepared"))
     fit.add_argument("--output", type=Path, default=Path("runs/baseline"))
     fit.add_argument("--epochs", type=int, default=300)
+    fit.add_argument("--harmonics", type=int, default=3)
     fit.add_argument("--batch-size", type=int, default=512)
     fit.add_argument("--learning-rate", type=float, default=0.003)
     fit.add_argument("--seed", type=int, default=7)
@@ -277,6 +278,7 @@ def main():
                 seed=args.seed,
                 device=args.device,
                 cadence=args.cadence,
+                harmonics=args.harmonics,
             ),
         )
         print(

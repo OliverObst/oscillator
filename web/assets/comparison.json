@@ -1,0 +1,2575 @@
+{
+  "seeds": [
+    7,
+    17,
+    27
+  ],
+  "groups": {
+    "harmonic3": {
+      "label": "3 harmonics",
+      "candidates": [
+        {
+          "seed": 7,
+          "best_dev_mse": 0.9954857230186462,
+          "best_epoch": 103,
+          "parameters": 2328,
+          "tau_z_s": 0.1,
+          "aggregate": {
+            "train": {
+              "joint_rmse_rad": 0.1540136812004001,
+              "root_residual_translation_rmse_m": 0.035593438593385596,
+              "world_root_position_rmse_m": 0.06164964405982676,
+              "world_root_orientation_rmse_rad": 0.2131686988839868,
+              "foot_position_rmse_m": 0.1123282418429868,
+              "learned_contact_horizontal_speed_rms_m_s": 0.6265490276396259,
+              "source_contact_horizontal_speed_rms_m_s": 0.14965523011794574
+            },
+            "dev": {
+              "joint_rmse_rad": 0.22697341990014586,
+              "root_residual_translation_rmse_m": 0.0656704218079183,
+              "world_root_position_rmse_m": 0.1137445071257937,
+              "world_root_orientation_rmse_rad": 0.2828085803754455,
+              "foot_position_rmse_m": 0.19849940725608256,
+              "learned_contact_horizontal_speed_rms_m_s": 0.5388812860857414,
+              "source_contact_horizontal_speed_rms_m_s": 0.16259151999187166
+            },
+            "test": {
+              "joint_rmse_rad": 0.28015037700997864,
+              "root_residual_translation_rmse_m": 0.09237932005756389,
+              "world_root_position_rmse_m": 0.1600056759083673,
+              "world_root_orientation_rmse_rad": 0.41104609120636765,
+              "foot_position_rmse_m": 0.26085668433897113,
+              "learned_contact_horizontal_speed_rms_m_s": 0.9427880207128628,
+              "source_contact_horizontal_speed_rms_m_s": 0.23795619143770808
+            }
+          },
+          "metrics": {
+            "train": {
+              "run2_subject1_05": {
+                "frames": 1016,
+                "reconstruction": {
+                  "joint_rmse_rad": 0.22571662645611865,
+                  "root_residual_translation_rmse_m": 0.05852058764608775,
+                  "root_residual_rotvec_rmse_rad": 0.18194016790167186,
+                  "world_root_position_rmse_m": 0.10136063109181155,
+                  "world_root_orientation_rmse_rad": 0.31402825259684436,
+                  "foot_position_rmse_m": 0.1733336516440882,
+                  "contact_samples": 734,
+                  "learned_contact_horizontal_speed_rms_m_s": 0.9776110214645519,
+                  "source_contact_horizontal_speed_rms_m_s": 0.22437438034963472
+                },
+                "uniform_free_rollout": {
+                  "joint_rmse_rad": 0.2984198596204545,
+                  "root_residual_translation_rmse_m": 0.10665435884855486,
+                  "root_residual_rotvec_rmse_rad": 0.24142341802388248,
+                  "phase_rmse_cycles": 0.2692793644038766,
+                  "cycle_hz": 1.225277476824135,
+                  "cadence_source": "oracle_clip_mean",
+                  "context_source": "oracle_clip_mean",
+                  "phase_initialisation": "first_valid_observed_phase",
+                  "root_path_source": "integrated_constant_clip_mean_command",
+                  "world_root_position_rmse_m": 3.0419986223094964,
+                  "world_root_orientation_rmse_rad": 1.8046509032028937
+                }
+              },
+              "walk3_subject2_01": {
+                "frames": 388,
+                "reconstruction": {
+                  "joint_rmse_rad": 0.07664901676750661,
+                  "root_residual_translation_rmse_m": 0.013023738323938711,
+                  "root_residual_rotvec_rmse_rad": 0.06598544928406776,
+                  "world_root_position_rmse_m": 0.02255777648154378,
+                  "world_root_orientation_rmse_rad": 0.11407725418650302,
+                  "foot_position_rmse_m": 0.045679590855776935,
+                  "contact_samples": 429,
+                  "learned_contact_horizontal_speed_rms_m_s": 0.28154735581226803,
+                  "source_contact_horizontal_speed_rms_m_s": 0.10002929797746567
+                },
+                "uniform_free_rollout": {
+                  "joint_rmse_rad": 0.1718005637132088,
+                  "root_residual_translation_rmse_m": 0.02750916031050931,
+                  "root_residual_rotvec_rmse_rad": 0.0787817102529959,
+                  "phase_rmse_cycles": 0.1417030433764384,
+                  "cycle_hz": 0.8474082682384135,
+                  "cadence_source": "oracle_clip_mean",
+                  "context_source": "oracle_clip_mean",
+                  "phase_initialisation": "first_valid_observed_phase",
+                  "root_path_source": "integrated_constant_clip_mean_command",
+                  "world_root_position_rmse_m": 4.048614672221796,
+                  "world_root_orientation_rmse_rad": 1.386468498781064
+                }
+              },
+              "walk3_subject2_02": {
+                "frames": 2292,
+                "reconstruction": {
+                  "joint_rmse_rad": 0.12112622269089865,
+                  "root_residual_translation_rmse_m": 0.02227437420845438,
+                  "root_residual_rotvec_rmse_rad": 0.0956411130683283,
+                  "world_root_position_rmse_m": 0.03858034783584477,
+                  "world_root_orientation_rmse_rad": 0.16540802721371503,
+                  "foot_position_rmse_m": 0.08170280064351207,
+                  "contact_samples": 2669,
+                  "learned_contact_horizontal_speed_rms_m_s": 0.5366998655728662,
+                  "source_contact_horizontal_speed_rms_m_s": 0.12923848027420287
+                },
+                "uniform_free_rollout": {
+                  "joint_rmse_rad": 0.21727129202026385,
+                  "root_residual_translation_rmse_m": 0.044059939201618076,
+                  "root_residual_rotvec_rmse_rad": 0.10864499858216234,
+                  "phase_rmse_cycles": 0.2550473505425879,
+                  "cycle_hz": 0.852234662894403,
+                  "cadence_source": "oracle_clip_mean",
+                  "context_source": "oracle_clip_mean",
+                  "phase_initialisation": "first_valid_observed_phase",
+                  "root_path_source": "integrated_constant_clip_mean_command",
+                  "world_root_position_rmse_m": 1.3890423241962822,
+                  "world_root_orientation_rmse_rad": 1.9837946176233063
+                }
+              }
+            },
+            "dev": {
+              "run2_subject1_06": {
+                "frames": 469,
+                "reconstruction": {
+                  "joint_rmse_rad": 0.23380736831262464,
+                  "root_residual_translation_rmse_m": 0.0704647144588213,
+                  "root_residual_rotvec_rmse_rad": 0.16467313596129135,
+                  "world_root_position_rmse_m": 0.12204846558351179,
+                  "world_root_orientation_rmse_rad": 0.28480267940163373,
+                  "foot_position_rmse_m": 0.21338076177239354,
+                  "contact_samples": 407,
+                  "learned_contact_horizontal_speed_rms_m_s": 0.6266182185587561,
+                  "source_contact_horizontal_speed_rms_m_s": 0.17090268857839144
+                },
+                "uniform_free_rollout": {
+                  "joint_rmse_rad": 0.3656037941044387,
+                  "root_residual_translation_rmse_m": 0.0850631229070625,
+                  "root_residual_rotvec_rmse_rad": 0.1959180085679712,
+                  "phase_rmse_cycles": 0.34712156931408034,
+                  "cycle_hz": 0.8123087816241725,
+                  "cadence_source": "oracle_clip_mean",
+                  "context_source": "oracle_clip_mean",
+                  "phase_initialisation": "first_valid_observed_phase",
+                  "root_path_source": "integrated_constant_clip_mean_command",
+                  "world_root_position_rmse_m": 6.836037202556602,
+                  "world_root_orientation_rmse_rad": 1.719422998249842
+                }
+              },
+              "walk3_subject2_03": {
+                "frames": 131,
+                "reconstruction": {
+                  "joint_rmse_rad": 0.200607088453654,
+                  "root_residual_translation_rmse_m": 0.0444515469873081,
+                  "root_residual_rotvec_rmse_rad": 0.1594122139724138,
+                  "world_root_position_rmse_m": 0.0769923378570529,
+                  "world_root_orientation_rmse_rad": 0.27555111099900326,
+                  "foot_position_rmse_m": 0.132128953194206,
+                  "contact_samples": 213,
+                  "learned_contact_horizontal_speed_rms_m_s": 0.3082205145550095,
+                  "source_contact_horizontal_speed_rms_m_s": 0.14539529707012405
+                },
+                "uniform_free_rollout": {
+                  "joint_rmse_rad": 0.200132397599671,
+                  "root_residual_translation_rmse_m": 0.03560482580212871,
+                  "root_residual_rotvec_rmse_rad": 0.15340517412782462,
+                  "phase_rmse_cycles": 0.07677760129907263,
+                  "cycle_hz": 0.6555463697843473,
+                  "cadence_source": "oracle_clip_mean",
+                  "context_source": "oracle_clip_mean",
+                  "phase_initialisation": "first_valid_observed_phase",
+                  "root_path_source": "integrated_constant_clip_mean_command",
+                  "world_root_position_rmse_m": 0.17374675746510831,
+                  "world_root_orientation_rmse_rad": 0.3577745184404961
+                }
+              }
+            },
+            "test": {
+              "run2_subject1_07": {
+                "frames": 1213,
+                "reconstruction": {
+                  "joint_rmse_rad": 0.3047744303715819,
+                  "root_residual_translation_rmse_m": 0.10354877637767942,
+                  "root_residual_rotvec_rmse_rad": 0.2790106008109944,
+                  "world_root_position_rmse_m": 0.17935174174772875,
+                  "world_root_orientation_rmse_rad": 0.4813083482125069,
+                  "foot_position_rmse_m": 0.2951176524169949,
+                  "contact_samples": 791,
+                  "learned_contact_horizontal_speed_rms_m_s": 1.1375798331650213,
+                  "source_contact_horizontal_speed_rms_m_s": 0.23488774192455336
+                },
+                "uniform_free_rollout": {
+                  "joint_rmse_rad": 0.32643637755360566,
+                  "root_residual_translation_rmse_m": 0.08857336340613815,
+                  "root_residual_rotvec_rmse_rad": 0.25992009088150275,
+                  "phase_rmse_cycles": 0.2975674348875099,
+                  "cycle_hz": 1.1295278490301819,
+                  "cadence_source": "oracle_clip_mean",
+                  "context_source": "oracle_clip_mean",
+                  "phase_initialisation": "first_valid_observed_phase",
+                  "root_path_source": "integrated_constant_clip_mean_command",
+                  "world_root_position_rmse_m": 7.420740067374781,
+                  "world_root_orientation_rmse_rad": 1.8610635627255996
+                }
+              },
+              "walk3_subject2_04": {
+                "frames": 918,
+                "reconstruction": {
+                  "joint_rmse_rad": 0.24382889173702638,
+                  "root_residual_translation_rmse_m": 0.07511511922261634,
+                  "root_residual_rotvec_rmse_rad": 0.1704270268426288,
+                  "world_root_position_rmse_m": 0.13010320291016514,
+                  "world_root_orientation_rmse_rad": 0.29344800743126304,
+                  "foot_position_rmse_m": 0.20706721386754903,
+                  "contact_samples": 498,
+                  "learned_contact_horizontal_speed_rms_m_s": 0.495163709207012,
+                  "source_contact_horizontal_speed_rms_m_s": 0.2427502572957713
+                },
+                "uniform_free_rollout": {
+                  "joint_rmse_rad": 0.31767721403290033,
+                  "root_residual_translation_rmse_m": 0.08895416167465972,
+                  "root_residual_rotvec_rmse_rad": 0.18452280910092086,
+                  "phase_rmse_cycles": 0.28308777428112614,
+                  "cycle_hz": 1.1705205369045855,
+                  "cadence_source": "oracle_clip_mean",
+                  "context_source": "oracle_clip_mean",
+                  "phase_initialisation": "first_valid_observed_phase",
+                  "root_path_source": "integrated_constant_clip_mean_command",
+                  "world_root_position_rmse_m": 8.129287046769079,
+                  "world_root_orientation_rmse_rad": 1.8545568914307227
+                }
+              }
+            }
+          }
+        },
+        {
+          "seed": 17,
+          "best_dev_mse": 0.9901318550109863,
+          "best_epoch": 130,
+          "parameters": 2328,
+          "tau_z_s": 0.05,
+          "aggregate": {
+            "train": {
+              "joint_rmse_rad": 0.153903479106308,
+              "root_residual_translation_rmse_m": 0.03498403181039181,
+              "world_root_position_rmse_m": 0.06059412054920442,
+              "world_root_orientation_rmse_rad": 0.21079023148163928,
+              "foot_position_rmse_m": 0.11126140747885162,
+              "learned_contact_horizontal_speed_rms_m_s": 0.6445308599936254,
+              "source_contact_horizontal_speed_rms_m_s": 0.14965523011794574
+            },
+            "dev": {
+              "joint_rmse_rad": 0.22236989634789828,
+              "root_residual_translation_rmse_m": 0.07234059957116122,
+              "world_root_position_rmse_m": 0.12529759390724657,
+              "world_root_orientation_rmse_rad": 0.282112714538069,
+              "foot_position_rmse_m": 0.21305751771941403,
+              "learned_contact_horizontal_speed_rms_m_s": 0.49344768053481297,
+              "source_contact_horizontal_speed_rms_m_s": 0.16259151999187166
+            },
+            "test": {
+              "joint_rmse_rad": 0.2800273717631988,
+              "root_residual_translation_rmse_m": 0.1068129173687553,
+              "world_root_position_rmse_m": 0.18500539978734037,
+              "world_root_orientation_rmse_rad": 0.4196650535714328,
+              "foot_position_rmse_m": 0.2996095339336808,
+              "learned_contact_horizontal_speed_rms_m_s": 0.8718931025046606,
+              "source_contact_horizontal_speed_rms_m_s": 0.23795619143770808
+            }
+          },
+          "metrics": {
+            "train": {
+              "run2_subject1_05": {
+                "frames": 1016,
+                "reconstruction": {
+                  "joint_rmse_rad": 0.22496583244455076,
+                  "root_residual_translation_rmse_m": 0.057543549244632876,
+                  "root_residual_rotvec_rmse_rad": 0.1786724548424906,
+                  "world_root_position_rmse_m": 0.09966835093954583,
+                  "world_root_orientation_rmse_rad": 0.3083184291311555,
+                  "foot_position_rmse_m": 0.17176826491153618,
+                  "contact_samples": 734,
+                  "learned_contact_horizontal_speed_rms_m_s": 1.0087213511597093,
+                  "source_contact_horizontal_speed_rms_m_s": 0.22437438034963472
+                },
+                "uniform_free_rollout": {
+                  "joint_rmse_rad": 0.3052938517869605,
+                  "root_residual_translation_rmse_m": 0.11207508782946221,
+                  "root_residual_rotvec_rmse_rad": 0.24114855978199445,
+                  "phase_rmse_cycles": 0.2692793644038766,
+                  "cycle_hz": 1.225277476824135,
+                  "cadence_source": "oracle_clip_mean",
+                  "context_source": "oracle_clip_mean",
+                  "phase_initialisation": "first_valid_observed_phase",
+                  "root_path_source": "integrated_constant_clip_mean_command",
+                  "world_root_position_rmse_m": 3.055557868227888,
+                  "world_root_orientation_rmse_rad": 1.8025669819292833
+                }
+              },
+              "walk3_subject2_01": {
+                "frames": 388,
+                "reconstruction": {
+                  "joint_rmse_rad": 0.08017013621319177,
+                  "root_residual_translation_rmse_m": 0.013553587570061138,
+                  "root_residual_rotvec_rmse_rad": 0.06348027765763442,
+                  "world_root_position_rmse_m": 0.023475502296179892,
+                  "world_root_orientation_rmse_rad": 0.10973350916980137,
+                  "foot_position_rmse_m": 0.04523493117941667,
+                  "contact_samples": 429,
+                  "learned_contact_horizontal_speed_rms_m_s": 0.27910386468699205,
+                  "source_contact_horizontal_speed_rms_m_s": 0.10002929797746567
+                },
+                "uniform_free_rollout": {
+                  "joint_rmse_rad": 0.17167138303580468,
+                  "root_residual_translation_rmse_m": 0.027761078695121864,
+                  "root_residual_rotvec_rmse_rad": 0.0779538118358521,
+                  "phase_rmse_cycles": 0.1417030433764384,
+                  "cycle_hz": 0.8474082682384135,
+                  "cadence_source": "oracle_clip_mean",
+                  "context_source": "oracle_clip_mean",
+                  "phase_initialisation": "first_valid_observed_phase",
+                  "root_path_source": "integrated_constant_clip_mean_command",
+                  "world_root_position_rmse_m": 4.0555277118234,
+                  "world_root_orientation_rmse_rad": 1.3791363490212047
+                }
+              },
+              "walk3_subject2_02": {
+                "frames": 2292,
+                "reconstruction": {
+                  "joint_rmse_rad": 0.12113364511088298,
+                  "root_residual_translation_rmse_m": 0.021787025757598832,
+                  "root_residual_rotvec_rmse_rad": 0.09583897498089756,
+                  "world_root_position_rmse_m": 0.03773623555797299,
+                  "world_root_orientation_rmse_rad": 0.16575137300386364,
+                  "foot_position_rmse_m": 0.08085177306378616,
+                  "contact_samples": 2669,
+                  "learned_contact_horizontal_speed_rms_m_s": 0.5514421716982523,
+                  "source_contact_horizontal_speed_rms_m_s": 0.12923848027420287
+                },
+                "uniform_free_rollout": {
+                  "joint_rmse_rad": 0.20495576449554506,
+                  "root_residual_translation_rmse_m": 0.04704066374650522,
+                  "root_residual_rotvec_rmse_rad": 0.11049932282723908,
+                  "phase_rmse_cycles": 0.2550473505425879,
+                  "cycle_hz": 0.852234662894403,
+                  "cadence_source": "oracle_clip_mean",
+                  "context_source": "oracle_clip_mean",
+                  "phase_initialisation": "first_valid_observed_phase",
+                  "root_path_source": "integrated_constant_clip_mean_command",
+                  "world_root_position_rmse_m": 1.3796846567084442,
+                  "world_root_orientation_rmse_rad": 1.9833234872110261
+                }
+              }
+            },
+            "dev": {
+              "run2_subject1_06": {
+                "frames": 469,
+                "reconstruction": {
+                  "joint_rmse_rad": 0.22951220204469355,
+                  "root_residual_translation_rmse_m": 0.07896040921156773,
+                  "root_residual_rotvec_rmse_rad": 0.16691562298971224,
+                  "world_root_position_rmse_m": 0.13676344054086492,
+                  "world_root_orientation_rmse_rad": 0.2885904685259784,
+                  "foot_position_rmse_m": 0.2325690226689475,
+                  "contact_samples": 407,
+                  "learned_contact_horizontal_speed_rms_m_s": 0.5562514301761052,
+                  "source_contact_horizontal_speed_rms_m_s": 0.17090268857839144
+                },
+                "uniform_free_rollout": {
+                  "joint_rmse_rad": 0.359365702956868,
+                  "root_residual_translation_rmse_m": 0.08459514261116986,
+                  "root_residual_rotvec_rmse_rad": 0.1943834905957261,
+                  "phase_rmse_cycles": 0.34712156931408034,
+                  "cycle_hz": 0.8123087816241725,
+                  "cadence_source": "oracle_clip_mean",
+                  "context_source": "oracle_clip_mean",
+                  "phase_initialisation": "first_valid_observed_phase",
+                  "root_path_source": "integrated_constant_clip_mean_command",
+                  "world_root_position_rmse_m": 6.8265884944998465,
+                  "world_root_orientation_rmse_rad": 1.715541580203972
+                }
+              },
+              "walk3_subject2_03": {
+                "frames": 131,
+                "reconstruction": {
+                  "joint_rmse_rad": 0.19466252682571242,
+                  "root_residual_translation_rmse_m": 0.040587426066723144,
+                  "root_residual_rotvec_rmse_rad": 0.14899188252485793,
+                  "world_root_position_rmse_m": 0.07029948409600993,
+                  "world_root_orientation_rmse_rad": 0.2575892222901572,
+                  "foot_position_rmse_m": 0.11943464854977293,
+                  "contact_samples": 213,
+                  "learned_contact_horizontal_speed_rms_m_s": 0.3428136089972355,
+                  "source_contact_horizontal_speed_rms_m_s": 0.14539529707012405
+                },
+                "uniform_free_rollout": {
+                  "joint_rmse_rad": 0.20451352097231773,
+                  "root_residual_translation_rmse_m": 0.04697928309072163,
+                  "root_residual_rotvec_rmse_rad": 0.16442300248659894,
+                  "phase_rmse_cycles": 0.07677760129907263,
+                  "cycle_hz": 0.6555463697843473,
+                  "cadence_source": "oracle_clip_mean",
+                  "context_source": "oracle_clip_mean",
+                  "phase_initialisation": "first_valid_observed_phase",
+                  "root_path_source": "integrated_constant_clip_mean_command",
+                  "world_root_position_rmse_m": 0.18141850723317776,
+                  "world_root_orientation_rmse_rad": 0.3721638689187614
+                }
+              }
+            },
+            "test": {
+              "run2_subject1_07": {
+                "frames": 1213,
+                "reconstruction": {
+                  "joint_rmse_rad": 0.29471266328967655,
+                  "root_residual_translation_rmse_m": 0.10352119631799467,
+                  "root_residual_rotvec_rmse_rad": 0.2757279584934774,
+                  "world_root_position_rmse_m": 0.17930397168307893,
+                  "world_root_orientation_rmse_rad": 0.47581379989408296,
+                  "foot_position_rmse_m": 0.29517301525560435,
+                  "contact_samples": 791,
+                  "learned_contact_horizontal_speed_rms_m_s": 1.0482598513168464,
+                  "source_contact_horizontal_speed_rms_m_s": 0.23488774192455336
+                },
+                "uniform_free_rollout": {
+                  "joint_rmse_rad": 0.33639373982223264,
+                  "root_residual_translation_rmse_m": 0.11974726351211214,
+                  "root_residual_rotvec_rmse_rad": 0.2516841964875018,
+                  "phase_rmse_cycles": 0.2975674348875099,
+                  "cycle_hz": 1.1295278490301819,
+                  "cadence_source": "oracle_clip_mean",
+                  "context_source": "oracle_clip_mean",
+                  "phase_initialisation": "first_valid_observed_phase",
+                  "root_path_source": "integrated_constant_clip_mean_command",
+                  "world_root_position_rmse_m": 7.401616226187776,
+                  "world_root_orientation_rmse_rad": 1.8623611147008514
+                }
+              },
+              "walk3_subject2_04": {
+                "frames": 918,
+                "reconstruction": {
+                  "joint_rmse_rad": 0.25935078800915207,
+                  "root_residual_translation_rmse_m": 0.11101284320137807,
+                  "root_residual_rotvec_rmse_rad": 0.1923339342211993,
+                  "world_root_position_rmse_m": 0.19227988471746404,
+                  "world_root_orientation_rmse_rad": 0.3311815530108913,
+                  "foot_position_rmse_m": 0.3053728958186172,
+                  "contact_samples": 498,
+                  "learned_contact_horizontal_speed_rms_m_s": 0.47148690115895475,
+                  "source_contact_horizontal_speed_rms_m_s": 0.2427502572957713
+                },
+                "uniform_free_rollout": {
+                  "joint_rmse_rad": 0.3174851489870661,
+                  "root_residual_translation_rmse_m": 0.08823964461121549,
+                  "root_residual_rotvec_rmse_rad": 0.18469184519302131,
+                  "phase_rmse_cycles": 0.28308777428112614,
+                  "cycle_hz": 1.1705205369045855,
+                  "cadence_source": "oracle_clip_mean",
+                  "context_source": "oracle_clip_mean",
+                  "phase_initialisation": "first_valid_observed_phase",
+                  "root_path_source": "integrated_constant_clip_mean_command",
+                  "world_root_position_rmse_m": 8.132355583558061,
+                  "world_root_orientation_rmse_rad": 1.8531345200543057
+                }
+              }
+            }
+          }
+        },
+        {
+          "seed": 27,
+          "best_dev_mse": 1.0124937295913696,
+          "best_epoch": 171,
+          "parameters": 2328,
+          "tau_z_s": 0.1,
+          "aggregate": {
+            "train": {
+              "joint_rmse_rad": 0.15378356890319306,
+              "root_residual_translation_rmse_m": 0.03453896881983516,
+              "world_root_position_rmse_m": 0.05982324883699176,
+              "world_root_orientation_rmse_rad": 0.21004667328106613,
+              "foot_position_rmse_m": 0.11039546405181344,
+              "learned_contact_horizontal_speed_rms_m_s": 0.6535771674930456,
+              "source_contact_horizontal_speed_rms_m_s": 0.14965523011794574
+            },
+            "dev": {
+              "joint_rmse_rad": 0.22661425110375027,
+              "root_residual_translation_rmse_m": 0.0689030850343242,
+              "world_root_position_rmse_m": 0.11934364407768829,
+              "world_root_orientation_rmse_rad": 0.2866114488321272,
+              "foot_position_rmse_m": 0.20790625550029485,
+              "learned_contact_horizontal_speed_rms_m_s": 0.5809634917354062,
+              "source_contact_horizontal_speed_rms_m_s": 0.16259151999187166
+            },
+            "test": {
+              "joint_rmse_rad": 0.27900755281291656,
+              "root_residual_translation_rmse_m": 0.0896765507345172,
+              "world_root_position_rmse_m": 0.15532434211971194,
+              "world_root_orientation_rmse_rad": 0.39769743153850395,
+              "foot_position_rmse_m": 0.2540742364426531,
+              "learned_contact_horizontal_speed_rms_m_s": 0.944122100173214,
+              "source_contact_horizontal_speed_rms_m_s": 0.23795619143770808
+            }
+          },
+          "metrics": {
+            "train": {
+              "run2_subject1_05": {
+                "frames": 1016,
+                "reconstruction": {
+                  "joint_rmse_rad": 0.22544021880517365,
+                  "root_residual_translation_rmse_m": 0.05656524568732709,
+                  "root_residual_rotvec_rmse_rad": 0.1775297215596763,
+                  "world_root_position_rmse_m": 0.09797387947306684,
+                  "world_root_orientation_rmse_rad": 0.30633442132105665,
+                  "foot_position_rmse_m": 0.16999357471634371,
+                  "contact_samples": 734,
+                  "learned_contact_horizontal_speed_rms_m_s": 1.0248338342636631,
+                  "source_contact_horizontal_speed_rms_m_s": 0.22437438034963472
+                },
+                "uniform_free_rollout": {
+                  "joint_rmse_rad": 0.291412386236194,
+                  "root_residual_translation_rmse_m": 0.10554877569517869,
+                  "root_residual_rotvec_rmse_rad": 0.24150978415500585,
+                  "phase_rmse_cycles": 0.2692793644038766,
+                  "cycle_hz": 1.225277476824135,
+                  "cadence_source": "oracle_clip_mean",
+                  "context_source": "oracle_clip_mean",
+                  "phase_initialisation": "first_valid_observed_phase",
+                  "root_path_source": "integrated_constant_clip_mean_command",
+                  "world_root_position_rmse_m": 3.0338700635622042,
+                  "world_root_orientation_rmse_rad": 1.8034554602432264
+                }
+              },
+              "walk3_subject2_01": {
+                "frames": 388,
+                "reconstruction": {
+                  "joint_rmse_rad": 0.07582705679952892,
+                  "root_residual_translation_rmse_m": 0.013831005431307594,
+                  "root_residual_rotvec_rmse_rad": 0.060877906212698646,
+                  "world_root_position_rmse_m": 0.023956004126785845,
+                  "world_root_orientation_rmse_rad": 0.10524310310720719,
+                  "foot_position_rmse_m": 0.04471268885084267,
+                  "contact_samples": 429,
+                  "learned_contact_horizontal_speed_rms_m_s": 0.27760186875736703,
+                  "source_contact_horizontal_speed_rms_m_s": 0.10002929797746567
+                },
+                "uniform_free_rollout": {
+                  "joint_rmse_rad": 0.16979404652779814,
+                  "root_residual_translation_rmse_m": 0.028662706305844946,
+                  "root_residual_rotvec_rmse_rad": 0.07721226336909326,
+                  "phase_rmse_cycles": 0.1417030433764384,
+                  "cycle_hz": 0.8474082682384135,
+                  "cadence_source": "oracle_clip_mean",
+                  "context_source": "oracle_clip_mean",
+                  "phase_initialisation": "first_valid_observed_phase",
+                  "root_path_source": "integrated_constant_clip_mean_command",
+                  "world_root_position_rmse_m": 4.06083029095714,
+                  "world_root_orientation_rmse_rad": 1.3730199882057559
+                }
+              },
+              "walk3_subject2_02": {
+                "frames": 2292,
+                "reconstruction": {
+                  "joint_rmse_rad": 0.12097041785909401,
+                  "root_residual_translation_rmse_m": 0.021748035768124466,
+                  "root_residual_rotvec_rmse_rad": 0.09617769917020758,
+                  "world_root_position_rmse_m": 0.037668702915216803,
+                  "world_root_orientation_rmse_rad": 0.16635175154949244,
+                  "foot_position_rmse_m": 0.08064924740932665,
+                  "contact_samples": 2669,
+                  "learned_contact_horizontal_speed_rms_m_s": 0.5586341166201085,
+                  "source_contact_horizontal_speed_rms_m_s": 0.12923848027420287
+                },
+                "uniform_free_rollout": {
+                  "joint_rmse_rad": 0.22050286637295033,
+                  "root_residual_translation_rmse_m": 0.047063051986669914,
+                  "root_residual_rotvec_rmse_rad": 0.11030810849780694,
+                  "phase_rmse_cycles": 0.2550473505425879,
+                  "cycle_hz": 0.852234662894403,
+                  "cadence_source": "oracle_clip_mean",
+                  "context_source": "oracle_clip_mean",
+                  "phase_initialisation": "first_valid_observed_phase",
+                  "root_path_source": "integrated_constant_clip_mean_command",
+                  "world_root_position_rmse_m": 1.3793112018672107,
+                  "world_root_orientation_rmse_rad": 1.9838594746140477
+                }
+              }
+            },
+            "dev": {
+              "run2_subject1_06": {
+                "frames": 469,
+                "reconstruction": {
+                  "joint_rmse_rad": 0.23229445631154638,
+                  "root_residual_translation_rmse_m": 0.07485820160708782,
+                  "root_residual_rotvec_rmse_rad": 0.166799637467491,
+                  "world_root_position_rmse_m": 0.1296582085467103,
+                  "world_root_orientation_rmse_rad": 0.2883736012819468,
+                  "foot_position_rmse_m": 0.22518077569758987,
+                  "contact_samples": 407,
+                  "learned_contact_horizontal_speed_rms_m_s": 0.6736766757262923,
+                  "source_contact_horizontal_speed_rms_m_s": 0.17090268857839144
+                },
+                "uniform_free_rollout": {
+                  "joint_rmse_rad": 0.3482525397623799,
+                  "root_residual_translation_rmse_m": 0.08453069425203047,
+                  "root_residual_rotvec_rmse_rad": 0.1955207834564511,
+                  "phase_rmse_cycles": 0.34712156931408034,
+                  "cycle_hz": 0.8123087816241725,
+                  "cadence_source": "oracle_clip_mean",
+                  "context_source": "oracle_clip_mean",
+                  "phase_initialisation": "first_valid_observed_phase",
+                  "root_path_source": "integrated_constant_clip_mean_command",
+                  "world_root_position_rmse_m": 6.830163950082747,
+                  "world_root_orientation_rmse_rad": 1.713920303729987
+                }
+              },
+              "walk3_subject2_03": {
+                "frames": 131,
+                "reconstruction": {
+                  "joint_rmse_rad": 0.2049918302761414,
+                  "root_residual_translation_rmse_m": 0.04101965300785884,
+                  "root_residual_rotvec_rmse_rad": 0.16212093656298074,
+                  "world_root_position_rmse_m": 0.07104812311845703,
+                  "world_root_orientation_rmse_rad": 0.28021183309487246,
+                  "foot_position_rmse_m": 0.1282207545294414,
+                  "contact_samples": 213,
+                  "learned_contact_horizontal_speed_rms_m_s": 0.3394868511026584,
+                  "source_contact_horizontal_speed_rms_m_s": 0.14539529707012405
+                },
+                "uniform_free_rollout": {
+                  "joint_rmse_rad": 0.19969183267362509,
+                  "root_residual_translation_rmse_m": 0.03778634003536816,
+                  "root_residual_rotvec_rmse_rad": 0.15292666281876102,
+                  "phase_rmse_cycles": 0.07677760129907263,
+                  "cycle_hz": 0.6555463697843473,
+                  "cadence_source": "oracle_clip_mean",
+                  "context_source": "oracle_clip_mean",
+                  "phase_initialisation": "first_valid_observed_phase",
+                  "root_path_source": "integrated_constant_clip_mean_command",
+                  "world_root_position_rmse_m": 0.17500952072697357,
+                  "world_root_orientation_rmse_rad": 0.3571661255113521
+                }
+              }
+            },
+            "test": {
+              "run2_subject1_07": {
+                "frames": 1213,
+                "reconstruction": {
+                  "joint_rmse_rad": 0.29917626841301104,
+                  "root_residual_translation_rmse_m": 0.09632448706658958,
+                  "root_residual_rotvec_rmse_rad": 0.2658507932544319,
+                  "world_root_position_rmse_m": 0.16683890561234435,
+                  "world_root_orientation_rmse_rad": 0.4587981154873143,
+                  "foot_position_rmse_m": 0.2757480351417813,
+                  "contact_samples": 791,
+                  "learned_contact_horizontal_speed_rms_m_s": 1.1327260034612925,
+                  "source_contact_horizontal_speed_rms_m_s": 0.23488774192455336
+                },
+                "uniform_free_rollout": {
+                  "joint_rmse_rad": 0.3202407860801503,
+                  "root_residual_translation_rmse_m": 0.08194068392667997,
+                  "root_residual_rotvec_rmse_rad": 0.26018270087021206,
+                  "phase_rmse_cycles": 0.2975674348875099,
+                  "cycle_hz": 1.1295278490301819,
+                  "cadence_source": "oracle_clip_mean",
+                  "context_source": "oracle_clip_mean",
+                  "phase_initialisation": "first_valid_observed_phase",
+                  "root_path_source": "integrated_constant_clip_mean_command",
+                  "world_root_position_rmse_m": 7.4482809913052535,
+                  "world_root_orientation_rmse_rad": 1.8648926220877549
+                }
+              },
+              "walk3_subject2_04": {
+                "frames": 918,
+                "reconstruction": {
+                  "joint_rmse_rad": 0.24987325969055374,
+                  "root_residual_translation_rmse_m": 0.08005000354396914,
+                  "root_residual_rotvec_rmse_rad": 0.1732862494640788,
+                  "world_root_position_rmse_m": 0.13865067328422326,
+                  "world_root_orientation_rmse_rad": 0.29835164857566476,
+                  "foot_position_rmse_m": 0.2222167896466793,
+                  "contact_samples": 498,
+                  "learned_contact_horizontal_speed_rms_m_s": 0.5188505305155026,
+                  "source_contact_horizontal_speed_rms_m_s": 0.2427502572957713
+                },
+                "uniform_free_rollout": {
+                  "joint_rmse_rad": 0.3160451725657509,
+                  "root_residual_translation_rmse_m": 0.09366646115599335,
+                  "root_residual_rotvec_rmse_rad": 0.18480427862771792,
+                  "phase_rmse_cycles": 0.28308777428112614,
+                  "cycle_hz": 1.1705205369045855,
+                  "cadence_source": "oracle_clip_mean",
+                  "context_source": "oracle_clip_mean",
+                  "phase_initialisation": "first_valid_observed_phase",
+                  "root_path_source": "integrated_constant_clip_mean_command",
+                  "world_root_position_rmse_m": 8.113762764688726,
+                  "world_root_orientation_rmse_rad": 1.8529052911326243
+                }
+              }
+            }
+          }
+        }
+      ],
+      "selected_seed": 17,
+      "test_joint_rmse_mean_rad": 0.27972843386203133,
+      "test_joint_rmse_range_rad": [
+        0.27900755281291656,
+        0.28015037700997864
+      ]
+    },
+    "harmonic6": {
+      "label": "6 harmonics",
+      "candidates": [
+        {
+          "seed": 7,
+          "best_dev_mse": 1.0265623331069946,
+          "best_epoch": 68,
+          "parameters": 3168,
+          "tau_z_s": 0.05,
+          "aggregate": {
+            "train": {
+              "joint_rmse_rad": 0.15426419738079658,
+              "root_residual_translation_rmse_m": 0.0407439565626632,
+              "world_root_position_rmse_m": 0.07057060286791206,
+              "world_root_orientation_rmse_rad": 0.22826340570503692,
+              "foot_position_rmse_m": 0.12003400022535295,
+              "learned_contact_horizontal_speed_rms_m_s": 0.6030124548189701,
+              "source_contact_horizontal_speed_rms_m_s": 0.14965523011794574
+            },
+            "dev": {
+              "joint_rmse_rad": 0.2285747952186889,
+              "root_residual_translation_rmse_m": 0.06937903404767072,
+              "world_root_position_rmse_m": 0.1201680119506167,
+              "world_root_orientation_rmse_rad": 0.28668212965322626,
+              "foot_position_rmse_m": 0.20268939974799804,
+              "learned_contact_horizontal_speed_rms_m_s": 0.5117839071808514,
+              "source_contact_horizontal_speed_rms_m_s": 0.16259151999187166
+            },
+            "test": {
+              "joint_rmse_rad": 0.2681436021511166,
+              "root_residual_translation_rmse_m": 0.08622541775633706,
+              "world_root_position_rmse_m": 0.14934680445782741,
+              "world_root_orientation_rmse_rad": 0.37402885187602203,
+              "foot_position_rmse_m": 0.2458507065866885,
+              "learned_contact_horizontal_speed_rms_m_s": 0.7953752277117301,
+              "source_contact_horizontal_speed_rms_m_s": 0.23795619143770808
+            }
+          },
+          "metrics": {
+            "train": {
+              "run2_subject1_05": {
+                "frames": 1016,
+                "reconstruction": {
+                  "joint_rmse_rad": 0.22579618743080582,
+                  "root_residual_translation_rmse_m": 0.06698242604459649,
+                  "root_residual_rotvec_rmse_rad": 0.19956200359860743,
+                  "world_root_position_rmse_m": 0.11601696512346596,
+                  "world_root_orientation_rmse_rad": 0.34473383586587497,
+                  "foot_position_rmse_m": 0.1853967644594951,
+                  "contact_samples": 734,
+                  "learned_contact_horizontal_speed_rms_m_s": 0.9202114344589382,
+                  "source_contact_horizontal_speed_rms_m_s": 0.22437438034963472
+                },
+                "uniform_free_rollout": {
+                  "joint_rmse_rad": 0.2947670090895058,
+                  "root_residual_translation_rmse_m": 0.10840167184660097,
+                  "root_residual_rotvec_rmse_rad": 0.2393746661313303,
+                  "phase_rmse_cycles": 0.2692793644038766,
+                  "cycle_hz": 1.225277476824135,
+                  "cadence_source": "oracle_clip_mean",
+                  "context_source": "oracle_clip_mean",
+                  "phase_initialisation": "first_valid_observed_phase",
+                  "root_path_source": "integrated_constant_clip_mean_command",
+                  "world_root_position_rmse_m": 3.046285166491134,
+                  "world_root_orientation_rmse_rad": 1.802334339490933
+                }
+              },
+              "walk3_subject2_01": {
+                "frames": 388,
+                "reconstruction": {
+                  "joint_rmse_rad": 0.07713693893000693,
+                  "root_residual_translation_rmse_m": 0.015251667630104437,
+                  "root_residual_rotvec_rmse_rad": 0.06627244899095668,
+                  "world_root_position_rmse_m": 0.026416663235494495,
+                  "world_root_orientation_rmse_rad": 0.11456765769637454,
+                  "foot_position_rmse_m": 0.0489158394255221,
+                  "contact_samples": 429,
+                  "learned_contact_horizontal_speed_rms_m_s": 0.2631336270828994,
+                  "source_contact_horizontal_speed_rms_m_s": 0.10002929797746567
+                },
+                "uniform_free_rollout": {
+                  "joint_rmse_rad": 0.1688414789394479,
+                  "root_residual_translation_rmse_m": 0.02746872383877907,
+                  "root_residual_rotvec_rmse_rad": 0.07926973925013762,
+                  "phase_rmse_cycles": 0.1417030433764384,
+                  "cycle_hz": 0.8474082682384135,
+                  "cadence_source": "oracle_clip_mean",
+                  "context_source": "oracle_clip_mean",
+                  "phase_initialisation": "first_valid_observed_phase",
+                  "root_path_source": "integrated_constant_clip_mean_command",
+                  "world_root_position_rmse_m": 4.051348998604804,
+                  "world_root_orientation_rmse_rad": 1.3938662852696235
+                }
+              },
+              "walk3_subject2_02": {
+                "frames": 2292,
+                "reconstruction": {
+                  "joint_rmse_rad": 0.12152148673559825,
+                  "root_residual_translation_rmse_m": 0.025470554086685655,
+                  "root_residual_rotvec_rmse_rad": 0.09865341590665741,
+                  "world_root_position_rmse_m": 0.044116293775070654,
+                  "world_root_orientation_rmse_rad": 0.17064371955435598,
+                  "foot_position_rmse_m": 0.0871355826276683,
+                  "contact_samples": 2669,
+                  "learned_contact_horizontal_speed_rms_m_s": 0.5273204343726644,
+                  "source_contact_horizontal_speed_rms_m_s": 0.12923848027420287
+                },
+                "uniform_free_rollout": {
+                  "joint_rmse_rad": 0.20553446813951035,
+                  "root_residual_translation_rmse_m": 0.04341442090377868,
+                  "root_residual_rotvec_rmse_rad": 0.11134236939083368,
+                  "phase_rmse_cycles": 0.2550473505425879,
+                  "cycle_hz": 0.852234662894403,
+                  "cadence_source": "oracle_clip_mean",
+                  "context_source": "oracle_clip_mean",
+                  "phase_initialisation": "first_valid_observed_phase",
+                  "root_path_source": "integrated_constant_clip_mean_command",
+                  "world_root_position_rmse_m": 1.3865020656425748,
+                  "world_root_orientation_rmse_rad": 1.9839835550986311
+                }
+              }
+            },
+            "dev": {
+              "run2_subject1_06": {
+                "frames": 469,
+                "reconstruction": {
+                  "joint_rmse_rad": 0.23380173923564568,
+                  "root_residual_translation_rmse_m": 0.07566557577639615,
+                  "root_residual_rotvec_rmse_rad": 0.16862218223483647,
+                  "world_root_position_rmse_m": 0.13105662162867102,
+                  "world_root_orientation_rmse_rad": 0.2915473844211493,
+                  "foot_position_rmse_m": 0.21903617611573634,
+                  "contact_samples": 407,
+                  "learned_contact_horizontal_speed_rms_m_s": 0.5858661755047992,
+                  "source_contact_horizontal_speed_rms_m_s": 0.17090268857839144
+                },
+                "uniform_free_rollout": {
+                  "joint_rmse_rad": 0.3687309402958707,
+                  "root_residual_translation_rmse_m": 0.08489396543552312,
+                  "root_residual_rotvec_rmse_rad": 0.19674217902676028,
+                  "phase_rmse_cycles": 0.34712156931408034,
+                  "cycle_hz": 0.8123087816241725,
+                  "cadence_source": "oracle_clip_mean",
+                  "context_source": "oracle_clip_mean",
+                  "phase_initialisation": "first_valid_observed_phase",
+                  "root_path_source": "integrated_constant_clip_mean_command",
+                  "world_root_position_rmse_m": 6.850759716405857,
+                  "world_root_orientation_rmse_rad": 1.7201783488032785
+                }
+              },
+              "walk3_subject2_03": {
+                "frames": 131,
+                "reconstruction": {
+                  "joint_rmse_rad": 0.20879144095877225,
+                  "root_residual_translation_rmse_m": 0.03935687186286418,
+                  "root_residual_rotvec_rmse_rad": 0.1553509909303041,
+                  "world_root_position_rmse_m": 0.06816810169345873,
+                  "world_root_orientation_rmse_rad": 0.26854205741012227,
+                  "foot_position_rmse_m": 0.1280700749944449,
+                  "contact_samples": 213,
+                  "learned_contact_horizontal_speed_rms_m_s": 0.3264100611849795,
+                  "source_contact_horizontal_speed_rms_m_s": 0.14539529707012405
+                },
+                "uniform_free_rollout": {
+                  "joint_rmse_rad": 0.20339280891259665,
+                  "root_residual_translation_rmse_m": 0.03939695241688619,
+                  "root_residual_rotvec_rmse_rad": 0.1515545672923252,
+                  "phase_rmse_cycles": 0.07677760129907263,
+                  "cycle_hz": 0.6555463697843473,
+                  "cadence_source": "oracle_clip_mean",
+                  "context_source": "oracle_clip_mean",
+                  "phase_initialisation": "first_valid_observed_phase",
+                  "root_path_source": "integrated_constant_clip_mean_command",
+                  "world_root_position_rmse_m": 0.17323162523725433,
+                  "world_root_orientation_rmse_rad": 0.3553267594495012
+                }
+              }
+            },
+            "test": {
+              "run2_subject1_07": {
+                "frames": 1213,
+                "reconstruction": {
+                  "joint_rmse_rad": 0.2813207260268989,
+                  "root_residual_translation_rmse_m": 0.08962081724682544,
+                  "root_residual_rotvec_rmse_rad": 0.24674666564954145,
+                  "world_root_position_rmse_m": 0.15522780888734677,
+                  "world_root_orientation_rmse_rad": 0.4261616515952733,
+                  "foot_position_rmse_m": 0.2617008977342512,
+                  "contact_samples": 791,
+                  "learned_contact_horizontal_speed_rms_m_s": 0.9392476773216174,
+                  "source_contact_horizontal_speed_rms_m_s": 0.23488774192455336
+                },
+                "uniform_free_rollout": {
+                  "joint_rmse_rad": 0.34940462256781163,
+                  "root_residual_translation_rmse_m": 0.09063118078924515,
+                  "root_residual_rotvec_rmse_rad": 0.24999165854838973,
+                  "phase_rmse_cycles": 0.2975674348875099,
+                  "cycle_hz": 1.1295278490301819,
+                  "cadence_source": "oracle_clip_mean",
+                  "context_source": "oracle_clip_mean",
+                  "phase_initialisation": "first_valid_observed_phase",
+                  "root_path_source": "integrated_constant_clip_mean_command",
+                  "world_root_position_rmse_m": 7.41950628734427,
+                  "world_root_orientation_rmse_rad": 1.8717968684295432
+                }
+              },
+              "walk3_subject2_04": {
+                "frames": 918,
+                "reconstruction": {
+                  "joint_rmse_rad": 0.24966765270026228,
+                  "root_residual_translation_rmse_m": 0.08152230445585153,
+                  "root_residual_rotvec_rmse_rad": 0.16894409877497937,
+                  "world_root_position_rmse_m": 0.14120077326763353,
+                  "world_root_orientation_rmse_rad": 0.29116299101802035,
+                  "foot_position_rmse_m": 0.22318732177254233,
+                  "contact_samples": 498,
+                  "learned_contact_horizontal_speed_rms_m_s": 0.4860300529163183,
+                  "source_contact_horizontal_speed_rms_m_s": 0.2427502572957713
+                },
+                "uniform_free_rollout": {
+                  "joint_rmse_rad": 0.34850270652781534,
+                  "root_residual_translation_rmse_m": 0.08590441909266577,
+                  "root_residual_rotvec_rmse_rad": 0.1921716654024348,
+                  "phase_rmse_cycles": 0.28308777428112614,
+                  "cycle_hz": 1.1705205369045855,
+                  "cadence_source": "oracle_clip_mean",
+                  "context_source": "oracle_clip_mean",
+                  "phase_initialisation": "first_valid_observed_phase",
+                  "root_path_source": "integrated_constant_clip_mean_command",
+                  "world_root_position_rmse_m": 8.153796007144944,
+                  "world_root_orientation_rmse_rad": 1.8661337511466838
+                }
+              }
+            }
+          }
+        },
+        {
+          "seed": 17,
+          "best_dev_mse": 0.9700874090194702,
+          "best_epoch": 72,
+          "parameters": 3168,
+          "tau_z_s": 0.05,
+          "aggregate": {
+            "train": {
+              "joint_rmse_rad": 0.15401693005057962,
+              "root_residual_translation_rmse_m": 0.03734964203092259,
+              "world_root_position_rmse_m": 0.06469147764206795,
+              "world_root_orientation_rmse_rad": 0.21479960976553636,
+              "foot_position_rmse_m": 0.1152439343673668,
+              "learned_contact_horizontal_speed_rms_m_s": 0.616117549188626,
+              "source_contact_horizontal_speed_rms_m_s": 0.14965523011794574
+            },
+            "dev": {
+              "joint_rmse_rad": 0.22225503867829013,
+              "root_residual_translation_rmse_m": 0.06648914424385581,
+              "world_root_position_rmse_m": 0.11516257598213404,
+              "world_root_orientation_rmse_rad": 0.2774099500413092,
+              "foot_position_rmse_m": 0.196058732865796,
+              "learned_contact_horizontal_speed_rms_m_s": 0.5641390641950392,
+              "source_contact_horizontal_speed_rms_m_s": 0.16259151999187166
+            },
+            "test": {
+              "joint_rmse_rad": 0.27674031107396835,
+              "root_residual_translation_rmse_m": 0.0872352314154164,
+              "world_root_position_rmse_m": 0.15109585302152986,
+              "world_root_orientation_rmse_rad": 0.3911421374150011,
+              "foot_position_rmse_m": 0.24685350359897493,
+              "learned_contact_horizontal_speed_rms_m_s": 0.8761553893010479,
+              "source_contact_horizontal_speed_rms_m_s": 0.23795619143770808
+            }
+          },
+          "metrics": {
+            "train": {
+              "run2_subject1_05": {
+                "frames": 1016,
+                "reconstruction": {
+                  "joint_rmse_rad": 0.2251670311216304,
+                  "root_residual_translation_rmse_m": 0.06169692590022175,
+                  "root_residual_rotvec_rmse_rad": 0.1841160657264922,
+                  "world_root_position_rmse_m": 0.10686221032999627,
+                  "world_root_orientation_rmse_rad": 0.31785517554076836,
+                  "foot_position_rmse_m": 0.17906133968865634,
+                  "contact_samples": 734,
+                  "learned_contact_horizontal_speed_rms_m_s": 0.9489971044929297,
+                  "source_contact_horizontal_speed_rms_m_s": 0.22437438034963472
+                },
+                "uniform_free_rollout": {
+                  "joint_rmse_rad": 0.29004731786290106,
+                  "root_residual_translation_rmse_m": 0.10599313452768669,
+                  "root_residual_rotvec_rmse_rad": 0.23894820526037275,
+                  "phase_rmse_cycles": 0.2692793644038766,
+                  "cycle_hz": 1.225277476824135,
+                  "cadence_source": "oracle_clip_mean",
+                  "context_source": "oracle_clip_mean",
+                  "phase_initialisation": "first_valid_observed_phase",
+                  "root_path_source": "integrated_constant_clip_mean_command",
+                  "world_root_position_rmse_m": 3.035459317800248,
+                  "world_root_orientation_rmse_rad": 1.8023426021243956
+                }
+              },
+              "walk3_subject2_01": {
+                "frames": 388,
+                "reconstruction": {
+                  "joint_rmse_rad": 0.07538028321600247,
+                  "root_residual_translation_rmse_m": 0.013249721516788314,
+                  "root_residual_rotvec_rmse_rad": 0.06322205228865867,
+                  "world_root_position_rmse_m": 0.022949190853215923,
+                  "world_root_orientation_rmse_rad": 0.10929212687166762,
+                  "foot_position_rmse_m": 0.04504046169831022,
+                  "contact_samples": 429,
+                  "learned_contact_horizontal_speed_rms_m_s": 0.28766098898644366,
+                  "source_contact_horizontal_speed_rms_m_s": 0.10002929797746567
+                },
+                "uniform_free_rollout": {
+                  "joint_rmse_rad": 0.17093785961084237,
+                  "root_residual_translation_rmse_m": 0.028709095060788684,
+                  "root_residual_rotvec_rmse_rad": 0.07721898522995022,
+                  "phase_rmse_cycles": 0.1417030433764384,
+                  "cycle_hz": 0.8474082682384135,
+                  "cadence_source": "oracle_clip_mean",
+                  "context_source": "oracle_clip_mean",
+                  "phase_initialisation": "first_valid_observed_phase",
+                  "root_path_source": "integrated_constant_clip_mean_command",
+                  "world_root_position_rmse_m": 4.060830681948814,
+                  "world_root_orientation_rmse_rad": 1.3741809608218
+                }
+              },
+              "walk3_subject2_02": {
+                "frames": 2292,
+                "reconstruction": {
+                  "joint_rmse_rad": 0.12171965565120894,
+                  "root_residual_translation_rmse_m": 0.023074865876395883,
+                  "root_residual_rotvec_rmse_rad": 0.09603825616659023,
+                  "world_root_position_rmse_m": 0.03996684007575502,
+                  "world_root_orientation_rmse_rad": 0.16611550922863808,
+                  "foot_position_rmse_m": 0.08282769629501564,
+                  "contact_samples": 2669,
+                  "learned_contact_horizontal_speed_rms_m_s": 0.5329509677031199,
+                  "source_contact_horizontal_speed_rms_m_s": 0.12923848027420287
+                },
+                "uniform_free_rollout": {
+                  "joint_rmse_rad": 0.20250848608699576,
+                  "root_residual_translation_rmse_m": 0.048260240535076375,
+                  "root_residual_rotvec_rmse_rad": 0.12203275886599542,
+                  "phase_rmse_cycles": 0.2550473505425879,
+                  "cycle_hz": 0.852234662894403,
+                  "cadence_source": "oracle_clip_mean",
+                  "context_source": "oracle_clip_mean",
+                  "phase_initialisation": "first_valid_observed_phase",
+                  "root_path_source": "integrated_constant_clip_mean_command",
+                  "world_root_position_rmse_m": 1.4078765307721397,
+                  "world_root_orientation_rmse_rad": 1.9847772565565462
+                }
+              }
+            },
+            "dev": {
+              "run2_subject1_06": {
+                "frames": 469,
+                "reconstruction": {
+                  "joint_rmse_rad": 0.22718487229934192,
+                  "root_residual_translation_rmse_m": 0.07132361413678337,
+                  "root_residual_rotvec_rmse_rad": 0.1596067841935086,
+                  "world_root_position_rmse_m": 0.12353612346434664,
+                  "world_root_orientation_rmse_rad": 0.2758930968267981,
+                  "foot_position_rmse_m": 0.2097581974853154,
+                  "contact_samples": 407,
+                  "learned_contact_horizontal_speed_rms_m_s": 0.6627249678000363,
+                  "source_contact_horizontal_speed_rms_m_s": 0.17090268857839144
+                },
+                "uniform_free_rollout": {
+                  "joint_rmse_rad": 0.3629010543814481,
+                  "root_residual_translation_rmse_m": 0.08628137678701908,
+                  "root_residual_rotvec_rmse_rad": 0.195938184431426,
+                  "phase_rmse_cycles": 0.34712156931408034,
+                  "cycle_hz": 0.8123087816241725,
+                  "cadence_source": "oracle_clip_mean",
+                  "context_source": "oracle_clip_mean",
+                  "phase_initialisation": "first_valid_observed_phase",
+                  "root_path_source": "integrated_constant_clip_mean_command",
+                  "world_root_position_rmse_m": 6.860580452579679,
+                  "world_root_orientation_rmse_rad": 1.7222342743791381
+                }
+              },
+              "walk3_subject2_03": {
+                "frames": 131,
+                "reconstruction": {
+                  "joint_rmse_rad": 0.20362928789013915,
+                  "root_residual_translation_rmse_m": 0.04511677896958089,
+                  "root_residual_rotvec_rmse_rad": 0.1636185421709763,
+                  "world_root_position_rmse_m": 0.07814455344916912,
+                  "world_root_orientation_rmse_rad": 0.2827738126930408,
+                  "foot_position_rmse_m": 0.13614425660349772,
+                  "contact_samples": 213,
+                  "learned_contact_horizontal_speed_rms_m_s": 0.29519313377614087,
+                  "source_contact_horizontal_speed_rms_m_s": 0.14539529707012405
+                },
+                "uniform_free_rollout": {
+                  "joint_rmse_rad": 0.1975253023434699,
+                  "root_residual_translation_rmse_m": 0.06403033286128243,
+                  "root_residual_rotvec_rmse_rad": 0.1660862120349508,
+                  "phase_rmse_cycles": 0.07677760129907263,
+                  "cycle_hz": 0.6555463697843473,
+                  "cadence_source": "oracle_clip_mean",
+                  "context_source": "oracle_clip_mean",
+                  "phase_initialisation": "first_valid_observed_phase",
+                  "root_path_source": "integrated_constant_clip_mean_command",
+                  "world_root_position_rmse_m": 0.18859822128911102,
+                  "world_root_orientation_rmse_rad": 0.3748031292280658
+                }
+              }
+            },
+            "test": {
+              "run2_subject1_07": {
+                "frames": 1213,
+                "reconstruction": {
+                  "joint_rmse_rad": 0.29817544894124626,
+                  "root_residual_translation_rmse_m": 0.0916085582083955,
+                  "root_residual_rotvec_rmse_rad": 0.26088737348596935,
+                  "world_root_position_rmse_m": 0.15867067722507194,
+                  "world_root_orientation_rmse_rad": 0.4502256776179544,
+                  "foot_position_rmse_m": 0.26446120907678944,
+                  "contact_samples": 791,
+                  "learned_contact_horizontal_speed_rms_m_s": 1.0517196746139408,
+                  "source_contact_horizontal_speed_rms_m_s": 0.23488774192455336
+                },
+                "uniform_free_rollout": {
+                  "joint_rmse_rad": 0.3339285277396853,
+                  "root_residual_translation_rmse_m": 0.08933483151536128,
+                  "root_residual_rotvec_rmse_rad": 0.26958650307065235,
+                  "phase_rmse_cycles": 0.2975674348875099,
+                  "cycle_hz": 1.1295278490301819,
+                  "cadence_source": "oracle_clip_mean",
+                  "context_source": "oracle_clip_mean",
+                  "phase_initialisation": "first_valid_observed_phase",
+                  "root_path_source": "integrated_constant_clip_mean_command",
+                  "world_root_position_rmse_m": 7.418782709055887,
+                  "world_root_orientation_rmse_rad": 1.8634086922836373
+                }
+              },
+              "walk3_subject2_04": {
+                "frames": 918,
+                "reconstruction": {
+                  "joint_rmse_rad": 0.24556397876185646,
+                  "root_residual_translation_rmse_m": 0.0810956301338582,
+                  "root_residual_rotvec_rmse_rad": 0.17166479687133435,
+                  "world_root_position_rmse_m": 0.1404617516636561,
+                  "world_root_orientation_rmse_rad": 0.2954767643577287,
+                  "foot_position_rmse_m": 0.2214507329243493,
+                  "contact_samples": 498,
+                  "learned_contact_horizontal_speed_rms_m_s": 0.47962967730914396,
+                  "source_contact_horizontal_speed_rms_m_s": 0.2427502572957713
+                },
+                "uniform_free_rollout": {
+                  "joint_rmse_rad": 0.33147452703792724,
+                  "root_residual_translation_rmse_m": 0.08708923005796823,
+                  "root_residual_rotvec_rmse_rad": 0.1849102711769387,
+                  "phase_rmse_cycles": 0.28308777428112614,
+                  "cycle_hz": 1.1705205369045855,
+                  "cadence_source": "oracle_clip_mean",
+                  "context_source": "oracle_clip_mean",
+                  "phase_initialisation": "first_valid_observed_phase",
+                  "root_path_source": "integrated_constant_clip_mean_command",
+                  "world_root_position_rmse_m": 8.138851312551603,
+                  "world_root_orientation_rmse_rad": 1.8537027042666372
+                }
+              }
+            }
+          }
+        },
+        {
+          "seed": 27,
+          "best_dev_mse": 0.964611828327179,
+          "best_epoch": 66,
+          "parameters": 3168,
+          "tau_z_s": 0.05,
+          "aggregate": {
+            "train": {
+              "joint_rmse_rad": 0.15409991287680666,
+              "root_residual_translation_rmse_m": 0.04107619070837262,
+              "world_root_position_rmse_m": 0.07114604928829002,
+              "world_root_orientation_rmse_rad": 0.22419738671326808,
+              "foot_position_rmse_m": 0.12190041520805632,
+              "learned_contact_horizontal_speed_rms_m_s": 0.6060056990100349,
+              "source_contact_horizontal_speed_rms_m_s": 0.14965523011794574
+            },
+            "dev": {
+              "joint_rmse_rad": 0.21627995738015612,
+              "root_residual_translation_rmse_m": 0.07072502885058406,
+              "world_root_position_rmse_m": 0.12249934333598625,
+              "world_root_orientation_rmse_rad": 0.27602075723188363,
+              "foot_position_rmse_m": 0.20445801409703415,
+              "learned_contact_horizontal_speed_rms_m_s": 0.5766420082873343,
+              "source_contact_horizontal_speed_rms_m_s": 0.16259151999187166
+            },
+            "test": {
+              "joint_rmse_rad": 0.2816179434170176,
+              "root_residual_translation_rmse_m": 0.07908875664763701,
+              "world_root_position_rmse_m": 0.1369857448211581,
+              "world_root_orientation_rmse_rad": 0.36774249609054394,
+              "foot_position_rmse_m": 0.22968103369093326,
+              "learned_contact_horizontal_speed_rms_m_s": 0.8099496087320962,
+              "source_contact_horizontal_speed_rms_m_s": 0.23795619143770808
+            }
+          },
+          "metrics": {
+            "train": {
+              "run2_subject1_05": {
+                "frames": 1016,
+                "reconstruction": {
+                  "joint_rmse_rad": 0.22749913667288202,
+                  "root_residual_translation_rmse_m": 0.06698703160169167,
+                  "root_residual_rotvec_rmse_rad": 0.1945273616681745,
+                  "world_root_position_rmse_m": 0.11602494218235197,
+                  "world_root_orientation_rmse_rad": 0.33603582187260933,
+                  "foot_position_rmse_m": 0.18891455972327525,
+                  "contact_samples": 734,
+                  "learned_contact_horizontal_speed_rms_m_s": 0.8776260476381408,
+                  "source_contact_horizontal_speed_rms_m_s": 0.22437438034963472
+                },
+                "uniform_free_rollout": {
+                  "joint_rmse_rad": 0.3102974136103694,
+                  "root_residual_translation_rmse_m": 0.10832256511547775,
+                  "root_residual_rotvec_rmse_rad": 0.2407571497080638,
+                  "phase_rmse_cycles": 0.2692793644038766,
+                  "cycle_hz": 1.225277476824135,
+                  "cadence_source": "oracle_clip_mean",
+                  "context_source": "oracle_clip_mean",
+                  "phase_initialisation": "first_valid_observed_phase",
+                  "root_path_source": "integrated_constant_clip_mean_command",
+                  "world_root_position_rmse_m": 3.046473416612982,
+                  "world_root_orientation_rmse_rad": 1.8036262909869847
+                }
+              },
+              "walk3_subject2_01": {
+                "frames": 388,
+                "reconstruction": {
+                  "joint_rmse_rad": 0.07487592188228918,
+                  "root_residual_translation_rmse_m": 0.013531939527431095,
+                  "root_residual_rotvec_rmse_rad": 0.0642717220950015,
+                  "world_root_position_rmse_m": 0.023438006786460235,
+                  "world_root_orientation_rmse_rad": 0.11112017290139213,
+                  "foot_position_rmse_m": 0.04610423398274352,
+                  "contact_samples": 429,
+                  "learned_contact_horizontal_speed_rms_m_s": 0.25293229600250217,
+                  "source_contact_horizontal_speed_rms_m_s": 0.10002929797746567
+                },
+                "uniform_free_rollout": {
+                  "joint_rmse_rad": 0.16873985007050993,
+                  "root_residual_translation_rmse_m": 0.027580909954438237,
+                  "root_residual_rotvec_rmse_rad": 0.07946302699230569,
+                  "phase_rmse_cycles": 0.1417030433764384,
+                  "cycle_hz": 0.8474082682384135,
+                  "cadence_source": "oracle_clip_mean",
+                  "context_source": "oracle_clip_mean",
+                  "phase_initialisation": "first_valid_observed_phase",
+                  "root_path_source": "integrated_constant_clip_mean_command",
+                  "world_root_position_rmse_m": 4.052489345743973,
+                  "world_root_orientation_rmse_rad": 1.3832678292064922
+                }
+              },
+              "walk3_subject2_02": {
+                "frames": 2292,
+                "reconstruction": {
+                  "joint_rmse_rad": 0.12000740776386026,
+                  "root_residual_translation_rmse_m": 0.026470555031500535,
+                  "root_residual_rotvec_rmse_rad": 0.09829598733720585,
+                  "world_root_position_rmse_m": 0.04584834621910691,
+                  "world_root_orientation_rmse_rad": 0.17002691364494357,
+                  "foot_position_rmse_m": 0.08821734003303393,
+                  "contact_samples": 2669,
+                  "learned_contact_horizontal_speed_rms_m_s": 0.5524164988053826,
+                  "source_contact_horizontal_speed_rms_m_s": 0.12923848027420287
+                },
+                "uniform_free_rollout": {
+                  "joint_rmse_rad": 0.20112177653119806,
+                  "root_residual_translation_rmse_m": 0.043601582591771604,
+                  "root_residual_rotvec_rmse_rad": 0.10765062268641148,
+                  "phase_rmse_cycles": 0.2550473505425879,
+                  "cycle_hz": 0.852234662894403,
+                  "cadence_source": "oracle_clip_mean",
+                  "context_source": "oracle_clip_mean",
+                  "phase_initialisation": "first_valid_observed_phase",
+                  "root_path_source": "integrated_constant_clip_mean_command",
+                  "world_root_position_rmse_m": 1.3845158946557403,
+                  "world_root_orientation_rmse_rad": 1.9830373947634699
+                }
+              }
+            },
+            "dev": {
+              "run2_subject1_06": {
+                "frames": 469,
+                "reconstruction": {
+                  "joint_rmse_rad": 0.22014002923957127,
+                  "root_residual_translation_rmse_m": 0.07657210287844707,
+                  "root_residual_rotvec_rmse_rad": 0.16302162446731908,
+                  "world_root_position_rmse_m": 0.1326267726278614,
+                  "world_root_orientation_rmse_rad": 0.2817200622050033,
+                  "foot_position_rmse_m": 0.2215841994871426,
+                  "contact_samples": 407,
+                  "learned_contact_horizontal_speed_rms_m_s": 0.6334956239088481,
+                  "source_contact_horizontal_speed_rms_m_s": 0.17090268857839144
+                },
+                "uniform_free_rollout": {
+                  "joint_rmse_rad": 0.36470640890528305,
+                  "root_residual_translation_rmse_m": 0.08435514677691747,
+                  "root_residual_rotvec_rmse_rad": 0.19461872332678165,
+                  "phase_rmse_cycles": 0.34712156931408034,
+                  "cycle_hz": 0.8123087816241725,
+                  "cadence_source": "oracle_clip_mean",
+                  "context_source": "oracle_clip_mean",
+                  "phase_initialisation": "first_valid_observed_phase",
+                  "root_path_source": "integrated_constant_clip_mean_command",
+                  "world_root_position_rmse_m": 6.843236444822433,
+                  "world_root_orientation_rmse_rad": 1.7186380771017697
+                }
+              },
+              "walk3_subject2_03": {
+                "frames": 131,
+                "reconstruction": {
+                  "joint_rmse_rad": 0.20185601301062023,
+                  "root_residual_translation_rmse_m": 0.04380179586508649,
+                  "root_residual_rotvec_rmse_rad": 0.14721732655895708,
+                  "world_root_position_rmse_m": 0.07586693590109017,
+                  "world_root_orientation_rmse_rad": 0.2545723899541762,
+                  "foot_position_rmse_m": 0.12522210092154676,
+                  "contact_samples": 213,
+                  "learned_contact_horizontal_speed_rms_m_s": 0.4483879545283189,
+                  "source_contact_horizontal_speed_rms_m_s": 0.14539529707012405
+                },
+                "uniform_free_rollout": {
+                  "joint_rmse_rad": 0.1950364885130278,
+                  "root_residual_translation_rmse_m": 0.03381912721486139,
+                  "root_residual_rotvec_rmse_rad": 0.14148652291699687,
+                  "phase_rmse_cycles": 0.07677760129907263,
+                  "cycle_hz": 0.6555463697843473,
+                  "cadence_source": "oracle_clip_mean",
+                  "context_source": "oracle_clip_mean",
+                  "phase_initialisation": "first_valid_observed_phase",
+                  "root_path_source": "integrated_constant_clip_mean_command",
+                  "world_root_position_rmse_m": 0.1706911704356016,
+                  "world_root_orientation_rmse_rad": 0.3428970136479144
+                }
+              }
+            },
+            "test": {
+              "run2_subject1_07": {
+                "frames": 1213,
+                "reconstruction": {
+                  "joint_rmse_rad": 0.29834936519838146,
+                  "root_residual_translation_rmse_m": 0.08132645594910876,
+                  "root_residual_rotvec_rmse_rad": 0.24259084533596087,
+                  "world_root_position_rmse_m": 0.14086155370336856,
+                  "world_root_orientation_rmse_rad": 0.41884532740656505,
+                  "foot_position_rmse_m": 0.24207876744304027,
+                  "contact_samples": 791,
+                  "learned_contact_horizontal_speed_rms_m_s": 0.9602237387642389,
+                  "source_contact_horizontal_speed_rms_m_s": 0.23488774192455336
+                },
+                "uniform_free_rollout": {
+                  "joint_rmse_rad": 0.3326048216370359,
+                  "root_residual_translation_rmse_m": 0.08293172915160307,
+                  "root_residual_rotvec_rmse_rad": 0.2507459543241495,
+                  "phase_rmse_cycles": 0.2975674348875099,
+                  "cycle_hz": 1.1295278490301819,
+                  "cadence_source": "oracle_clip_mean",
+                  "context_source": "oracle_clip_mean",
+                  "phase_initialisation": "first_valid_observed_phase",
+                  "root_path_source": "integrated_constant_clip_mean_command",
+                  "world_root_position_rmse_m": 7.440482120680391,
+                  "world_root_orientation_rmse_rad": 1.863683697770548
+                }
+              },
+              "walk3_subject2_04": {
+                "frames": 918,
+                "reconstruction": {
+                  "joint_rmse_rad": 0.25785015838520187,
+                  "root_residual_translation_rmse_m": 0.07603103330141331,
+                  "root_residual_rotvec_rmse_rad": 0.1662217847733381,
+                  "world_root_position_rmse_m": 0.13168961263000914,
+                  "world_root_orientation_rmse_rad": 0.28656654619428196,
+                  "foot_position_rmse_m": 0.21219124341342194,
+                  "contact_samples": 498,
+                  "learned_contact_horizontal_speed_rms_m_s": 0.4832168003180733,
+                  "source_contact_horizontal_speed_rms_m_s": 0.2427502572957713
+                },
+                "uniform_free_rollout": {
+                  "joint_rmse_rad": 0.3291767023602689,
+                  "root_residual_translation_rmse_m": 0.08868672512356382,
+                  "root_residual_rotvec_rmse_rad": 0.185406813967909,
+                  "phase_rmse_cycles": 0.28308777428112614,
+                  "cycle_hz": 1.1705205369045855,
+                  "cadence_source": "oracle_clip_mean",
+                  "context_source": "oracle_clip_mean",
+                  "phase_initialisation": "first_valid_observed_phase",
+                  "root_path_source": "integrated_constant_clip_mean_command",
+                  "world_root_position_rmse_m": 8.131060611476647,
+                  "world_root_orientation_rmse_rad": 1.8541548775920664
+                }
+              }
+            }
+          }
+        }
+      ],
+      "selected_seed": 27,
+      "test_joint_rmse_mean_rad": 0.2755006188807008,
+      "test_joint_rmse_range_rad": [
+        0.2681436021511166,
+        0.2816179434170176
+      ]
+    },
+    "rff": {
+      "label": "Periodic RFF",
+      "settings": {
+        "phase_bandwidth": 1.0,
+        "context_bandwidth": 0.5,
+        "ridge": 0.0001
+      },
+      "candidates": [
+        {
+          "seed": 7,
+          "best_dev_mse": 1.0194669961929321,
+          "parameters": 2268,
+          "tau_z_s": 0.1,
+          "aggregate": {
+            "train": {
+              "joint_rmse_rad": 0.16044812342852743,
+              "root_residual_translation_rmse_m": 0.046910082188365634,
+              "world_root_position_rmse_m": 0.0812506457374811,
+              "world_root_orientation_rmse_rad": 0.21050388941626,
+              "foot_position_rmse_m": 0.1402978969144898,
+              "learned_contact_horizontal_speed_rms_m_s": 0.6184539156437497,
+              "source_contact_horizontal_speed_rms_m_s": 0.14965523011794574
+            },
+            "dev": {
+              "joint_rmse_rad": 0.22559597083626837,
+              "root_residual_translation_rmse_m": 0.06706098773437047,
+              "world_root_position_rmse_m": 0.11615303796168297,
+              "world_root_orientation_rmse_rad": 0.28826557481489706,
+              "foot_position_rmse_m": 0.20806218902369564,
+              "learned_contact_horizontal_speed_rms_m_s": 0.605298720927203,
+              "source_contact_horizontal_speed_rms_m_s": 0.16259151999187166
+            },
+            "test": {
+              "joint_rmse_rad": 0.2624416537762315,
+              "root_residual_translation_rmse_m": 0.0733320434331077,
+              "world_root_position_rmse_m": 0.12701482504899017,
+              "world_root_orientation_rmse_rad": 0.3833846326115448,
+              "foot_position_rmse_m": 0.2238987663012099,
+              "learned_contact_horizontal_speed_rms_m_s": 0.7398126928445841,
+              "source_contact_horizontal_speed_rms_m_s": 0.23795619143770808
+            }
+          },
+          "metrics": {
+            "train": {
+              "run2_subject1_05": {
+                "frames": 1016,
+                "reconstruction": {
+                  "joint_rmse_rad": 0.2325622366186828,
+                  "root_residual_translation_rmse_m": 0.07639914422774034,
+                  "root_residual_rotvec_rmse_rad": 0.17736072387657323,
+                  "world_root_position_rmse_m": 0.1323271994572288,
+                  "world_root_orientation_rmse_rad": 0.30645028003805896,
+                  "foot_position_rmse_m": 0.21691786170297292,
+                  "contact_samples": 734,
+                  "learned_contact_horizontal_speed_rms_m_s": 0.9631899829201759,
+                  "source_contact_horizontal_speed_rms_m_s": 0.22437438034963472
+                },
+                "uniform_free_rollout": {
+                  "joint_rmse_rad": 0.3445059226054165,
+                  "root_residual_translation_rmse_m": 0.10536695753536841,
+                  "root_residual_rotvec_rmse_rad": 0.24232149541356227,
+                  "phase_rmse_cycles": 0.2692793644038766,
+                  "cycle_hz": 1.225277476824135,
+                  "cadence_source": "oracle_clip_mean",
+                  "context_source": "oracle_clip_mean",
+                  "phase_initialisation": "first_valid_observed_phase",
+                  "root_path_source": "integrated_constant_clip_mean_command",
+                  "world_root_position_rmse_m": 3.023559736642043,
+                  "world_root_orientation_rmse_rad": 1.8009510055462705
+                }
+              },
+              "walk3_subject2_01": {
+                "frames": 388,
+                "reconstruction": {
+                  "joint_rmse_rad": 0.09302538689521136,
+                  "root_residual_translation_rmse_m": 0.013572593546898236,
+                  "root_residual_rotvec_rmse_rad": 0.06531365062385108,
+                  "world_root_position_rmse_m": 0.023508421613709217,
+                  "world_root_orientation_rmse_rad": 0.11292402680675087,
+                  "foot_position_rmse_m": 0.05653703514035984,
+                  "contact_samples": 429,
+                  "learned_contact_horizontal_speed_rms_m_s": 0.3278030322376195,
+                  "source_contact_horizontal_speed_rms_m_s": 0.10002929797746567
+                },
+                "uniform_free_rollout": {
+                  "joint_rmse_rad": 0.1651991759142222,
+                  "root_residual_translation_rmse_m": 0.02790074875873355,
+                  "root_residual_rotvec_rmse_rad": 0.07904869658622238,
+                  "phase_rmse_cycles": 0.1417030433764384,
+                  "cycle_hz": 0.8474082682384135,
+                  "cadence_source": "oracle_clip_mean",
+                  "context_source": "oracle_clip_mean",
+                  "phase_initialisation": "first_valid_observed_phase",
+                  "root_path_source": "integrated_constant_clip_mean_command",
+                  "world_root_position_rmse_m": 4.051293206403037,
+                  "world_root_orientation_rmse_rad": 1.399265355970922
+                }
+              },
+              "walk3_subject2_02": {
+                "frames": 2292,
+                "reconstruction": {
+                  "joint_rmse_rad": 0.12678076296267662,
+                  "root_residual_translation_rmse_m": 0.03049590305157515,
+                  "root_residual_rotvec_rmse_rad": 0.09616937853868908,
+                  "world_root_position_rmse_m": 0.05282045350802293,
+                  "world_root_orientation_rmse_rad": 0.16633648956285346,
+                  "foot_position_rmse_m": 0.10169545651030973,
+                  "contact_samples": 2669,
+                  "learned_contact_horizontal_speed_rms_m_s": 0.5260639782597967,
+                  "source_contact_horizontal_speed_rms_m_s": 0.12923848027420287
+                },
+                "uniform_free_rollout": {
+                  "joint_rmse_rad": 0.2109278542505792,
+                  "root_residual_translation_rmse_m": 0.04193259660188198,
+                  "root_residual_rotvec_rmse_rad": 0.10888381425340916,
+                  "phase_rmse_cycles": 0.2550473505425879,
+                  "cycle_hz": 0.852234662894403,
+                  "cadence_source": "oracle_clip_mean",
+                  "context_source": "oracle_clip_mean",
+                  "phase_initialisation": "first_valid_observed_phase",
+                  "root_path_source": "integrated_constant_clip_mean_command",
+                  "world_root_position_rmse_m": 1.3917904265753205,
+                  "world_root_orientation_rmse_rad": 1.9832104035341034
+                }
+              }
+            },
+            "dev": {
+              "run2_subject1_06": {
+                "frames": 469,
+                "reconstruction": {
+                  "joint_rmse_rad": 0.22587960360972584,
+                  "root_residual_translation_rmse_m": 0.07400870486328368,
+                  "root_residual_rotvec_rmse_rad": 0.17005344521355073,
+                  "world_root_position_rmse_m": 0.1281868370255772,
+                  "world_root_orientation_rmse_rad": 0.2938999854977449,
+                  "foot_position_rmse_m": 0.22519636189945216,
+                  "contact_samples": 407,
+                  "learned_contact_horizontal_speed_rms_m_s": 0.6799406780900286,
+                  "source_contact_horizontal_speed_rms_m_s": 0.17090268857839144
+                },
+                "uniform_free_rollout": {
+                  "joint_rmse_rad": 0.3620820624582653,
+                  "root_residual_translation_rmse_m": 0.08514512615145624,
+                  "root_residual_rotvec_rmse_rad": 0.19765866512566282,
+                  "phase_rmse_cycles": 0.34712156931408034,
+                  "cycle_hz": 0.8123087816241725,
+                  "cadence_source": "oracle_clip_mean",
+                  "context_source": "oracle_clip_mean",
+                  "phase_initialisation": "first_valid_observed_phase",
+                  "root_path_source": "integrated_constant_clip_mean_command",
+                  "world_root_position_rmse_m": 6.851646931215352,
+                  "world_root_orientation_rmse_rad": 1.7224984504603762
+                }
+              },
+              "walk3_subject2_03": {
+                "frames": 131,
+                "reconstruction": {
+                  "joint_rmse_rad": 0.22457758526452554,
+                  "root_residual_translation_rmse_m": 0.03143603563048138,
+                  "root_residual_rotvec_rmse_rad": 0.15445899673162766,
+                  "world_root_position_rmse_m": 0.05444881090053929,
+                  "world_root_orientation_rmse_rad": 0.2671208875484688,
+                  "foot_position_rmse_m": 0.12927689196284098,
+                  "contact_samples": 213,
+                  "learned_contact_horizontal_speed_rms_m_s": 0.4278765683328393,
+                  "source_contact_horizontal_speed_rms_m_s": 0.14539529707012405
+                },
+                "uniform_free_rollout": {
+                  "joint_rmse_rad": 0.19801950794093787,
+                  "root_residual_translation_rmse_m": 0.03675995291131494,
+                  "root_residual_rotvec_rmse_rad": 0.15294185953986442,
+                  "phase_rmse_cycles": 0.07677760129907263,
+                  "cycle_hz": 0.6555463697843473,
+                  "cadence_source": "oracle_clip_mean",
+                  "context_source": "oracle_clip_mean",
+                  "phase_initialisation": "first_valid_observed_phase",
+                  "root_path_source": "integrated_constant_clip_mean_command",
+                  "world_root_position_rmse_m": 0.17111142769736012,
+                  "world_root_orientation_rmse_rad": 0.3564888911775933
+                }
+              }
+            },
+            "test": {
+              "run2_subject1_07": {
+                "frames": 1213,
+                "reconstruction": {
+                  "joint_rmse_rad": 0.27101399339807775,
+                  "root_residual_translation_rmse_m": 0.07819254845548547,
+                  "root_residual_rotvec_rmse_rad": 0.2515411242011929,
+                  "world_root_position_rmse_m": 0.13543346669819217,
+                  "world_root_orientation_rmse_rad": 0.4342387532833477,
+                  "foot_position_rmse_m": 0.24155080854954247,
+                  "contact_samples": 791,
+                  "learned_contact_horizontal_speed_rms_m_s": 0.840699946209825,
+                  "source_contact_horizontal_speed_rms_m_s": 0.23488774192455336
+                },
+                "uniform_free_rollout": {
+                  "joint_rmse_rad": 0.3641829352806097,
+                  "root_residual_translation_rmse_m": 0.08133963840500903,
+                  "root_residual_rotvec_rmse_rad": 0.2373687646057966,
+                  "phase_rmse_cycles": 0.2975674348875099,
+                  "cycle_hz": 1.1295278490301819,
+                  "cadence_source": "oracle_clip_mean",
+                  "context_source": "oracle_clip_mean",
+                  "phase_initialisation": "first_valid_observed_phase",
+                  "root_path_source": "integrated_constant_clip_mean_command",
+                  "world_root_position_rmse_m": 7.488515913903686,
+                  "world_root_orientation_rmse_rad": 1.8733526437061374
+                }
+              },
+              "walk3_subject2_04": {
+                "frames": 918,
+                "reconstruction": {
+                  "joint_rmse_rad": 0.2506653815650542,
+                  "root_residual_translation_rmse_m": 0.06636589639022589,
+                  "root_residual_rotvec_rmse_rad": 0.17553681418248732,
+                  "world_root_position_rmse_m": 0.11494910443772317,
+                  "world_root_orientation_rmse_rad": 0.30338531320964984,
+                  "foot_position_rmse_m": 0.19817734624402022,
+                  "contact_samples": 498,
+                  "learned_contact_horizontal_speed_rms_m_s": 0.5422676312204137,
+                  "source_contact_horizontal_speed_rms_m_s": 0.2427502572957713
+                },
+                "uniform_free_rollout": {
+                  "joint_rmse_rad": 0.33889525374792534,
+                  "root_residual_translation_rmse_m": 0.08935580223867991,
+                  "root_residual_rotvec_rmse_rad": 0.20580076925126944,
+                  "phase_rmse_cycles": 0.28308777428112614,
+                  "cycle_hz": 1.1705205369045855,
+                  "cadence_source": "oracle_clip_mean",
+                  "context_source": "oracle_clip_mean",
+                  "phase_initialisation": "first_valid_observed_phase",
+                  "root_path_source": "integrated_constant_clip_mean_command",
+                  "world_root_position_rmse_m": 8.170919553111656,
+                  "world_root_orientation_rmse_rad": 1.867605426498465
+                }
+              }
+            }
+          }
+        },
+        {
+          "seed": 17,
+          "best_dev_mse": 1.0369057655334473,
+          "parameters": 2268,
+          "tau_z_s": 0.05,
+          "aggregate": {
+            "train": {
+              "joint_rmse_rad": 0.1633508137820652,
+              "root_residual_translation_rmse_m": 0.04913900349724854,
+              "world_root_position_rmse_m": 0.08511125069053924,
+              "world_root_orientation_rmse_rad": 0.21256130988389907,
+              "foot_position_rmse_m": 0.1446291073692666,
+              "learned_contact_horizontal_speed_rms_m_s": 0.6041459905956879,
+              "source_contact_horizontal_speed_rms_m_s": 0.14965523011794574
+            },
+            "dev": {
+              "joint_rmse_rad": 0.22607167839860112,
+              "root_residual_translation_rmse_m": 0.07221033173030329,
+              "world_root_position_rmse_m": 0.12507196338828835,
+              "world_root_orientation_rmse_rad": 0.29075603962548,
+              "foot_position_rmse_m": 0.21036590814594777,
+              "learned_contact_horizontal_speed_rms_m_s": 0.6202869629866484,
+              "source_contact_horizontal_speed_rms_m_s": 0.16259151999187166
+            },
+            "test": {
+              "joint_rmse_rad": 0.2624554917910977,
+              "root_residual_translation_rmse_m": 0.08230326851971986,
+              "world_root_position_rmse_m": 0.14255344270513892,
+              "world_root_orientation_rmse_rad": 0.38683093104592026,
+              "foot_position_rmse_m": 0.24228572109664143,
+              "learned_contact_horizontal_speed_rms_m_s": 0.7417022640997581,
+              "source_contact_horizontal_speed_rms_m_s": 0.23795619143770808
+            }
+          },
+          "metrics": {
+            "train": {
+              "run2_subject1_05": {
+                "frames": 1016,
+                "reconstruction": {
+                  "joint_rmse_rad": 0.23729241142327967,
+                  "root_residual_translation_rmse_m": 0.07905667887678582,
+                  "root_residual_rotvec_rmse_rad": 0.17958541096565925,
+                  "world_root_position_rmse_m": 0.1369301844922503,
+                  "world_root_orientation_rmse_rad": 0.31027933272985075,
+                  "foot_position_rmse_m": 0.22229960823091172,
+                  "contact_samples": 734,
+                  "learned_contact_horizontal_speed_rms_m_s": 0.8932469268104539,
+                  "source_contact_horizontal_speed_rms_m_s": 0.22437438034963472
+                },
+                "uniform_free_rollout": {
+                  "joint_rmse_rad": 0.32746448667833933,
+                  "root_residual_translation_rmse_m": 0.1075670306521322,
+                  "root_residual_rotvec_rmse_rad": 0.24096880241407606,
+                  "phase_rmse_cycles": 0.2692793644038766,
+                  "cycle_hz": 1.225277476824135,
+                  "cadence_source": "oracle_clip_mean",
+                  "context_source": "oracle_clip_mean",
+                  "phase_initialisation": "first_valid_observed_phase",
+                  "root_path_source": "integrated_constant_clip_mean_command",
+                  "world_root_position_rmse_m": 3.0111571920742954,
+                  "world_root_orientation_rmse_rad": 1.800839081664557
+                }
+              },
+              "walk3_subject2_01": {
+                "frames": 388,
+                "reconstruction": {
+                  "joint_rmse_rad": 0.09356886668771387,
+                  "root_residual_translation_rmse_m": 0.020846923421504703,
+                  "root_residual_rotvec_rmse_rad": 0.06714033471076347,
+                  "world_root_position_rmse_m": 0.036107930547543764,
+                  "world_root_orientation_rmse_rad": 0.11607771264481007,
+                  "foot_position_rmse_m": 0.06639576725620763,
+                  "contact_samples": 429,
+                  "learned_contact_horizontal_speed_rms_m_s": 0.2963561278241711,
+                  "source_contact_horizontal_speed_rms_m_s": 0.10002929797746567
+                },
+                "uniform_free_rollout": {
+                  "joint_rmse_rad": 0.1673858294167223,
+                  "root_residual_translation_rmse_m": 0.029885270663494338,
+                  "root_residual_rotvec_rmse_rad": 0.07606403832161428,
+                  "phase_rmse_cycles": 0.1417030433764384,
+                  "cycle_hz": 0.8474082682384135,
+                  "cadence_source": "oracle_clip_mean",
+                  "context_source": "oracle_clip_mean",
+                  "phase_initialisation": "first_valid_observed_phase",
+                  "root_path_source": "integrated_constant_clip_mean_command",
+                  "world_root_position_rmse_m": 4.033557531723793,
+                  "world_root_orientation_rmse_rad": 1.3893747191702086
+                }
+              },
+              "walk3_subject2_02": {
+                "frames": 2292,
+                "reconstruction": {
+                  "joint_rmse_rad": 0.12878911480543953,
+                  "root_residual_translation_rmse_m": 0.03239922775463749,
+                  "root_residual_rotvec_rmse_rad": 0.09658614024540463,
+                  "world_root_position_rmse_m": 0.05611710859702785,
+                  "world_root_orientation_rmse_rad": 0.16704005798303173,
+                  "foot_position_rmse_m": 0.10525694234889564,
+                  "contact_samples": 2669,
+                  "learned_contact_horizontal_speed_rms_m_s": 0.5389725998547603,
+                  "source_contact_horizontal_speed_rms_m_s": 0.12923848027420287
+                },
+                "uniform_free_rollout": {
+                  "joint_rmse_rad": 0.2105674974705826,
+                  "root_residual_translation_rmse_m": 0.042393875977705386,
+                  "root_residual_rotvec_rmse_rad": 0.1093587485972386,
+                  "phase_rmse_cycles": 0.2550473505425879,
+                  "cycle_hz": 0.852234662894403,
+                  "cadence_source": "oracle_clip_mean",
+                  "context_source": "oracle_clip_mean",
+                  "phase_initialisation": "first_valid_observed_phase",
+                  "root_path_source": "integrated_constant_clip_mean_command",
+                  "world_root_position_rmse_m": 1.391973190629206,
+                  "world_root_orientation_rmse_rad": 1.9834565886439006
+                }
+              }
+            },
+            "dev": {
+              "run2_subject1_06": {
+                "frames": 469,
+                "reconstruction": {
+                  "joint_rmse_rad": 0.22896692566275811,
+                  "root_residual_translation_rmse_m": 0.07872174386571129,
+                  "root_residual_rotvec_rmse_rad": 0.1745732835687828,
+                  "world_root_position_rmse_m": 0.13635006003583555,
+                  "world_root_orientation_rmse_rad": 0.3016961714742869,
+                  "foot_position_rmse_m": 0.2309400055514826,
+                  "contact_samples": 407,
+                  "learned_contact_horizontal_speed_rms_m_s": 0.6440493494523379,
+                  "source_contact_horizontal_speed_rms_m_s": 0.17090268857839144
+                },
+                "uniform_free_rollout": {
+                  "joint_rmse_rad": 0.35699649054490556,
+                  "root_residual_translation_rmse_m": 0.08556416533696866,
+                  "root_residual_rotvec_rmse_rad": 0.19475671982419526,
+                  "phase_rmse_cycles": 0.34712156931408034,
+                  "cycle_hz": 0.8123087816241725,
+                  "cadence_source": "oracle_clip_mean",
+                  "context_source": "oracle_clip_mean",
+                  "phase_initialisation": "first_valid_observed_phase",
+                  "root_path_source": "integrated_constant_clip_mean_command",
+                  "world_root_position_rmse_m": 6.828798828704371,
+                  "world_root_orientation_rmse_rad": 1.7207578713544875
+                }
+              },
+              "walk3_subject2_03": {
+                "frames": 131,
+                "reconstruction": {
+                  "joint_rmse_rad": 0.21538740501142756,
+                  "root_residual_translation_rmse_m": 0.04118041002116347,
+                  "root_residual_rotvec_rmse_rad": 0.14324798891646132,
+                  "world_root_position_rmse_m": 0.07132656243317366,
+                  "world_root_orientation_rmse_rad": 0.2476576185971173,
+                  "foot_position_rmse_m": 0.10838783821912777,
+                  "contact_samples": 213,
+                  "learned_contact_horizontal_speed_rms_m_s": 0.5721438369171369,
+                  "source_contact_horizontal_speed_rms_m_s": 0.14539529707012405
+                },
+                "uniform_free_rollout": {
+                  "joint_rmse_rad": 0.18972603269158164,
+                  "root_residual_translation_rmse_m": 0.056853235691094905,
+                  "root_residual_rotvec_rmse_rad": 0.16013143337414276,
+                  "phase_rmse_cycles": 0.07677760129907263,
+                  "cycle_hz": 0.6555463697843473,
+                  "cadence_source": "oracle_clip_mean",
+                  "context_source": "oracle_clip_mean",
+                  "phase_initialisation": "first_valid_observed_phase",
+                  "root_path_source": "integrated_constant_clip_mean_command",
+                  "world_root_position_rmse_m": 0.18278005994898777,
+                  "world_root_orientation_rmse_rad": 0.3666708955479075
+                }
+              }
+            },
+            "test": {
+              "run2_subject1_07": {
+                "frames": 1213,
+                "reconstruction": {
+                  "joint_rmse_rad": 0.26572193170156033,
+                  "root_residual_translation_rmse_m": 0.08449903620216173,
+                  "root_residual_rotvec_rmse_rad": 0.2512273647775268,
+                  "world_root_position_rmse_m": 0.146356623892746,
+                  "world_root_orientation_rmse_rad": 0.43364070454241155,
+                  "foot_position_rmse_m": 0.2508305092512748,
+                  "contact_samples": 791,
+                  "learned_contact_horizontal_speed_rms_m_s": 0.8422975274349448,
+                  "source_contact_horizontal_speed_rms_m_s": 0.23488774192455336
+                },
+                "uniform_free_rollout": {
+                  "joint_rmse_rad": 0.357517930328243,
+                  "root_residual_translation_rmse_m": 0.08381938184280056,
+                  "root_residual_rotvec_rmse_rad": 0.23884304002826456,
+                  "phase_rmse_cycles": 0.2975674348875099,
+                  "cycle_hz": 1.1295278490301819,
+                  "cadence_source": "oracle_clip_mean",
+                  "context_source": "oracle_clip_mean",
+                  "phase_initialisation": "first_valid_observed_phase",
+                  "root_path_source": "integrated_constant_clip_mean_command",
+                  "world_root_position_rmse_m": 7.493177127200961,
+                  "world_root_orientation_rmse_rad": 1.8723795315747318
+                }
+              },
+              "walk3_subject2_04": {
+                "frames": 918,
+                "reconstruction": {
+                  "joint_rmse_rad": 0.25807598066849924,
+                  "root_residual_translation_rmse_m": 0.07930870856760944,
+                  "root_residual_rotvec_rmse_rad": 0.1820230945737801,
+                  "world_root_position_rmse_m": 0.13736671272177264,
+                  "world_root_orientation_rmse_rad": 0.31446820352375543,
+                  "foot_position_rmse_m": 0.23050978676454095,
+                  "contact_samples": 498,
+                  "learned_contact_horizontal_speed_rms_m_s": 0.5450040800697127,
+                  "source_contact_horizontal_speed_rms_m_s": 0.2427502572957713
+                },
+                "uniform_free_rollout": {
+                  "joint_rmse_rad": 0.34232313242383566,
+                  "root_residual_translation_rmse_m": 0.08869214417204463,
+                  "root_residual_rotvec_rmse_rad": 0.19642084932989579,
+                  "phase_rmse_cycles": 0.28308777428112614,
+                  "cycle_hz": 1.1705205369045855,
+                  "cadence_source": "oracle_clip_mean",
+                  "context_source": "oracle_clip_mean",
+                  "phase_initialisation": "first_valid_observed_phase",
+                  "root_path_source": "integrated_constant_clip_mean_command",
+                  "world_root_position_rmse_m": 8.155876143055576,
+                  "world_root_orientation_rmse_rad": 1.8651685967043474
+                }
+              }
+            }
+          }
+        },
+        {
+          "seed": 27,
+          "best_dev_mse": 1.0724523067474365,
+          "parameters": 2268,
+          "tau_z_s": 0.05,
+          "aggregate": {
+            "train": {
+              "joint_rmse_rad": 0.16357087297465214,
+              "root_residual_translation_rmse_m": 0.049948656636477594,
+              "world_root_position_rmse_m": 0.08651361106419159,
+              "world_root_orientation_rmse_rad": 0.21173529321005377,
+              "foot_position_rmse_m": 0.1472232624063135,
+              "learned_contact_horizontal_speed_rms_m_s": 0.6402309864581458,
+              "source_contact_horizontal_speed_rms_m_s": 0.14965523011794574
+            },
+            "dev": {
+              "joint_rmse_rad": 0.227955256354722,
+              "root_residual_translation_rmse_m": 0.07108405209623025,
+              "world_root_position_rmse_m": 0.12312118983854377,
+              "world_root_orientation_rmse_rad": 0.2974925778115576,
+              "foot_position_rmse_m": 0.21162063596094288,
+              "learned_contact_horizontal_speed_rms_m_s": 0.5743824802399895,
+              "source_contact_horizontal_speed_rms_m_s": 0.16259151999187166
+            },
+            "test": {
+              "joint_rmse_rad": 0.2674286275332056,
+              "root_residual_translation_rmse_m": 0.07981726524299629,
+              "world_root_position_rmse_m": 0.13824755872207103,
+              "world_root_orientation_rmse_rad": 0.382853816594023,
+              "foot_position_rmse_m": 0.23962571110861533,
+              "learned_contact_horizontal_speed_rms_m_s": 0.7657508240253744,
+              "source_contact_horizontal_speed_rms_m_s": 0.23795619143770808
+            }
+          },
+          "metrics": {
+            "train": {
+              "run2_subject1_05": {
+                "frames": 1016,
+                "reconstruction": {
+                  "joint_rmse_rad": 0.23952558909950142,
+                  "root_residual_translation_rmse_m": 0.07935609438931618,
+                  "root_residual_rotvec_rmse_rad": 0.17766911798798288,
+                  "world_root_position_rmse_m": 0.13744878737252714,
+                  "world_root_orientation_rmse_rad": 0.30698574019222874,
+                  "foot_position_rmse_m": 0.22449167869670275,
+                  "contact_samples": 734,
+                  "learned_contact_horizontal_speed_rms_m_s": 0.9857546431565668,
+                  "source_contact_horizontal_speed_rms_m_s": 0.22437438034963472
+                },
+                "uniform_free_rollout": {
+                  "joint_rmse_rad": 0.33685147078605027,
+                  "root_residual_translation_rmse_m": 0.10676028671741271,
+                  "root_residual_rotvec_rmse_rad": 0.24596530852155732,
+                  "phase_rmse_cycles": 0.2692793644038766,
+                  "cycle_hz": 1.225277476824135,
+                  "cadence_source": "oracle_clip_mean",
+                  "context_source": "oracle_clip_mean",
+                  "phase_initialisation": "first_valid_observed_phase",
+                  "root_path_source": "integrated_constant_clip_mean_command",
+                  "world_root_position_rmse_m": 3.036460372214597,
+                  "world_root_orientation_rmse_rad": 1.801175353468409
+                }
+              },
+              "walk3_subject2_01": {
+                "frames": 388,
+                "reconstruction": {
+                  "joint_rmse_rad": 0.09024821878702591,
+                  "root_residual_translation_rmse_m": 0.01756891226535439,
+                  "root_residual_rotvec_rmse_rad": 0.06574137484529992,
+                  "world_root_position_rmse_m": 0.030430248677313823,
+                  "world_root_orientation_rmse_rad": 0.11365830104914856,
+                  "foot_position_rmse_m": 0.06199079989556902,
+                  "contact_samples": 429,
+                  "learned_contact_horizontal_speed_rms_m_s": 0.29917081427989484,
+                  "source_contact_horizontal_speed_rms_m_s": 0.10002929797746567
+                },
+                "uniform_free_rollout": {
+                  "joint_rmse_rad": 0.16662234714411087,
+                  "root_residual_translation_rmse_m": 0.02768948419896019,
+                  "root_residual_rotvec_rmse_rad": 0.07545118407535281,
+                  "phase_rmse_cycles": 0.1417030433764384,
+                  "cycle_hz": 0.8474082682384135,
+                  "cadence_source": "oracle_clip_mean",
+                  "context_source": "oracle_clip_mean",
+                  "phase_initialisation": "first_valid_observed_phase",
+                  "root_path_source": "integrated_constant_clip_mean_command",
+                  "world_root_position_rmse_m": 4.0473811224887415,
+                  "world_root_orientation_rmse_rad": 1.3861383152744142
+                }
+              },
+              "walk3_subject2_02": {
+                "frames": 2292,
+                "reconstruction": {
+                  "joint_rmse_rad": 0.12780439421580117,
+                  "root_residual_translation_rmse_m": 0.034341998597420195,
+                  "root_residual_rotvec_rmse_rad": 0.09732071040696959,
+                  "world_root_position_rmse_m": 0.0594820864041909,
+                  "world_root_orientation_rmse_rad": 0.16832262774056328,
+                  "foot_position_rmse_m": 0.10936865284070692,
+                  "contact_samples": 2669,
+                  "learned_contact_horizontal_speed_rms_m_s": 0.5539756357389025,
+                  "source_contact_horizontal_speed_rms_m_s": 0.12923848027420287
+                },
+                "uniform_free_rollout": {
+                  "joint_rmse_rad": 0.20747905753483115,
+                  "root_residual_translation_rmse_m": 0.04240620756049671,
+                  "root_residual_rotvec_rmse_rad": 0.10951198109366905,
+                  "phase_rmse_cycles": 0.2550473505425879,
+                  "cycle_hz": 0.852234662894403,
+                  "cadence_source": "oracle_clip_mean",
+                  "context_source": "oracle_clip_mean",
+                  "phase_initialisation": "first_valid_observed_phase",
+                  "root_path_source": "integrated_constant_clip_mean_command",
+                  "world_root_position_rmse_m": 1.388893731896037,
+                  "world_root_orientation_rmse_rad": 1.983585632546098
+                }
+              }
+            },
+            "dev": {
+              "run2_subject1_06": {
+                "frames": 469,
+                "reconstruction": {
+                  "joint_rmse_rad": 0.2278432760992265,
+                  "root_residual_translation_rmse_m": 0.07879660220219198,
+                  "root_residual_rotvec_rmse_rad": 0.17905510837444705,
+                  "world_root_position_rmse_m": 0.1364797184779902,
+                  "world_root_orientation_rmse_rad": 0.309717046602049,
+                  "foot_position_rmse_m": 0.23173269391989043,
+                  "contact_samples": 407,
+                  "learned_contact_horizontal_speed_rms_m_s": 0.6103727008492457,
+                  "source_contact_horizontal_speed_rms_m_s": 0.17090268857839144
+                },
+                "uniform_free_rollout": {
+                  "joint_rmse_rad": 0.3618303736638038,
+                  "root_residual_translation_rmse_m": 0.0856270960175124,
+                  "root_residual_rotvec_rmse_rad": 0.19656613302051074,
+                  "phase_rmse_cycles": 0.34712156931408034,
+                  "cycle_hz": 0.8123087816241725,
+                  "cadence_source": "oracle_clip_mean",
+                  "context_source": "oracle_clip_mean",
+                  "phase_initialisation": "first_valid_observed_phase",
+                  "root_path_source": "integrated_constant_clip_mean_command",
+                  "world_root_position_rmse_m": 6.847251396299431,
+                  "world_root_orientation_rmse_rad": 1.7229459889491625
+                }
+              },
+              "walk3_subject2_03": {
+                "frames": 131,
+                "reconstruction": {
+                  "joint_rmse_rad": 0.2283557125483942,
+                  "root_residual_translation_rmse_m": 0.030239408368872768,
+                  "root_residual_rotvec_rmse_rad": 0.14395568699567982,
+                  "world_root_position_rmse_m": 0.05237619168571114,
+                  "world_root_orientation_rmse_rad": 0.2488514065265885,
+                  "foot_position_rmse_m": 0.11340182919873142,
+                  "contact_samples": 213,
+                  "learned_contact_horizontal_speed_rms_m_s": 0.49843712277498087,
+                  "source_contact_horizontal_speed_rms_m_s": 0.14539529707012405
+                },
+                "uniform_free_rollout": {
+                  "joint_rmse_rad": 0.18232233249208937,
+                  "root_residual_translation_rmse_m": 0.035279353394186454,
+                  "root_residual_rotvec_rmse_rad": 0.1444158895208778,
+                  "phase_rmse_cycles": 0.07677760129907263,
+                  "cycle_hz": 0.6555463697843473,
+                  "cadence_source": "oracle_clip_mean",
+                  "context_source": "oracle_clip_mean",
+                  "phase_initialisation": "first_valid_observed_phase",
+                  "root_path_source": "integrated_constant_clip_mean_command",
+                  "world_root_position_rmse_m": 0.16658156783316572,
+                  "world_root_orientation_rmse_rad": 0.3461296462547953
+                }
+              }
+            },
+            "test": {
+              "run2_subject1_07": {
+                "frames": 1213,
+                "reconstruction": {
+                  "joint_rmse_rad": 0.2708182985315354,
+                  "root_residual_translation_rmse_m": 0.08266121597264402,
+                  "root_residual_rotvec_rmse_rad": 0.25036512142473594,
+                  "world_root_position_rmse_m": 0.14317342588004345,
+                  "world_root_orientation_rmse_rad": 0.432280465614915,
+                  "foot_position_rmse_m": 0.25055663366775555,
+                  "contact_samples": 791,
+                  "learned_contact_horizontal_speed_rms_m_s": 0.8774601362818852,
+                  "source_contact_horizontal_speed_rms_m_s": 0.23488774192455336
+                },
+                "uniform_free_rollout": {
+                  "joint_rmse_rad": 0.3560494431926657,
+                  "root_residual_translation_rmse_m": 0.08006498885217007,
+                  "root_residual_rotvec_rmse_rad": 0.23616573565573015,
+                  "phase_rmse_cycles": 0.2975674348875099,
+                  "cycle_hz": 1.1295278490301819,
+                  "cadence_source": "oracle_clip_mean",
+                  "context_source": "oracle_clip_mean",
+                  "phase_initialisation": "first_valid_observed_phase",
+                  "root_path_source": "integrated_constant_clip_mean_command",
+                  "world_root_position_rmse_m": 7.484536198253371,
+                  "world_root_orientation_rmse_rad": 1.8746990130076209
+                }
+              },
+              "walk3_subject2_04": {
+                "frames": 918,
+                "reconstruction": {
+                  "joint_rmse_rad": 0.262882659738888,
+                  "root_residual_translation_rmse_m": 0.07589614627750968,
+                  "root_residual_rotvec_rmse_rad": 0.17678400884366383,
+                  "world_root_position_rmse_m": 0.13145598145132628,
+                  "world_root_orientation_rmse_rad": 0.3055170592841254,
+                  "foot_position_rmse_m": 0.22436686946090467,
+                  "contact_samples": 498,
+                  "learned_contact_horizontal_speed_rms_m_s": 0.5429668947147291,
+                  "source_contact_horizontal_speed_rms_m_s": 0.2427502572957713
+                },
+                "uniform_free_rollout": {
+                  "joint_rmse_rad": 0.35439898668218506,
+                  "root_residual_translation_rmse_m": 0.09065394189931758,
+                  "root_residual_rotvec_rmse_rad": 0.19885855268206404,
+                  "phase_rmse_cycles": 0.28308777428112614,
+                  "cycle_hz": 1.1705205369045855,
+                  "cadence_source": "oracle_clip_mean",
+                  "context_source": "oracle_clip_mean",
+                  "phase_initialisation": "first_valid_observed_phase",
+                  "root_path_source": "integrated_constant_clip_mean_command",
+                  "world_root_position_rmse_m": 8.15501789235051,
+                  "world_root_orientation_rmse_rad": 1.8633642292129384
+                }
+              }
+            }
+          }
+        }
+      ],
+      "selected_seed": 7,
+      "test_joint_rmse_mean_rad": 0.26410859103351164,
+      "test_joint_rmse_range_rad": [
+        0.2624416537762315,
+        0.2674286275332056
+      ]
+    }
+  },
+  "rff_grid": [
+    {
+      "phase_bandwidth": 1.0,
+      "context_bandwidth": 0.25,
+      "ridge": 1e-07,
+      "dev_mse_by_seed": [
+        1.5542998313903809,
+        1.698028564453125,
+        1.6347495317459106
+      ],
+      "mean_dev_mse": 1.629025975863139
+    },
+    {
+      "phase_bandwidth": 1.0,
+      "context_bandwidth": 0.25,
+      "ridge": 1e-06,
+      "dev_mse_by_seed": [
+        1.3306643962860107,
+        1.4688464403152466,
+        1.4293838739395142
+      ],
+      "mean_dev_mse": 1.409631570180257
+    },
+    {
+      "phase_bandwidth": 1.0,
+      "context_bandwidth": 0.25,
+      "ridge": 1e-05,
+      "dev_mse_by_seed": [
+        1.1236844062805176,
+        1.2313159704208374,
+        1.2089126110076904
+      ],
+      "mean_dev_mse": 1.1879709959030151
+    },
+    {
+      "phase_bandwidth": 1.0,
+      "context_bandwidth": 0.25,
+      "ridge": 0.0001,
+      "dev_mse_by_seed": [
+        1.0069016218185425,
+        1.0454587936401367,
+        1.0852469205856323
+      ],
+      "mean_dev_mse": 1.0458691120147705
+    },
+    {
+      "phase_bandwidth": 1.0,
+      "context_bandwidth": 0.5,
+      "ridge": 1e-07,
+      "dev_mse_by_seed": [
+        1.416189432144165,
+        1.905937910079956,
+        1.528310775756836
+      ],
+      "mean_dev_mse": 1.6168127059936523
+    },
+    {
+      "phase_bandwidth": 1.0,
+      "context_bandwidth": 0.5,
+      "ridge": 1e-06,
+      "dev_mse_by_seed": [
+        1.3186997175216675,
+        1.5094444751739502,
+        1.4021036624908447
+      ],
+      "mean_dev_mse": 1.4100826183954875
+    },
+    {
+      "phase_bandwidth": 1.0,
+      "context_bandwidth": 0.5,
+      "ridge": 1e-05,
+      "dev_mse_by_seed": [
+        1.1635421514511108,
+        1.202063798904419,
+        1.220702052116394
+      ],
+      "mean_dev_mse": 1.1954360008239746
+    },
+    {
+      "phase_bandwidth": 1.0,
+      "context_bandwidth": 0.5,
+      "ridge": 0.0001,
+      "dev_mse_by_seed": [
+        1.0194669961929321,
+        1.0369057655334473,
+        1.0724523067474365
+      ],
+      "mean_dev_mse": 1.042941689491272
+    },
+    {
+      "phase_bandwidth": 1.0,
+      "context_bandwidth": 1.0,
+      "ridge": 1e-07,
+      "dev_mse_by_seed": [
+        1.4090040922164917,
+        1.512466311454773,
+        1.372581958770752
+      ],
+      "mean_dev_mse": 1.4313507874806721
+    },
+    {
+      "phase_bandwidth": 1.0,
+      "context_bandwidth": 1.0,
+      "ridge": 1e-06,
+      "dev_mse_by_seed": [
+        1.3950457572937012,
+        1.4640804529190063,
+        1.3589725494384766
+      ],
+      "mean_dev_mse": 1.406032919883728
+    },
+    {
+      "phase_bandwidth": 1.0,
+      "context_bandwidth": 1.0,
+      "ridge": 1e-05,
+      "dev_mse_by_seed": [
+        1.303069829940796,
+        1.2743237018585205,
+        1.2799978256225586
+      ],
+      "mean_dev_mse": 1.285797119140625
+    },
+    {
+      "phase_bandwidth": 1.0,
+      "context_bandwidth": 1.0,
+      "ridge": 0.0001,
+      "dev_mse_by_seed": [
+        1.1388084888458252,
+        1.0722692012786865,
+        1.1332075595855713
+      ],
+      "mean_dev_mse": 1.114761749903361
+    },
+    {
+      "phase_bandwidth": 2.0,
+      "context_bandwidth": 0.25,
+      "ridge": 1e-07,
+      "dev_mse_by_seed": [
+        1.3379106521606445,
+        1.5736771821975708,
+        1.552687406539917
+      ],
+      "mean_dev_mse": 1.4880917469660442
+    },
+    {
+      "phase_bandwidth": 2.0,
+      "context_bandwidth": 0.25,
+      "ridge": 1e-06,
+      "dev_mse_by_seed": [
+        1.24425208568573,
+        1.372861385345459,
+        1.3977272510528564
+      ],
+      "mean_dev_mse": 1.3382802406946819
+    },
+    {
+      "phase_bandwidth": 2.0,
+      "context_bandwidth": 0.25,
+      "ridge": 1e-05,
+      "dev_mse_by_seed": [
+        1.1062991619110107,
+        1.1603554487228394,
+        1.2080153226852417
+      ],
+      "mean_dev_mse": 1.158223311106364
+    },
+    {
+      "phase_bandwidth": 2.0,
+      "context_bandwidth": 0.25,
+      "ridge": 0.0001,
+      "dev_mse_by_seed": [
+        1.0342040061950684,
+        1.060874104499817,
+        1.1182063817977905
+      ],
+      "mean_dev_mse": 1.0710948308308919
+    },
+    {
+      "phase_bandwidth": 2.0,
+      "context_bandwidth": 0.5,
+      "ridge": 1e-07,
+      "dev_mse_by_seed": [
+        1.2643033266067505,
+        1.3897466659545898,
+        1.396281361579895
+      ],
+      "mean_dev_mse": 1.3501104513804119
+    },
+    {
+      "phase_bandwidth": 2.0,
+      "context_bandwidth": 0.5,
+      "ridge": 1e-06,
+      "dev_mse_by_seed": [
+        1.2410475015640259,
+        1.3020862340927124,
+        1.3660883903503418
+      ],
+      "mean_dev_mse": 1.30307404200236
+    },
+    {
+      "phase_bandwidth": 2.0,
+      "context_bandwidth": 0.5,
+      "ridge": 1e-05,
+      "dev_mse_by_seed": [
+        1.1496931314468384,
+        1.1207928657531738,
+        1.2447844743728638
+      ],
+      "mean_dev_mse": 1.1717568238576253
+    },
+    {
+      "phase_bandwidth": 2.0,
+      "context_bandwidth": 0.5,
+      "ridge": 0.0001,
+      "dev_mse_by_seed": [
+        1.0366920232772827,
+        1.0047681331634521,
+        1.1037367582321167
+      ],
+      "mean_dev_mse": 1.0483989715576172
+    },
+    {
+      "phase_bandwidth": 2.0,
+      "context_bandwidth": 1.0,
+      "ridge": 1e-07,
+      "dev_mse_by_seed": [
+        1.3326969146728516,
+        1.2895976305007935,
+        1.348899006843567
+      ],
+      "mean_dev_mse": 1.3237311840057373
+    },
+    {
+      "phase_bandwidth": 2.0,
+      "context_bandwidth": 1.0,
+      "ridge": 1e-06,
+      "dev_mse_by_seed": [
+        1.329430103302002,
+        1.281097412109375,
+        1.3446693420410156
+      ],
+      "mean_dev_mse": 1.3183989524841309
+    },
+    {
+      "phase_bandwidth": 2.0,
+      "context_bandwidth": 1.0,
+      "ridge": 1e-05,
+      "dev_mse_by_seed": [
+        1.3022671937942505,
+        1.2333284616470337,
+        1.309309720993042
+      ],
+      "mean_dev_mse": 1.2816351254781086
+    },
+    {
+      "phase_bandwidth": 2.0,
+      "context_bandwidth": 1.0,
+      "ridge": 0.0001,
+      "dev_mse_by_seed": [
+        1.2086621522903442,
+        1.1518837213516235,
+        1.1801530122756958
+      ],
+      "mean_dev_mse": 1.1802329619725545
+    },
+    {
+      "phase_bandwidth": 4.0,
+      "context_bandwidth": 0.25,
+      "ridge": 1e-07,
+      "dev_mse_by_seed": [
+        1.2341002225875854,
+        1.3793467283248901,
+        1.3474150896072388
+      ],
+      "mean_dev_mse": 1.3202873468399048
+    },
+    {
+      "phase_bandwidth": 4.0,
+      "context_bandwidth": 0.25,
+      "ridge": 1e-06,
+      "dev_mse_by_seed": [
+        1.199425220489502,
+        1.3220325708389282,
+        1.2882102727890015
+      ],
+      "mean_dev_mse": 1.2698893547058105
+    },
+    {
+      "phase_bandwidth": 4.0,
+      "context_bandwidth": 0.25,
+      "ridge": 1e-05,
+      "dev_mse_by_seed": [
+        1.1103559732437134,
+        1.1966055631637573,
+        1.1761704683303833
+      ],
+      "mean_dev_mse": 1.1610440015792847
+    },
+    {
+      "phase_bandwidth": 4.0,
+      "context_bandwidth": 0.25,
+      "ridge": 0.0001,
+      "dev_mse_by_seed": [
+        1.0632827281951904,
+        1.0905815362930298,
+        1.1216343641281128
+      ],
+      "mean_dev_mse": 1.0918328762054443
+    },
+    {
+      "phase_bandwidth": 4.0,
+      "context_bandwidth": 0.5,
+      "ridge": 1e-07,
+      "dev_mse_by_seed": [
+        1.1592063903808594,
+        1.2151495218276978,
+        1.3219531774520874
+      ],
+      "mean_dev_mse": 1.2321030298868816
+    },
+    {
+      "phase_bandwidth": 4.0,
+      "context_bandwidth": 0.5,
+      "ridge": 1e-06,
+      "dev_mse_by_seed": [
+        1.1536309719085693,
+        1.1941800117492676,
+        1.3097068071365356
+      ],
+      "mean_dev_mse": 1.2191725969314575
+    },
+    {
+      "phase_bandwidth": 4.0,
+      "context_bandwidth": 0.5,
+      "ridge": 1e-05,
+      "dev_mse_by_seed": [
+        1.1158463954925537,
+        1.1242080926895142,
+        1.2391847372055054
+      ],
+      "mean_dev_mse": 1.1597464084625244
+    },
+    {
+      "phase_bandwidth": 4.0,
+      "context_bandwidth": 0.5,
+      "ridge": 0.0001,
+      "dev_mse_by_seed": [
+        1.0491622686386108,
+        1.0563465356826782,
+        1.121435284614563
+      ],
+      "mean_dev_mse": 1.075648029645284
+    },
+    {
+      "phase_bandwidth": 4.0,
+      "context_bandwidth": 1.0,
+      "ridge": 1e-07,
+      "dev_mse_by_seed": [
+        1.2647130489349365,
+        1.2579911947250366,
+        1.3022173643112183
+      ],
+      "mean_dev_mse": 1.2749738693237305
+    },
+    {
+      "phase_bandwidth": 4.0,
+      "context_bandwidth": 1.0,
+      "ridge": 1e-06,
+      "dev_mse_by_seed": [
+        1.26353919506073,
+        1.254954218864441,
+        1.3003791570663452
+      ],
+      "mean_dev_mse": 1.2729575236638386
+    },
+    {
+      "phase_bandwidth": 4.0,
+      "context_bandwidth": 1.0,
+      "ridge": 1e-05,
+      "dev_mse_by_seed": [
+        1.2528471946716309,
+        1.231676459312439,
+        1.2839585542678833
+      ],
+      "mean_dev_mse": 1.2561607360839844
+    },
+    {
+      "phase_bandwidth": 4.0,
+      "context_bandwidth": 1.0,
+      "ridge": 0.0001,
+      "dev_mse_by_seed": [
+        1.2000164985656738,
+        1.1682072877883911,
+        1.2072546482086182
+      ],
+      "mean_dev_mse": 1.1918261448542278
+    }
+  ],
+  "protocol": "Train-only normalisation and fitting; development-only bandwidth, ridge, epoch, smoothing and representative seed selection. Test evaluated afterwards. Three clips train, two develop, two test; subjects overlap. Test clips were previously inspected for the original baseline. Seed ranges measure model randomness, not independent datasets or confidence intervals.",
+  "harmonic_train_config": {
+    "epochs": 300,
+    "batch_size": 512,
+    "learning_rate": 0.003,
+    "mixture_penalty": 0.001,
+    "harmonic_penalty": 0.0001,
+    "weight_decay": 1e-05,
+    "seed": 7,
+    "cadence": false,
+    "device": "cpu",
+    "tau_candidates": [
+      0.05,
+      0.1,
+      0.2,
+      0.4,
+      0.8
+    ],
+    "harmonics": 3
+  },
+  "source_sha256": "604c096fa1b301336523a6818df3a79b5330d0d66c7d7b50001b01121e093dcc",
+  "splits": {
+    "train": [
+      "run2_subject1_05",
+      "walk3_subject2_01",
+      "walk3_subject2_02"
+    ],
+    "dev": [
+      "run2_subject1_06",
+      "walk3_subject2_03"
+    ],
+    "test": [
+      "run2_subject1_07",
+      "walk3_subject2_04"
+    ]
+  }
+}

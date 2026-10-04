@@ -2,15 +2,16 @@ import * as THREE from 'three';
 import {OrbitControls} from 'three/addons/controls/OrbitControls.js';
 import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
 import {DRACOLoader} from 'three/addons/loaders/DRACOLoader.js';
-import {Decoder, Runtime, Clip, forwardKinematics, mod1} from './core.js';
+import {Decoder, Runtime, Clip, forwardKinematics, mod1} from './core.js?v=1a6dee2b1223';
 
 const $ = id => document.getElementById(id);
 const colours = {source:0x5488be, learned:0xd79b42};
 const fixedStep = 1/60, rolloutDuration = 12;
 const ui = {ready:false, mode:'compare', playing:true, time:0, clip:null, speed:1,
   history:[], accumulator:0, preset:false, traceDirty:true, loadingToken:0};
-let decoder, manifest, skeleton, view, runtime, predictionHistory=[];
+let decoder, manifest, skeleton, view, runtime, catalogue, modelId, predictionHistory=[];
 const cache = new Map();
+const models = new Map();
 const timeText = t => `${Math.floor(t/60)}:${String(Math.floor(t%60)).padStart(2,'0')}`;
 const command = () => ['vx','vy','yaw','period'].map(id => Number($(id).value));
 const duration = () => ui.mode==='compare' ? (ui.clip?.meta.duration_s ?? 1) : rolloutDuration;
@@ -178,6 +179,28 @@ function updateSliderLabels() {
 function setCommand(values) {
   ['vx','vy','yaw','period'].forEach((id,i)=>{$(id).value=values[i];}); updateSliderLabels();
 }
+function updateModelReadout() {
+  const entry=catalogue.models.find(m=>m.id===modelId);
+  $('parameter-count').textContent=decoder.spec.parameters.toLocaleString();
+  $('decoder-note').textContent=`${decoder.spec.parameters.toLocaleString()} parameters · ${entry.selection_note ?? 'selected'} seed ${entry.seed ?? '—'}`;
+  $('state-note').textContent=decoder.spec.kind==='rff'
+    ? 'Adjust commands while playing. Shared command inputs change smoothly.'
+    : 'Adjust commands while playing. The shared mixture changes smoothly.';
+  if (!ui.clip) return;
+  const metrics=entry.metrics[ui.clip.meta.name]?.reconstruction ?? {};
+  $('rmse').innerHTML=`${metrics.joint_rmse_rad===undefined?'—':metrics.joint_rmse_rad.toFixed(3)}<small>rad RMSE</small>`;
+  $('foot-error').textContent=metrics.foot_position_rmse_m===undefined?'—':`${metrics.foot_position_rmse_m.toFixed(3)} m`;
+  const learned=metrics.learned_contact_horizontal_speed_rms_m_s, source=metrics.source_contact_horizontal_speed_rms_m_s;
+  $('contact-speed').textContent=learned===undefined?'—':`${learned.toFixed(2)} m/s · source ${source.toFixed(2)}`;
+}
+function selectDecoder(id) {
+  if (id===modelId||!models.has(id)) return;
+  modelId=id;decoder=models.get(id);ui.preset=false;
+  for (const clip of cache.values())clip.traceSamples=null;
+  if (ui.mode==='generate') resetRuntime();
+  else {runtime=new Runtime(decoder,command());view.setClipPaths(ui.clip);}
+  updateModelReadout();ui.traceDirty=true;
+}
 function recordCommand(values,time) {
   const last=ui.history.at(-1);
   if (!last||last.context.some((v,i)=>v!==values[i])) {
@@ -220,7 +243,7 @@ function setMode(mode) {
   $('trace-note').textContent=mode==='compare'?'Recorded and decoded joint angles across the clip.':'Generated joint angles and the evolving command history.';
   if (mode==='generate') {
     $('stage-mode').textContent='Free rollout · uniform phase clock';
-    $('stage-detail').textContent='Integrated root path · smooth shared mixture';
+    $('stage-detail').textContent='Integrated root path · smooth shared inputs';
     resetRuntime();
     view.centre.set(0,0.43,0);
   } else {
@@ -242,8 +265,7 @@ async function selectClip(name) {
   ui.clip=cache.get(name);ui.time=0;ui.accumulator=0;$('timeline').max=duration();
   $('split-badge').textContent={train:'Training',dev:'Development',test:'Held out'}[meta.split];
   $('clip-info').textContent=`${meta.frames.toLocaleString()} frames · ${meta.fps} Hz · ${meta.duration_s.toFixed(1)} seconds`;
-  const rmse=meta.metrics.reconstruction?.joint_rmse_rad;
-  $('rmse').innerHTML=`${rmse===undefined?'—':rmse.toFixed(3)}<small>rad RMSE</small>`;
+  updateModelReadout();
   $('coverage').textContent=`${meta.valid_frames.toLocaleString()} / ${meta.frames.toLocaleString()} frames have cycle labels.`;
   $('phase-note').textContent=meta.phase_source.includes('fallback')?'Phase uses a foot-height fallback in this clip.':'Left-foot strikes anchor each complete gait cycle.';
   view.setClipPaths(ui.clip);ui.traceDirty=true;$('clip').disabled=false;$('play').disabled=false;
@@ -317,7 +339,9 @@ function download(payload,name) {
 }
 function exportMotion() {
   const common={schema_version:1,joint_names:decoder.spec.joint_names,units:{position:'m',angle:'rad',time:'s'},
-    model_source_sha256:decoder.spec.source_sha256,foot_constraints:false};
+    model_source_sha256:decoder.spec.source_sha256,decoder_id:modelId,
+    decoder_kind:decoder.spec.kind,decoder_parameters:decoder.spec.parameters,
+    runtime_state:decoder.spec.runtime_state,foot_constraints:false};
   if (ui.mode==='generate') {
     const preview=new Runtime(decoder,ui.history[0].context),frames=[preview.sample()];
     for (let i=0;i<rolloutDuration/fixedStep;i++) frames.push(preview.advance(commandAt(preview.time),fixedStep));
@@ -339,6 +363,7 @@ function exportMotion() {
   }
 }
 function bindControls() {
+  $('decoder').addEventListener('change',()=>selectDecoder($('decoder').value));
   $('compare-tab').addEventListener('click',()=>setMode('compare'));
   $('generate-tab').addEventListener('click',()=>setMode('generate'));
   document.querySelector('.mode-tabs').addEventListener('keydown',e=>{
@@ -391,15 +416,23 @@ function showError(error) {
   div.append(title,detail,help);$('loading').append(div);
 }
 async function start() {
-  const [spec,data,rig]=await Promise.all([json('./assets/model.json'),json('./assets/manifest.json'),json('./assets/skeleton.json')]);
-  decoder=new Decoder(spec);manifest=data;skeleton=rig;view=new View();
-  if(JSON.stringify(spec.joint_names)!==JSON.stringify(skeleton.joint_names)) throw new Error('Model and K1 joint orders disagree');
+  const [catalog,data,rig]=await Promise.all([json('./assets/models.json'),json('./assets/manifest.json'),json('./assets/skeleton.json')]);
+  catalogue=catalog;manifest=data;skeleton=rig;
+  await Promise.all(catalogue.models.map(async entry=>{
+    const spec=await json(`./assets/${entry.file}`);
+    if(JSON.stringify(spec.joint_names)!==JSON.stringify(skeleton.joint_names)) throw new Error('Model and K1 joint orders disagree');
+    models.set(entry.id,new Decoder(spec));
+  }));
+  modelId=catalogue.models[0].id;decoder=models.get(modelId);view=new View();
+  $('decoder').replaceChildren(...catalogue.models.map(entry=>{
+    const option=document.createElement('option');option.value=entry.id;option.textContent=entry.label;return option;
+  }));$('decoder').disabled=false;
   $('clip').replaceChildren(...manifest.clips.map(meta=>{
     const option=document.createElement('option');option.value=meta.name;
     option.textContent=`${meta.name} · ${meta.split==='test'?'held out':meta.split}`;return option;
   }));
   $('clip').value='walk3_subject2_04';
-  $('joint').replaceChildren(...spec.joint_names.map((name,index)=>{
+  $('joint').replaceChildren(...decoder.spec.joint_names.map((name,index)=>{
     const option=document.createElement('option');option.value=index;option.textContent=name.replaceAll('_',' ');return option;
   }));$('joint').value=10;
   await Promise.all([view.loadRobots(),selectClip($('clip').value)]);

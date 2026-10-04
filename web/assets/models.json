@@ -1,0 +1,623 @@
+{
+  "models": [
+    {
+      "id": "harmonic3",
+      "label": "3 harmonics",
+      "file": "model.json",
+      "validation": "validation.json",
+      "seed": 7,
+      "parameters": 2328,
+      "tau_z_s": 0.1,
+      "selection_note": "original baseline",
+      "metrics": {
+        "run2_subject1_05": {
+          "frames": 1016,
+          "reconstruction": {
+            "joint_rmse_rad": 0.22571662645611865,
+            "root_residual_translation_rmse_m": 0.05852058764608775,
+            "root_residual_rotvec_rmse_rad": 0.18194016790167186,
+            "world_root_position_rmse_m": 0.10136063109181155,
+            "world_root_orientation_rmse_rad": 0.31402825259684436,
+            "foot_position_rmse_m": 0.1733336516440882,
+            "contact_samples": 734,
+            "learned_contact_horizontal_speed_rms_m_s": 0.9776110214645519,
+            "source_contact_horizontal_speed_rms_m_s": 0.22437438034963472
+          },
+          "uniform_free_rollout": {
+            "joint_rmse_rad": 0.2984198596204545,
+            "root_residual_translation_rmse_m": 0.10665435884855486,
+            "root_residual_rotvec_rmse_rad": 0.24142341802388248,
+            "phase_rmse_cycles": 0.2692793644038766,
+            "cycle_hz": 1.225277476824135,
+            "cadence_source": "oracle_clip_mean",
+            "context_source": "oracle_clip_mean",
+            "phase_initialisation": "first_valid_observed_phase",
+            "root_path_source": "integrated_constant_clip_mean_command",
+            "world_root_position_rmse_m": 3.0419986223094964,
+            "world_root_orientation_rmse_rad": 1.8046509032028937
+          }
+        },
+        "run2_subject1_06": {
+          "frames": 469,
+          "reconstruction": {
+            "joint_rmse_rad": 0.23380736831262464,
+            "root_residual_translation_rmse_m": 0.0704647144588213,
+            "root_residual_rotvec_rmse_rad": 0.16467313596129135,
+            "world_root_position_rmse_m": 0.12204846558351179,
+            "world_root_orientation_rmse_rad": 0.28480267940163373,
+            "foot_position_rmse_m": 0.21338076177239354,
+            "contact_samples": 407,
+            "learned_contact_horizontal_speed_rms_m_s": 0.6266182185587561,
+            "source_contact_horizontal_speed_rms_m_s": 0.17090268857839144
+          },
+          "uniform_free_rollout": {
+            "joint_rmse_rad": 0.3656037941044387,
+            "root_residual_translation_rmse_m": 0.0850631229070625,
+            "root_residual_rotvec_rmse_rad": 0.1959180085679712,
+            "phase_rmse_cycles": 0.34712156931408034,
+            "cycle_hz": 0.8123087816241725,
+            "cadence_source": "oracle_clip_mean",
+            "context_source": "oracle_clip_mean",
+            "phase_initialisation": "first_valid_observed_phase",
+            "root_path_source": "integrated_constant_clip_mean_command",
+            "world_root_position_rmse_m": 6.836037202556602,
+            "world_root_orientation_rmse_rad": 1.719422998249842
+          }
+        },
+        "run2_subject1_07": {
+          "frames": 1213,
+          "reconstruction": {
+            "joint_rmse_rad": 0.3047744303715819,
+            "root_residual_translation_rmse_m": 0.10354877637767942,
+            "root_residual_rotvec_rmse_rad": 0.2790106008109944,
+            "world_root_position_rmse_m": 0.17935174174772875,
+            "world_root_orientation_rmse_rad": 0.4813083482125069,
+            "foot_position_rmse_m": 0.2951176524169949,
+            "contact_samples": 791,
+            "learned_contact_horizontal_speed_rms_m_s": 1.1375798331650213,
+            "source_contact_horizontal_speed_rms_m_s": 0.23488774192455336
+          },
+          "uniform_free_rollout": {
+            "joint_rmse_rad": 0.32643637755360566,
+            "root_residual_translation_rmse_m": 0.08857336340613815,
+            "root_residual_rotvec_rmse_rad": 0.25992009088150275,
+            "phase_rmse_cycles": 0.2975674348875099,
+            "cycle_hz": 1.1295278490301819,
+            "cadence_source": "oracle_clip_mean",
+            "context_source": "oracle_clip_mean",
+            "phase_initialisation": "first_valid_observed_phase",
+            "root_path_source": "integrated_constant_clip_mean_command",
+            "world_root_position_rmse_m": 7.420740067374781,
+            "world_root_orientation_rmse_rad": 1.8610635627255996
+          }
+        },
+        "walk3_subject2_01": {
+          "frames": 388,
+          "reconstruction": {
+            "joint_rmse_rad": 0.07664901676750661,
+            "root_residual_translation_rmse_m": 0.013023738323938711,
+            "root_residual_rotvec_rmse_rad": 0.06598544928406776,
+            "world_root_position_rmse_m": 0.02255777648154378,
+            "world_root_orientation_rmse_rad": 0.11407725418650302,
+            "foot_position_rmse_m": 0.045679590855776935,
+            "contact_samples": 429,
+            "learned_contact_horizontal_speed_rms_m_s": 0.28154735581226803,
+            "source_contact_horizontal_speed_rms_m_s": 0.10002929797746567
+          },
+          "uniform_free_rollout": {
+            "joint_rmse_rad": 0.1718005637132088,
+            "root_residual_translation_rmse_m": 0.02750916031050931,
+            "root_residual_rotvec_rmse_rad": 0.0787817102529959,
+            "phase_rmse_cycles": 0.1417030433764384,
+            "cycle_hz": 0.8474082682384135,
+            "cadence_source": "oracle_clip_mean",
+            "context_source": "oracle_clip_mean",
+            "phase_initialisation": "first_valid_observed_phase",
+            "root_path_source": "integrated_constant_clip_mean_command",
+            "world_root_position_rmse_m": 4.048614672221796,
+            "world_root_orientation_rmse_rad": 1.386468498781064
+          }
+        },
+        "walk3_subject2_02": {
+          "frames": 2292,
+          "reconstruction": {
+            "joint_rmse_rad": 0.12112622269089865,
+            "root_residual_translation_rmse_m": 0.02227437420845438,
+            "root_residual_rotvec_rmse_rad": 0.0956411130683283,
+            "world_root_position_rmse_m": 0.03858034783584477,
+            "world_root_orientation_rmse_rad": 0.16540802721371503,
+            "foot_position_rmse_m": 0.08170280064351207,
+            "contact_samples": 2669,
+            "learned_contact_horizontal_speed_rms_m_s": 0.5366998655728662,
+            "source_contact_horizontal_speed_rms_m_s": 0.12923848027420287
+          },
+          "uniform_free_rollout": {
+            "joint_rmse_rad": 0.21727129202026385,
+            "root_residual_translation_rmse_m": 0.044059939201618076,
+            "root_residual_rotvec_rmse_rad": 0.10864499858216234,
+            "phase_rmse_cycles": 0.2550473505425879,
+            "cycle_hz": 0.852234662894403,
+            "cadence_source": "oracle_clip_mean",
+            "context_source": "oracle_clip_mean",
+            "phase_initialisation": "first_valid_observed_phase",
+            "root_path_source": "integrated_constant_clip_mean_command",
+            "world_root_position_rmse_m": 1.3890423241962822,
+            "world_root_orientation_rmse_rad": 1.9837946176233063
+          }
+        },
+        "walk3_subject2_03": {
+          "frames": 131,
+          "reconstruction": {
+            "joint_rmse_rad": 0.200607088453654,
+            "root_residual_translation_rmse_m": 0.0444515469873081,
+            "root_residual_rotvec_rmse_rad": 0.1594122139724138,
+            "world_root_position_rmse_m": 0.0769923378570529,
+            "world_root_orientation_rmse_rad": 0.27555111099900326,
+            "foot_position_rmse_m": 0.132128953194206,
+            "contact_samples": 213,
+            "learned_contact_horizontal_speed_rms_m_s": 0.3082205145550095,
+            "source_contact_horizontal_speed_rms_m_s": 0.14539529707012405
+          },
+          "uniform_free_rollout": {
+            "joint_rmse_rad": 0.200132397599671,
+            "root_residual_translation_rmse_m": 0.03560482580212871,
+            "root_residual_rotvec_rmse_rad": 0.15340517412782462,
+            "phase_rmse_cycles": 0.07677760129907263,
+            "cycle_hz": 0.6555463697843473,
+            "cadence_source": "oracle_clip_mean",
+            "context_source": "oracle_clip_mean",
+            "phase_initialisation": "first_valid_observed_phase",
+            "root_path_source": "integrated_constant_clip_mean_command",
+            "world_root_position_rmse_m": 0.17374675746510831,
+            "world_root_orientation_rmse_rad": 0.3577745184404961
+          }
+        },
+        "walk3_subject2_04": {
+          "frames": 918,
+          "reconstruction": {
+            "joint_rmse_rad": 0.24382889173702638,
+            "root_residual_translation_rmse_m": 0.07511511922261634,
+            "root_residual_rotvec_rmse_rad": 0.1704270268426288,
+            "world_root_position_rmse_m": 0.13010320291016514,
+            "world_root_orientation_rmse_rad": 0.29344800743126304,
+            "foot_position_rmse_m": 0.20706721386754903,
+            "contact_samples": 498,
+            "learned_contact_horizontal_speed_rms_m_s": 0.495163709207012,
+            "source_contact_horizontal_speed_rms_m_s": 0.2427502572957713
+          },
+          "uniform_free_rollout": {
+            "joint_rmse_rad": 0.31767721403290033,
+            "root_residual_translation_rmse_m": 0.08895416167465972,
+            "root_residual_rotvec_rmse_rad": 0.18452280910092086,
+            "phase_rmse_cycles": 0.28308777428112614,
+            "cycle_hz": 1.1705205369045855,
+            "cadence_source": "oracle_clip_mean",
+            "context_source": "oracle_clip_mean",
+            "phase_initialisation": "first_valid_observed_phase",
+            "root_path_source": "integrated_constant_clip_mean_command",
+            "world_root_position_rmse_m": 8.129287046769079,
+            "world_root_orientation_rmse_rad": 1.8545568914307227
+          }
+        }
+      },
+      "test_joint_rmse_mean_rad": 0.27972843386203133,
+      "test_joint_rmse_range_rad": [
+        0.27900755281291656,
+        0.28015037700997864
+      ]
+    },
+    {
+      "id": "harmonic6",
+      "label": "6 harmonics",
+      "file": "harmonic6.json",
+      "validation": "harmonic6-validation.json",
+      "seed": 27,
+      "parameters": 3168,
+      "tau_z_s": 0.05,
+      "selection_note": "development-selected",
+      "metrics": {
+        "run2_subject1_05": {
+          "frames": 1016,
+          "reconstruction": {
+            "joint_rmse_rad": 0.22749913667288202,
+            "root_residual_translation_rmse_m": 0.06698703160169167,
+            "root_residual_rotvec_rmse_rad": 0.1945273616681745,
+            "world_root_position_rmse_m": 0.11602494218235197,
+            "world_root_orientation_rmse_rad": 0.33603582187260933,
+            "foot_position_rmse_m": 0.18891455972327525,
+            "contact_samples": 734,
+            "learned_contact_horizontal_speed_rms_m_s": 0.8776260476381408,
+            "source_contact_horizontal_speed_rms_m_s": 0.22437438034963472
+          },
+          "uniform_free_rollout": {
+            "joint_rmse_rad": 0.3102974136103694,
+            "root_residual_translation_rmse_m": 0.10832256511547775,
+            "root_residual_rotvec_rmse_rad": 0.2407571497080638,
+            "phase_rmse_cycles": 0.2692793644038766,
+            "cycle_hz": 1.225277476824135,
+            "cadence_source": "oracle_clip_mean",
+            "context_source": "oracle_clip_mean",
+            "phase_initialisation": "first_valid_observed_phase",
+            "root_path_source": "integrated_constant_clip_mean_command",
+            "world_root_position_rmse_m": 3.046473416612982,
+            "world_root_orientation_rmse_rad": 1.8036262909869847
+          }
+        },
+        "run2_subject1_06": {
+          "frames": 469,
+          "reconstruction": {
+            "joint_rmse_rad": 0.22014002923957127,
+            "root_residual_translation_rmse_m": 0.07657210287844707,
+            "root_residual_rotvec_rmse_rad": 0.16302162446731908,
+            "world_root_position_rmse_m": 0.1326267726278614,
+            "world_root_orientation_rmse_rad": 0.2817200622050033,
+            "foot_position_rmse_m": 0.2215841994871426,
+            "contact_samples": 407,
+            "learned_contact_horizontal_speed_rms_m_s": 0.6334956239088481,
+            "source_contact_horizontal_speed_rms_m_s": 0.17090268857839144
+          },
+          "uniform_free_rollout": {
+            "joint_rmse_rad": 0.36470640890528305,
+            "root_residual_translation_rmse_m": 0.08435514677691747,
+            "root_residual_rotvec_rmse_rad": 0.19461872332678165,
+            "phase_rmse_cycles": 0.34712156931408034,
+            "cycle_hz": 0.8123087816241725,
+            "cadence_source": "oracle_clip_mean",
+            "context_source": "oracle_clip_mean",
+            "phase_initialisation": "first_valid_observed_phase",
+            "root_path_source": "integrated_constant_clip_mean_command",
+            "world_root_position_rmse_m": 6.843236444822433,
+            "world_root_orientation_rmse_rad": 1.7186380771017697
+          }
+        },
+        "run2_subject1_07": {
+          "frames": 1213,
+          "reconstruction": {
+            "joint_rmse_rad": 0.29834936519838146,
+            "root_residual_translation_rmse_m": 0.08132645594910876,
+            "root_residual_rotvec_rmse_rad": 0.24259084533596087,
+            "world_root_position_rmse_m": 0.14086155370336856,
+            "world_root_orientation_rmse_rad": 0.41884532740656505,
+            "foot_position_rmse_m": 0.24207876744304027,
+            "contact_samples": 791,
+            "learned_contact_horizontal_speed_rms_m_s": 0.9602237387642389,
+            "source_contact_horizontal_speed_rms_m_s": 0.23488774192455336
+          },
+          "uniform_free_rollout": {
+            "joint_rmse_rad": 0.3326048216370359,
+            "root_residual_translation_rmse_m": 0.08293172915160307,
+            "root_residual_rotvec_rmse_rad": 0.2507459543241495,
+            "phase_rmse_cycles": 0.2975674348875099,
+            "cycle_hz": 1.1295278490301819,
+            "cadence_source": "oracle_clip_mean",
+            "context_source": "oracle_clip_mean",
+            "phase_initialisation": "first_valid_observed_phase",
+            "root_path_source": "integrated_constant_clip_mean_command",
+            "world_root_position_rmse_m": 7.440482120680391,
+            "world_root_orientation_rmse_rad": 1.863683697770548
+          }
+        },
+        "walk3_subject2_01": {
+          "frames": 388,
+          "reconstruction": {
+            "joint_rmse_rad": 0.07487592188228918,
+            "root_residual_translation_rmse_m": 0.013531939527431095,
+            "root_residual_rotvec_rmse_rad": 0.0642717220950015,
+            "world_root_position_rmse_m": 0.023438006786460235,
+            "world_root_orientation_rmse_rad": 0.11112017290139213,
+            "foot_position_rmse_m": 0.04610423398274352,
+            "contact_samples": 429,
+            "learned_contact_horizontal_speed_rms_m_s": 0.25293229600250217,
+            "source_contact_horizontal_speed_rms_m_s": 0.10002929797746567
+          },
+          "uniform_free_rollout": {
+            "joint_rmse_rad": 0.16873985007050993,
+            "root_residual_translation_rmse_m": 0.027580909954438237,
+            "root_residual_rotvec_rmse_rad": 0.07946302699230569,
+            "phase_rmse_cycles": 0.1417030433764384,
+            "cycle_hz": 0.8474082682384135,
+            "cadence_source": "oracle_clip_mean",
+            "context_source": "oracle_clip_mean",
+            "phase_initialisation": "first_valid_observed_phase",
+            "root_path_source": "integrated_constant_clip_mean_command",
+            "world_root_position_rmse_m": 4.052489345743973,
+            "world_root_orientation_rmse_rad": 1.3832678292064922
+          }
+        },
+        "walk3_subject2_02": {
+          "frames": 2292,
+          "reconstruction": {
+            "joint_rmse_rad": 0.12000740776386026,
+            "root_residual_translation_rmse_m": 0.026470555031500535,
+            "root_residual_rotvec_rmse_rad": 0.09829598733720585,
+            "world_root_position_rmse_m": 0.04584834621910691,
+            "world_root_orientation_rmse_rad": 0.17002691364494357,
+            "foot_position_rmse_m": 0.08821734003303393,
+            "contact_samples": 2669,
+            "learned_contact_horizontal_speed_rms_m_s": 0.5524164988053826,
+            "source_contact_horizontal_speed_rms_m_s": 0.12923848027420287
+          },
+          "uniform_free_rollout": {
+            "joint_rmse_rad": 0.20112177653119806,
+            "root_residual_translation_rmse_m": 0.043601582591771604,
+            "root_residual_rotvec_rmse_rad": 0.10765062268641148,
+            "phase_rmse_cycles": 0.2550473505425879,
+            "cycle_hz": 0.852234662894403,
+            "cadence_source": "oracle_clip_mean",
+            "context_source": "oracle_clip_mean",
+            "phase_initialisation": "first_valid_observed_phase",
+            "root_path_source": "integrated_constant_clip_mean_command",
+            "world_root_position_rmse_m": 1.3845158946557403,
+            "world_root_orientation_rmse_rad": 1.9830373947634699
+          }
+        },
+        "walk3_subject2_03": {
+          "frames": 131,
+          "reconstruction": {
+            "joint_rmse_rad": 0.20185601301062023,
+            "root_residual_translation_rmse_m": 0.04380179586508649,
+            "root_residual_rotvec_rmse_rad": 0.14721732655895708,
+            "world_root_position_rmse_m": 0.07586693590109017,
+            "world_root_orientation_rmse_rad": 0.2545723899541762,
+            "foot_position_rmse_m": 0.12522210092154676,
+            "contact_samples": 213,
+            "learned_contact_horizontal_speed_rms_m_s": 0.4483879545283189,
+            "source_contact_horizontal_speed_rms_m_s": 0.14539529707012405
+          },
+          "uniform_free_rollout": {
+            "joint_rmse_rad": 0.1950364885130278,
+            "root_residual_translation_rmse_m": 0.03381912721486139,
+            "root_residual_rotvec_rmse_rad": 0.14148652291699687,
+            "phase_rmse_cycles": 0.07677760129907263,
+            "cycle_hz": 0.6555463697843473,
+            "cadence_source": "oracle_clip_mean",
+            "context_source": "oracle_clip_mean",
+            "phase_initialisation": "first_valid_observed_phase",
+            "root_path_source": "integrated_constant_clip_mean_command",
+            "world_root_position_rmse_m": 0.1706911704356016,
+            "world_root_orientation_rmse_rad": 0.3428970136479144
+          }
+        },
+        "walk3_subject2_04": {
+          "frames": 918,
+          "reconstruction": {
+            "joint_rmse_rad": 0.25785015838520187,
+            "root_residual_translation_rmse_m": 0.07603103330141331,
+            "root_residual_rotvec_rmse_rad": 0.1662217847733381,
+            "world_root_position_rmse_m": 0.13168961263000914,
+            "world_root_orientation_rmse_rad": 0.28656654619428196,
+            "foot_position_rmse_m": 0.21219124341342194,
+            "contact_samples": 498,
+            "learned_contact_horizontal_speed_rms_m_s": 0.4832168003180733,
+            "source_contact_horizontal_speed_rms_m_s": 0.2427502572957713
+          },
+          "uniform_free_rollout": {
+            "joint_rmse_rad": 0.3291767023602689,
+            "root_residual_translation_rmse_m": 0.08868672512356382,
+            "root_residual_rotvec_rmse_rad": 0.185406813967909,
+            "phase_rmse_cycles": 0.28308777428112614,
+            "cycle_hz": 1.1705205369045855,
+            "cadence_source": "oracle_clip_mean",
+            "context_source": "oracle_clip_mean",
+            "phase_initialisation": "first_valid_observed_phase",
+            "root_path_source": "integrated_constant_clip_mean_command",
+            "world_root_position_rmse_m": 8.131060611476647,
+            "world_root_orientation_rmse_rad": 1.8541548775920664
+          }
+        }
+      },
+      "test_joint_rmse_mean_rad": 0.2755006188807008,
+      "test_joint_rmse_range_rad": [
+        0.2681436021511166,
+        0.2816179434170176
+      ]
+    },
+    {
+      "id": "rff",
+      "label": "Periodic RFF",
+      "file": "rff.json",
+      "validation": "rff-validation.json",
+      "seed": 7,
+      "parameters": 2268,
+      "tau_z_s": 0.1,
+      "selection_note": "development-selected",
+      "metrics": {
+        "run2_subject1_05": {
+          "frames": 1016,
+          "reconstruction": {
+            "joint_rmse_rad": 0.2325622366186828,
+            "root_residual_translation_rmse_m": 0.07639914422774034,
+            "root_residual_rotvec_rmse_rad": 0.17736072387657323,
+            "world_root_position_rmse_m": 0.1323271994572288,
+            "world_root_orientation_rmse_rad": 0.30645028003805896,
+            "foot_position_rmse_m": 0.21691786170297292,
+            "contact_samples": 734,
+            "learned_contact_horizontal_speed_rms_m_s": 0.9631899829201759,
+            "source_contact_horizontal_speed_rms_m_s": 0.22437438034963472
+          },
+          "uniform_free_rollout": {
+            "joint_rmse_rad": 0.3445059226054165,
+            "root_residual_translation_rmse_m": 0.10536695753536841,
+            "root_residual_rotvec_rmse_rad": 0.24232149541356227,
+            "phase_rmse_cycles": 0.2692793644038766,
+            "cycle_hz": 1.225277476824135,
+            "cadence_source": "oracle_clip_mean",
+            "context_source": "oracle_clip_mean",
+            "phase_initialisation": "first_valid_observed_phase",
+            "root_path_source": "integrated_constant_clip_mean_command",
+            "world_root_position_rmse_m": 3.023559736642043,
+            "world_root_orientation_rmse_rad": 1.8009510055462705
+          }
+        },
+        "run2_subject1_06": {
+          "frames": 469,
+          "reconstruction": {
+            "joint_rmse_rad": 0.22587960360972584,
+            "root_residual_translation_rmse_m": 0.07400870486328368,
+            "root_residual_rotvec_rmse_rad": 0.17005344521355073,
+            "world_root_position_rmse_m": 0.1281868370255772,
+            "world_root_orientation_rmse_rad": 0.2938999854977449,
+            "foot_position_rmse_m": 0.22519636189945216,
+            "contact_samples": 407,
+            "learned_contact_horizontal_speed_rms_m_s": 0.6799406780900286,
+            "source_contact_horizontal_speed_rms_m_s": 0.17090268857839144
+          },
+          "uniform_free_rollout": {
+            "joint_rmse_rad": 0.3620820624582653,
+            "root_residual_translation_rmse_m": 0.08514512615145624,
+            "root_residual_rotvec_rmse_rad": 0.19765866512566282,
+            "phase_rmse_cycles": 0.34712156931408034,
+            "cycle_hz": 0.8123087816241725,
+            "cadence_source": "oracle_clip_mean",
+            "context_source": "oracle_clip_mean",
+            "phase_initialisation": "first_valid_observed_phase",
+            "root_path_source": "integrated_constant_clip_mean_command",
+            "world_root_position_rmse_m": 6.851646931215352,
+            "world_root_orientation_rmse_rad": 1.7224984504603762
+          }
+        },
+        "run2_subject1_07": {
+          "frames": 1213,
+          "reconstruction": {
+            "joint_rmse_rad": 0.27101399339807775,
+            "root_residual_translation_rmse_m": 0.07819254845548547,
+            "root_residual_rotvec_rmse_rad": 0.2515411242011929,
+            "world_root_position_rmse_m": 0.13543346669819217,
+            "world_root_orientation_rmse_rad": 0.4342387532833477,
+            "foot_position_rmse_m": 0.24155080854954247,
+            "contact_samples": 791,
+            "learned_contact_horizontal_speed_rms_m_s": 0.840699946209825,
+            "source_contact_horizontal_speed_rms_m_s": 0.23488774192455336
+          },
+          "uniform_free_rollout": {
+            "joint_rmse_rad": 0.3641829352806097,
+            "root_residual_translation_rmse_m": 0.08133963840500903,
+            "root_residual_rotvec_rmse_rad": 0.2373687646057966,
+            "phase_rmse_cycles": 0.2975674348875099,
+            "cycle_hz": 1.1295278490301819,
+            "cadence_source": "oracle_clip_mean",
+            "context_source": "oracle_clip_mean",
+            "phase_initialisation": "first_valid_observed_phase",
+            "root_path_source": "integrated_constant_clip_mean_command",
+            "world_root_position_rmse_m": 7.488515913903686,
+            "world_root_orientation_rmse_rad": 1.8733526437061374
+          }
+        },
+        "walk3_subject2_01": {
+          "frames": 388,
+          "reconstruction": {
+            "joint_rmse_rad": 0.09302538689521136,
+            "root_residual_translation_rmse_m": 0.013572593546898236,
+            "root_residual_rotvec_rmse_rad": 0.06531365062385108,
+            "world_root_position_rmse_m": 0.023508421613709217,
+            "world_root_orientation_rmse_rad": 0.11292402680675087,
+            "foot_position_rmse_m": 0.05653703514035984,
+            "contact_samples": 429,
+            "learned_contact_horizontal_speed_rms_m_s": 0.3278030322376195,
+            "source_contact_horizontal_speed_rms_m_s": 0.10002929797746567
+          },
+          "uniform_free_rollout": {
+            "joint_rmse_rad": 0.1651991759142222,
+            "root_residual_translation_rmse_m": 0.02790074875873355,
+            "root_residual_rotvec_rmse_rad": 0.07904869658622238,
+            "phase_rmse_cycles": 0.1417030433764384,
+            "cycle_hz": 0.8474082682384135,
+            "cadence_source": "oracle_clip_mean",
+            "context_source": "oracle_clip_mean",
+            "phase_initialisation": "first_valid_observed_phase",
+            "root_path_source": "integrated_constant_clip_mean_command",
+            "world_root_position_rmse_m": 4.051293206403037,
+            "world_root_orientation_rmse_rad": 1.399265355970922
+          }
+        },
+        "walk3_subject2_02": {
+          "frames": 2292,
+          "reconstruction": {
+            "joint_rmse_rad": 0.12678076296267662,
+            "root_residual_translation_rmse_m": 0.03049590305157515,
+            "root_residual_rotvec_rmse_rad": 0.09616937853868908,
+            "world_root_position_rmse_m": 0.05282045350802293,
+            "world_root_orientation_rmse_rad": 0.16633648956285346,
+            "foot_position_rmse_m": 0.10169545651030973,
+            "contact_samples": 2669,
+            "learned_contact_horizontal_speed_rms_m_s": 0.5260639782597967,
+            "source_contact_horizontal_speed_rms_m_s": 0.12923848027420287
+          },
+          "uniform_free_rollout": {
+            "joint_rmse_rad": 0.2109278542505792,
+            "root_residual_translation_rmse_m": 0.04193259660188198,
+            "root_residual_rotvec_rmse_rad": 0.10888381425340916,
+            "phase_rmse_cycles": 0.2550473505425879,
+            "cycle_hz": 0.852234662894403,
+            "cadence_source": "oracle_clip_mean",
+            "context_source": "oracle_clip_mean",
+            "phase_initialisation": "first_valid_observed_phase",
+            "root_path_source": "integrated_constant_clip_mean_command",
+            "world_root_position_rmse_m": 1.3917904265753205,
+            "world_root_orientation_rmse_rad": 1.9832104035341034
+          }
+        },
+        "walk3_subject2_03": {
+          "frames": 131,
+          "reconstruction": {
+            "joint_rmse_rad": 0.22457758526452554,
+            "root_residual_translation_rmse_m": 0.03143603563048138,
+            "root_residual_rotvec_rmse_rad": 0.15445899673162766,
+            "world_root_position_rmse_m": 0.05444881090053929,
+            "world_root_orientation_rmse_rad": 0.2671208875484688,
+            "foot_position_rmse_m": 0.12927689196284098,
+            "contact_samples": 213,
+            "learned_contact_horizontal_speed_rms_m_s": 0.4278765683328393,
+            "source_contact_horizontal_speed_rms_m_s": 0.14539529707012405
+          },
+          "uniform_free_rollout": {
+            "joint_rmse_rad": 0.19801950794093787,
+            "root_residual_translation_rmse_m": 0.03675995291131494,
+            "root_residual_rotvec_rmse_rad": 0.15294185953986442,
+            "phase_rmse_cycles": 0.07677760129907263,
+            "cycle_hz": 0.6555463697843473,
+            "cadence_source": "oracle_clip_mean",
+            "context_source": "oracle_clip_mean",
+            "phase_initialisation": "first_valid_observed_phase",
+            "root_path_source": "integrated_constant_clip_mean_command",
+            "world_root_position_rmse_m": 0.17111142769736012,
+            "world_root_orientation_rmse_rad": 0.3564888911775933
+          }
+        },
+        "walk3_subject2_04": {
+          "frames": 918,
+          "reconstruction": {
+            "joint_rmse_rad": 0.2506653815650542,
+            "root_residual_translation_rmse_m": 0.06636589639022589,
+            "root_residual_rotvec_rmse_rad": 0.17553681418248732,
+            "world_root_position_rmse_m": 0.11494910443772317,
+            "world_root_orientation_rmse_rad": 0.30338531320964984,
+            "foot_position_rmse_m": 0.19817734624402022,
+            "contact_samples": 498,
+            "learned_contact_horizontal_speed_rms_m_s": 0.5422676312204137,
+            "source_contact_horizontal_speed_rms_m_s": 0.2427502572957713
+          },
+          "uniform_free_rollout": {
+            "joint_rmse_rad": 0.33889525374792534,
+            "root_residual_translation_rmse_m": 0.08935580223867991,
+            "root_residual_rotvec_rmse_rad": 0.20580076925126944,
+            "phase_rmse_cycles": 0.28308777428112614,
+            "cycle_hz": 1.1705205369045855,
+            "cadence_source": "oracle_clip_mean",
+            "context_source": "oracle_clip_mean",
+            "phase_initialisation": "first_valid_observed_phase",
+            "root_path_source": "integrated_constant_clip_mean_command",
+            "world_root_position_rmse_m": 8.170919553111656,
+            "world_root_orientation_rmse_rad": 1.867605426498465
+          }
+        }
+      },
+      "test_joint_rmse_mean_rad": 0.26410859103351164,
+      "test_joint_rmse_range_rad": [
+        0.2624416537762315,
+        0.2674286275332056
+      ]
+    }
+  ],
+  "protocol": "Train-only normalisation and fitting; development-only bandwidth, ridge, epoch, smoothing and representative seed selection. Test evaluated afterwards. Three clips train, two develop, two test; subjects overlap. Test clips were previously inspected for the original baseline. Seed ranges measure model randomness, not independent datasets or confidence intervals."
+}

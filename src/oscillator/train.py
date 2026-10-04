@@ -8,7 +8,7 @@ import numpy as np
 import torch
 from scipy.spatial.transform import Rotation
 
-from .model import CadenceNetwork, HarmonicDecoder
+from .model import CadenceNetwork, HarmonicDecoder, decoder_spec, make_decoder
 from .preprocess import read_prepared, reconstruct_root
 from .runtime import integrate_planar_path
 
@@ -25,12 +25,15 @@ class TrainConfig:
     cadence: bool = False
     device: str = "cpu"
     tau_candidates: tuple[float, ...] = (0.05, 0.1, 0.2, 0.4, 0.8)
+    harmonics: int = 3
 
     def __post_init__(self):
         if self.epochs < 1 or self.batch_size < 1 or self.learning_rate <= 0:
             raise ValueError("Epochs, batch size and learning rate must be positive")
         if min(self.mixture_penalty, self.harmonic_penalty, self.weight_decay) < 0:
             raise ValueError("Regularisation penalties must be non-negative")
+        if not isinstance(self.harmonics, int) or self.harmonics < 1:
+            raise ValueError("Harmonic count must be a positive integer")
         if not self.tau_candidates or any(
             t <= 0 or not np.isfinite(t) for t in self.tau_candidates
         ):
@@ -66,7 +69,7 @@ def select_smoothing(model, clips, dev_names, candidates):
     non-trivial context change. This is a development proxy for command transitions,
     rather than evidence of performance on arbitrary commanded manoeuvres.
     """
-    device = model.waveforms.device
+    device = model.target_mean.device
     scores = {}
     transitions = 0
     for tau in candidates:
@@ -112,8 +115,8 @@ def select_smoothing(model, clips, dev_names, candidates):
 
 
 @torch.no_grad()
-def evaluate(model, clips, names, cadence=None):
-    device = model.waveforms.device
+def evaluate(model, clips, names, cadence=None, skeleton=None):
+    device = model.target_mean.device
     reports = {}
     for name in names:
         clip = clips[name]
@@ -137,6 +140,10 @@ def evaluate(model, clips, names, cadence=None):
                 "world_root_orientation_rmse_rad": float(np.sqrt(np.mean(angular_error**2))),
             }
         )
+        if skeleton is not None:
+            from .kinematics import foot_metrics
+
+            reconstruction.update(foot_metrics(skeleton, prediction, position, quat, clip, mask))
         # Reset phase once, then roll uniformly without observed strike corrections.
         # Clip-average context is an oracle condition, explicitly labelled in the report.
         average_context = x.mean(0)
@@ -186,7 +193,7 @@ def evaluate(model, clips, names, cadence=None):
     return reports
 
 
-def train(prepared: Path, output: Path, config=None):
+def train(prepared: Path, output: Path, config=None, *, evaluate_test=True):
     config = TrainConfig() if config is None else config
     torch.manual_seed(config.seed)
     np.random.seed(config.seed)
@@ -196,7 +203,7 @@ def train(prepared: Path, output: Path, config=None):
     splits = metadata["splits"]
     training = frame_tensors(clips, splits["train"], config.device)
     dev = frame_tensors(clips, splits["dev"], config.device)
-    model = HarmonicDecoder().to(config.device)
+    model = HarmonicDecoder(config.harmonics).to(config.device)
     model.set_normalisation(training["context"], training["target"])
     train_target = (training["target"] - model.target_mean) / model.target_scale
     dev_target = (dev["target"] - model.target_mean) / model.target_scale
@@ -249,10 +256,15 @@ def train(prepared: Path, output: Path, config=None):
         cadence, cadence_report = train_cadence(training, dev, config)
     tau, smoothing_report = select_smoothing(model, clips, splits["dev"], config.tau_candidates)
     # Test clips are evaluated once after development selection; never used for tuning.
-    metrics = {split: evaluate(model, clips, names, cadence) for split, names in splits.items()}
+    metrics = {
+        split: evaluate(model, clips, names, cadence)
+        for split, names in splits.items()
+        if split != "test" or evaluate_test
+    }
     output.mkdir(parents=True, exist_ok=True)
     checkpoint = {
         "schema_version": 1,
+        "decoder_spec": decoder_spec(model),
         "decoder_state": best_state,
         "cadence_state": None
         if cadence is None
@@ -309,7 +321,9 @@ def load_checkpoint(path: Path, device="cpu"):
     checkpoint = torch.load(path, map_location=device, weights_only=True)
     if checkpoint["schema_version"] != 1:
         raise ValueError("Unsupported checkpoint schema")
-    model = HarmonicDecoder().to(device)
+    model = make_decoder(checkpoint.get("decoder_spec", {"kind": "harmonic", "harmonics": 3})).to(
+        device
+    )
     model.load_state_dict(checkpoint["decoder_state"])
     cadence = None
     if checkpoint["cadence_state"] is not None:

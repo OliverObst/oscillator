@@ -1,10 +1,13 @@
 import json
+from pathlib import Path
 
 import numpy as np
 import pytest
 import torch
 
 from oscillator.cli import compatible_metadata
+from oscillator.experiment import compare_decoders
+from oscillator.kinematics import feet_world
 from oscillator.preprocess import yaw_rotation
 from oscillator.train import TrainConfig, load_checkpoint, train
 
@@ -74,3 +77,74 @@ def test_training_checkpoint_and_holdout_isolation(tmp_path):
     changed = dict(metadata, source_sha256="different")
     with pytest.raises(ValueError, match="source_sha256"):
         compatible_metadata(changed, checkpoint)
+
+
+def test_rff_comparison_selection_is_independent_of_test_targets(tmp_path, monkeypatch):
+    from oscillator import experiment
+
+    data = tmp_path / "data"
+    metadata, _ = write_tiny_dataset(data)
+    body = {
+        "parent": 0,
+        "position": [0, 0, -0.5],
+        "quaternion_wxyz": [1, 0, 0, 0],
+        "joint": None,
+        "axis": [0, 0, 1],
+        "pivot": [0, 0, 0],
+    }
+    skeleton = {
+        "joint_names": metadata["joint_names"],
+        "feet": [1, 2],
+        "bodies": [{"parent": -1}, body, dict(body, position=[0, 0.2, -0.5])],
+    }
+    skeleton_path = tmp_path / "skeleton.json"
+    skeleton_path.write_text(json.dumps(skeleton))
+    for name in ("train", "dev", "test"):
+        with np.load(data / f"{name}.npz") as source:
+            payload = {k: source[k] for k in source.files}
+        payload["contacts"] = np.ones((96, 2), dtype=bool)
+        payload["feet_world"] = feet_world(
+            skeleton, payload["target"][:, :22], payload["root_pos"], payload["root_rot_xyzw"]
+        )
+        np.savez_compressed(data / f"{name}.npz", **payload)
+    evaluate = experiment.evaluate
+    outputs = []
+
+    def checked_evaluate(model, clips, names, *args, **kwargs):
+        if names == ["test"]:
+            assert (outputs[-1] / "selection.json").exists()
+        return evaluate(model, clips, names, *args, **kwargs)
+
+    monkeypatch.setattr(experiment, "evaluate", checked_evaluate)
+    results = []
+    for name in ("first", "second"):
+        outputs.append(tmp_path / name)
+        if name == "second":
+            with np.load(data / "test.npz") as source:
+                payload = {k: source[k] for k in source.files}
+            payload["target"] += 100
+            np.savez_compressed(data / "test.npz", **payload)
+        results.append(
+            compare_decoders(
+                data,
+                outputs[-1],
+                skeleton_path,
+                epochs=1,
+                seeds=(7, 17),
+                phase_bandwidths=(1.0,),
+                context_bandwidths=(0.5,),
+                ridges=(1e-6, 1e-4),
+            )
+        )
+    for key in results[0]["groups"]:
+        first, second = (r["groups"][key] for r in results)
+        assert first["selected_seed"] == second["selected_seed"]
+        assert first.get("settings") == second.get("settings")
+        for a, b in zip(first["candidates"], second["candidates"], strict=True):
+            assert a["best_dev_mse"] == b["best_dev_mse"]
+            assert a["tau_z_s"] == b["tau_z_s"]
+            model_a, _, _ = load_checkpoint(Path(a["checkpoint"]))
+            model_b, _, _ = load_checkpoint(Path(b["checkpoint"]))
+            for parameter, tensor in model_a.state_dict().items():
+                torch.testing.assert_close(tensor, model_b.state_dict()[parameter], atol=0, rtol=0)
+        assert first["test_joint_rmse_mean_rad"] != second["test_joint_rmse_mean_rad"]

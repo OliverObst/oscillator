@@ -4,6 +4,7 @@ import fs from 'node:fs';
 import {Decoder, Runtime, Clip, forwardKinematics, integratePath, slerp} from '../web/core.js';
 const json = name => JSON.parse(fs.readFileSync(new URL(`../web/assets/${name}.json`,import.meta.url)));
 const model = new Decoder(json('model')), validation = json('validation');
+const catalogue = json('models');
 function close(a,b,tolerance=5e-6) {
   assert.equal(a.length,b.length);
   a.forEach((v,i)=>assert.ok(Math.abs(v-b[i]) < tolerance, `${i}: ${v} != ${b[i]}`));
@@ -16,6 +17,29 @@ test('browser decoder and derivatives match the saved PyTorch model',()=>{
     close(model.decode(c.phase+1,c.z),model.decode(c.phase,c.z),1e-12);
   }
 });
+for (const entry of catalogue.models) {
+  const decoder = new Decoder(JSON.parse(fs.readFileSync(new URL(`../web/assets/${entry.file}`,import.meta.url))));
+  const fixtures = JSON.parse(fs.readFileSync(new URL(`../web/assets/${entry.validation}`,import.meta.url)));
+  test(`${entry.label}: inference, derivatives, periodicity and transitions match Python`,()=>{
+    for (const c of fixtures.cases) {
+      close(decoder.mixture(c.context),c.z,1e-10);
+      close(decoder.decode(c.phase,c.z),c.y,1e-10);
+      close(decoder.derivative(c.phase,c.z,c.phase_rate,c.z_rate),c.dy,1e-6);
+      close(decoder.decode(c.phase+1,c.z),c.y,1e-10);
+      close(decoder.derivative(c.phase+1,c.z,c.phase_rate,c.z_rate),
+        decoder.derivative(c.phase,c.z,c.phase_rate,c.z_rate),1e-9);
+    }
+    const runtime = new Runtime(decoder,[0.8,0,0,0.9]);
+    for(let i=0;i<60;i++) {
+      const sample=runtime.advance(i<30?[0.8,0,0,0.9]:[1.2,0.2,0.3,0.7],1/60);
+      const expected=fixtures.runtime.find(frame=>frame.step===i+1);
+      if(expected) {close(sample.y,expected.y,1e-10);close(runtime.z,expected.z,1e-9);close(sample.root.position,expected.root_pos,1e-10);}
+    }
+    const copy=runtime.clone(), z=[...runtime.z], path=[...runtime.pathPos];
+    copy.advance([1,0.2,0.5,0.8],0.2);
+    assert.deepEqual(runtime.z,z);assert.deepEqual(runtime.pathPos,path);
+  });
+}
 test('runtime transitions and world roots match Python',()=>{
   const r = new Runtime(model,[0.8,0,0,0.9]);
   for (let i=0;i<60;i++) {

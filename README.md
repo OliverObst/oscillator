@@ -3,7 +3,8 @@
 A small PyTorch project for learning a shared whole-body oscillator from
 [LAFAN locomotion retargeted to the Booster K1](https://huggingface.co/datasets/whirlwind-ams/lafan_locomotion_k1).
 It implements the first candidate architecture: a phase clock separated from a conditional
-harmonic decoder, with four shared mixture states and 28 output coordinates.
+harmonic decoder, with four shared mixture states and 28 output coordinates. A periodic
+random Fourier feature (RFF) decoder is included as a comparison model.
 
 ## Quick start
 
@@ -23,7 +24,7 @@ uv run pytest
 
 ## Browser playback viewer
 
-The static viewer in `web/` includes the fitted baseline, all seven source clips, K1 visual
+The static viewer in `web/` includes three fitted decoders, all seven source clips, K1 visual
 meshes and locally bundled rendering dependencies. Start it without rebuilding assets:
 
 ```bash
@@ -75,6 +76,38 @@ and a PNG plot. All output locations can be changed with `--output`; use `--plot
 the reconstruction plot destination. Run `uv run oscillator COMMAND --help` for options.
 
 ## Decoder
+
+### Periodic RFF comparison
+
+Use the viewer's **Decoder** selector to compare the preserved three-harmonic baseline,
+six harmonics and periodic RFF. Individual clip diagnostics update with the selected model.
+The [experiment report](experiments/decoder-comparison.md) gives the complete protocol;
+[browser results](https://oliverobst.github.io/oscillator/comparison.html) include the full JSON.
+
+Across seeds 7, 17 and 27, mean test joint reconstruction RMSE is 0.280 rad (three harmonics),
+0.276 rad (six harmonics) and 0.264 rad (RFF). RFF improves held-out joint and foot-position
+errors; six harmonics has the lowest development normalised MSE. These two clips were
+previously inspected for the original baseline; this experiment selects no settings on them.
+
+```bash
+uv run python scripts/compare_decoders.py
+uv run python scripts/build_viewer.py --comparison runs/comparison/comparison.json
+```
+
+RFF maps `[cos(2πφ), sin(2πφ), normalised context]` through 40 fixed Gaussian projections,
+then uses 80 paired sine/cosine features and a ridge-fitted 28-output linear readout.
+It has 2,268 learned parameters plus 240 fixed projection scalars. The selected phase and
+context bandwidths are 1.0 and 0.5; ridge is 1e-4. Random projections use radians without
+an additional 2π multiplier. Phase wraps continuously, including its derivatives.
+
+Its four shared runtime values are **normalised context**, replacing waveform mixture
+weights. These values are smoothed before decoding; reference derivatives include phase
+and context-state changes. Root-path integration, cadence rate limiting, supplied timing
+overrides and independent preview cloning apply to both decoder types. No final-joint
+filtering or foot constraint is added. The six-harmonic model retains the four-mixture
+architecture and has 3,168 learned parameters.
+
+### Original harmonic decoder
 
 For context `ζ = [mean_vx, mean_vy, mean_yaw_rate, cycle_period]`, the network is
 `4 → 32 → 32 → 4`, with tanh hidden layers and a linear mixture output. It mixes four
